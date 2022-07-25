@@ -1,1 +1,3 @@
-we need to explain here what has in this project.
+# Backend project
+
+> This file contains informations about the backend project.
