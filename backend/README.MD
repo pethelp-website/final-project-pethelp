@@ -1,1 +1,1 @@
-This file is just to push this repo to github. We can delete it :)
+we need to explain here what has in this project.
