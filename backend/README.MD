@@ -1,19 +1,19 @@
 # Backend project
 
-# back-node-auth-project-migracode
 
-
-##the server is running on:
+the server is running on:
 localhost:3000
 =============
 
 
-###To run the server:
+To run the server:
 node server.js
 -------------
 
-#Endpoints available:
+Endpoints available:
+
 [Links with title](localhost:3000/user/sign-up "sign-up")
+
  ###Request expected:
 
     
