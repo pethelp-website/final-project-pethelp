@@ -3,6 +3,7 @@
 export default function validateInfo(values) {
     let errors = {};
 
+    //username
     if (!values.username.trim()) { // trim removes whitespace from both sides of a string
         errors.username = "Username required";
     } 
