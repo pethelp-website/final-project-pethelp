@@ -1,9 +1,14 @@
 import React from 'react';
 import useForm from './useForm';
+import signupValidation from "./signupValidation";
 
 
-const FormSignup = () => {
-  const {handleChange, values, handleSubmit} = useForm(); //destruct the values from useForm, to use in the input
+const FormSignup = ({ submitForm }) => { //using the submit function in hte form here, to refresh page when submit form
+  const { handleChange, values, handleSubmit, errors }
+    = useForm(
+      submitForm,
+      signupValidation
+    ); //destruct the values from useForm, to use in the input //the validate info goes in the userform fucntion.
 
   return (
     <div className="container">
@@ -21,6 +26,7 @@ const FormSignup = () => {
               value={values.username} //values and function in useform
               onChange={handleChange}
             />
+            {errors.username && <p>{errors.username}</p>}
           </div>
           <div className="email">
             <label className="label">Email</label>
@@ -31,6 +37,7 @@ const FormSignup = () => {
               value={values.email}
               onChange={handleChange}
             />
+            {errors.email && <p>{errors.email}</p>}
           </div>
           <div className="password">
             <label className="label">Password</label>
@@ -41,6 +48,7 @@ const FormSignup = () => {
               value={values.password}
               onChange={handleChange}
             />
+            {errors.password && <p>{errors.password}</p>}
           </div>
           <div>
             <button className="submit">SIGN UP</button>
