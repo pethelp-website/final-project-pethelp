@@ -31,15 +31,22 @@ const useForm = (callback, validateInfo) => { //using validate function here
 
 
     fetch("http://localhost:3000/sign-up", {
-      method: "GET",
+      method: "POST",
       body: JSON.stringify({
         username: values.username,
         email: values.email,
         password: values.password,
-      }),
+      })
+        .then(response => {
+          console.log(response)
+        })
+        .then(data => {
+          console.log(data)
+        })
+        .catch(error => {
+          //handle error
+        })
     })
-      .then(response => response.json())
-      .catch((error) => console.log(error));
   };
 
 
