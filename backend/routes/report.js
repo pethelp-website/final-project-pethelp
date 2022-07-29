@@ -1,22 +1,10 @@
 
 const express = require("express");
 const { Client } = require('pg');
-const bcrypt = require("bcrypt");   // bcrypt is used to hash password before saving it to database
 const fs = require("fs");   // fs is node's inbuilt file system module used to manage files
 
-const generateJWT = require("./generateJWT");
+const client = require('./openConnection');
 const report = express.Router();   // we create a new router using express's inbuilt Router method
-
-const connectionData = {
-    user: 'postgres',
-    host: 'localhost',
-    database: 'dbnodeauthprojectmigracode',
-    password: 'postgres',
-    port: 5432,
-  }
-  const client = new Client(connectionData);
-
-  client.connect();
 
 
 // Post new report: /report
