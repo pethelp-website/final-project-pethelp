@@ -12,10 +12,10 @@ To run the server:
     	
         
 # Endpoints available:
-    
-    
 
-* ## sign up [/user/sign-up](localhost:3000/user/sign-up "sign-up")
+## Users:
+
+* ### sign up (POST) [/user/sign-up](localhost:3000/user/sign-up "sign-up")
 
 Request expected:
 
@@ -35,7 +35,7 @@ Response Expected:
     
  -------------
 
-* ## sign in [/user/sign-in](localhost:3000/user/sign-in "sign-in")
+* ### sign in (POST) [/user/sign-in](localhost:3000/user/sign-in "sign-in")
 Request expected:
     
     {
@@ -49,6 +49,57 @@ Response Expected:
     {
         "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7fSwiaWF0IjoxNjU4OTU1NDIyLCJleHAiOjE2NTg5NTkwMjJ9.xYTFDomtgFTfvQMpTl1FK_SzVzyVYTqDaN4tb0uNCfI",
         "isAuthenticated": true
+    }
+
+ -------------
+
+ ## Reports:
+
+* ### get reports (GET) [/pet/report](localhost:3000/pet/report "report")
+Request expected:
+    ---
+    
+Response Expected:
+
+    {
+    "status": "OK",
+    "status_description": "",
+    "petsReported": [
+        {
+            "userName": "username1",
+            "userPhoneNumber": "666 66 66 66",
+            "userEmail": "username@email.com",
+            "petType": "dog",
+            "petRace": "golden",
+            "petColor": "yellow",
+            "petLocation": "Barcelona",
+            "shelterName": "",
+            "description": "It's OK",
+            "photo": "img/pet1.jpg"
+        }
+    ]
+} 
+-------------
+
+* ### post report (POST) [/pet/report](localhost:3000/pet/report "report")
+Request expected:
+    
+    {
+        "username": "username1", 
+        "petType": "dog", 
+        "petRace": "golden", 
+        "petCoor": "yellow", 
+        "location": "Barcelona", 
+        "shelterName": "", 
+        "description": "It's OK", 
+        "photo": "img/pet1.jpg" 
+    }
+    
+Response Expected:
+
+    {
+        "status": "OK",
+        "description": ""
     }
 
  
