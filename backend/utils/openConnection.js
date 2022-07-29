@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken");
 const { Client } = require('pg');
 
 require("dotenv").config();   // here we use dotenv module which we installed in the begining to access environment variables from .env file

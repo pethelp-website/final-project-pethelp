@@ -3,7 +3,7 @@ const express = require("express");
 const { Client } = require('pg');
 const fs = require("fs");   // fs is node's inbuilt file system module used to manage files
 
-const client = require('./openConnection');
+const client = require('../utils/openConnection');
 const report = express.Router();   // we create a new router using express's inbuilt Router method
 
 

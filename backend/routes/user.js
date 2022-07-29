@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");   // bcrypt is used to hash password before sa
 const fs = require("fs");   // fs is node's inbuilt file system module used to manage files
 
 const generateJWT = require("./generateJWT");
-const client = require('./openConnection');
+const client = require('../utils/openConnection');
 
 const router = express.Router();   // we create a new router using express's inbuilt Router method
 /*
