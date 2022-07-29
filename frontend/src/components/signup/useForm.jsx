@@ -29,7 +29,7 @@ const useForm = (callback, validateInfo) => { //using validate function here
     setErrors(validateInfo(values));//display errors using the validate function
     setIsSubmitting(true); //true after submit
 
-    
+
     fetch("http://localhost:3000/sign-up", {
       method: "GET",
       body: JSON.stringify({
@@ -42,7 +42,7 @@ const useForm = (callback, validateInfo) => { //using validate function here
       .catch((error) => console.log(error));
   };
 
-  
+
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) { //0 errors
       callback();
