@@ -1,8 +1,8 @@
-//this component gonna renders in the app 
+//this component gonna renders in the app, and if the form is submitted, goes to home page.
 
 import React, { useState } from 'react';
 import FormSignup from "./FormSignup";
-import FormSuccess from "./FormSuccess";
+import HomePage from "../home/HomePage";
 
 const Form = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,7 +14,7 @@ const Form = () => {
     return (
         <div>
             
-            {!isSubmitted ? (<FormSignup submitForm={submitForm} />): (<FormSuccess />)}
+            {!isSubmitted ? (<FormSignup submitForm={submitForm} />): (<HomePage />)} 
         </div>
     )
 };

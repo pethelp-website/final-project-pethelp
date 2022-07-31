@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Badge from 'react-bootstrap/Badge';
 import useForm from './useForm';
 import signupValidation from "./signupValidation";
 
@@ -11,7 +14,7 @@ const FormSignup = ({ submitForm }) => { //using the submit function in hte form
     ); //destruct the values from useForm, to use in the input //the validate info goes in the userform fucntion.
 
   return (
-    <div className="container">
+    /*<div className="container">
       <div className="app-wrapper">
         <div>
           <h2 className="title">Create Account</h2>
@@ -53,12 +56,57 @@ const FormSignup = ({ submitForm }) => { //using the submit function in hte form
           <div>
             <button className="submit">SIGN UP</button>
             <span className="form-input-login">
-              Already have an account? Login <a href="#">here</a>
+              Already have an account? Login here
             </span>
           </div>
         </form>
       </div>
-    </div>
+    </div>*/
+
+    //bootstrap form
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicUsername">
+      <h1>
+       <Badge bg="secondary">Create an account</Badge>
+      </h1>
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter email"
+          name="username"
+          value={values.username}
+          onChange={handleChange} />
+        {errors.username && <p>{errors.username}</p>}
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          name="email"
+          value={values.email}
+          onChange={handleChange} />
+        {errors.email && <p>{errors.email}</p>}
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={values.password}
+          onChange={handleChange} />
+        {errors.password && <p>{errors.password}</p>}
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        SIGN UP
+      </Button>
+    </Form>
+
+
   )
 };
 

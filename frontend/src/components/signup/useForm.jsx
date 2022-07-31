@@ -1,5 +1,5 @@
-//get values from the form. hooks
 import { useState, useEffect } from "react";
+import { getLocalStorageInfo } from "../../utils/getLocalStorageInfo";
 
 
 const useForm = (callback, validateInfo) => { //using validate function here
@@ -30,23 +30,25 @@ const useForm = (callback, validateInfo) => { //using validate function here
     setIsSubmitting(true); //true after submit
 
 
-    fetch("http://localhost:3000/sign-up", {
+    fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
       method: "POST",
+      headers: {
+        authorization: getLocalStorageInfo(),
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         username: values.username,
         email: values.email,
         password: values.password,
       })
-        .then(response => {
-          console.log(response)
-        })
-        .then(data => {
-          console.log(data)
-        })
-        .catch(error => {
-          //handle error
-        })
-    })
+    }).then(response => response.json())
+      .then(data => {
+        localStorage.setItem("token", data.jwtToken);
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   };
 
 
