@@ -1,6 +1,7 @@
 import React from 'react';
 import FormSignup from "./components/signup/FormSignup";
 import HomePage from "./components/home/HomePage";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
