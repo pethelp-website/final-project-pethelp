@@ -2,73 +2,75 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Badge from 'react-bootstrap/Badge';
-import useForm from './useForm';
-import signupValidation from "./signupValidation";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import loginService from '../../services/login'
+import validateInfo from "../../services/password-validation";
+import { useEffect } from "react";
+
+const FormSignup = () => {
+  let navigate = useNavigate();
+
+  const [values, setValues] = useState({ //uptade the state
+    username: "",
+    email: "",
+    password: "",
+  })
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setSubmitted] = useState(false);
 
 
-const FormSignup = ({ submitForm }) => { //using the submit function in hte form here, to refresh page when submit form
-  const { handleChange, values, handleSubmit, errors }
-    = useForm(
-      submitForm,
-      signupValidation
-    ); //destruct the values from useForm, to use in the input //the validate info goes in the userform fucntion.
+
+  useEffect(() => {
+    if (!isSubmitted) {
+      return;
+    }
+
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    const formData = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    };
+
+    loginService.sign_up(formData)
+      .then(data => {
+        localStorage.setItem("token", JSON.stringify(data));
+        navigate("/", { replace: true });
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, [errors, isSubmitted, values, navigate]);
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value
+    })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const validatedErrors = validateInfo(values);
+    setErrors(validatedErrors);
+    setSubmitted(true)
+  }
 
   return (
-    /*<div className="container">
-      <div className="app-wrapper">
-        <div>
-          <h2 className="title">Create Account</h2>
-        </div>
-        <form className="form-wrapper" onSubmit={handleSubmit}>
-          <div className="name">
-            <label className="label">Username</label>
-            <input
-              className="input"
-              type="text"
-              name="username"
-              value={values.username} //values and function in useform
-              onChange={handleChange}
-            />
-            {errors.username && <p>{errors.username}</p>}
-          </div>
-          <div className="email">
-            <label className="label">Email</label>
-            <input
-              className="input"
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p>{errors.email}</p>}
-          </div>
-          <div className="password">
-            <label className="label">Password</label>
-            <input
-              className="input"
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p>{errors.password}</p>}
-          </div>
-          <div>
-            <button className="submit">SIGN UP</button>
-            <span className="form-input-login">
-              Already have an account? Login here
-            </span>
-          </div>
-        </form>
-      </div>
-    </div>*/
-
     //bootstrap form
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicUsername">
-      <h1>
-       <Badge bg="secondary">Create an account</Badge>
-      </h1>
+        <h1>
+          <Badge bg="secondary">Create an account</Badge>
+        </h1>
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"

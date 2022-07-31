@@ -1,6 +1,5 @@
 export default function validateInfo(values) {
     let errors = {};
-
     //validation in regex format
     const userNameValidation = /^[a-z0-9_-](?=.{8,20}$)/;;
     const uppercaseRegExp = /(?=.*?[A-Z])/;
@@ -41,8 +40,6 @@ export default function validateInfo(values) {
     } else if (!minLengthPassword) {
         errors.password = "At least minumum 6 characters";
     };
-
-
 
     return errors;
 };
