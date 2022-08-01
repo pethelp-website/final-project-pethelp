@@ -118,8 +118,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});
 
-app.set("view engine", "ejs")
-
 app.get('/upload', (req, res) => {
     res.render("upload")
     
