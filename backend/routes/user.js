@@ -5,8 +5,10 @@ const bcrypt = require("bcrypt");   // bcrypt is used to hash password before sa
 const fs = require("fs");   // fs is node's inbuilt file system module used to manage files
 
 const generateJWT = require("./generateJWT");
-const router = express.Router();   // we create a new router using express's inbuilt Router method
+const client = require('../utils/openConnection');
 
+const router = express.Router();   // we create a new router using express's inbuilt Router method
+/*
 const connectionData = {
     user: 'postgres',
     host: 'localhost',
@@ -16,7 +18,7 @@ const connectionData = {
   }
   const client = new Client(connectionData);
 
-  client.connect();
+  client.connect();*/
 
   /*const insert = user => {
     const query = "INSERT INTO Users_proj (name, username, password) VALUES($1, $2, $3)";
