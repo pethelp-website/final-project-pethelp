@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Badge from 'react-bootstrap/Badge';
+import { Container, Col, Row, Form, Button} from 'react-bootstrap/';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import loginService from '../../services/login'
@@ -67,52 +65,56 @@ const FormSignup = () => {
 
   return (
     //bootstrap form
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <div>
-            <h1 className="title">
-              <Badge bg="primary">Create an account</Badge>
-            </h1>
-          </div>
+    <Container>
+      <Row>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group  className="mb-3" controlId="formBasicUsername">
+              <div className="title">
+                <h1>Create an account</h1>
+              </div>
 
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter email"
-            name="username"
-            value={values.username}
-            onChange={handleChange} />
-          {errors.username && <p>{errors.username}</p>}
-        </Form.Group>
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                name="username"
+                value={values.username}
+                onChange={handleChange} />
+              {errors.username && <p>{errors.username}</p>}
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            name="email"
-            value={values.email}
-            onChange={handleChange} />
-          {errors.email && <p>{errors.email}</p>}
-        </Form.Group>
+            <Form.Group  className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                value={values.email}
+                onChange={handleChange} />
+              {errors.email && <p>{errors.email}</p>}
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={values.password}
-            onChange={handleChange} />
-          {errors.password && <p>{errors.password}</p>}
-        </Form.Group>
+            <Form.Group  className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={values.password}
+                onChange={handleChange} />
+              {errors.password && <p>{errors.password}</p>}
+            </Form.Group>
 
-        <Button variant="primary" type="submit">
-          SIGN UP
-        </Button>
-      </Form>
-    </div>
+            <Button variant="primary" type="submit">
+              SIGN UP
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+
+
 
 
 
@@ -121,5 +123,7 @@ const FormSignup = () => {
 
 
 export default FormSignup;
+
+
 
 

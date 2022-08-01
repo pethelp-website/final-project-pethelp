@@ -1,12 +1,4 @@
-
-
-/*const mockResponseSignup = {
-    "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7fSwiaWF0IjoxNjU4OTU1NDIyLCJleHAiOjE2NTg5NTkwMjJ9.xYTFDomtgFTfvQMpTl1FK_SzVzyVYTqDaN4tb0uNCfI",
-    "isAuthenticated": true,
-    "name": "Alissa Nishihara"
-}
-
-const environment = "https://localhost";*/
+//Here we have all codes that we can import and reuse it.
 
 
 export async function sign_up({
@@ -17,18 +9,14 @@ export async function sign_up({
     return fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
         method: "POST",
         headers: {
-            //authorization: getLocalStorageInfo(),
             "Content-Type": "application/json",
-
-            
         },
         body: JSON.stringify({
             username,
             email,
             password,
         })
-    }).then(response => response.json())
-    //return Promise.resolve(mockResponseSignup)
+    }).then(response => response.json());
 };
 
 export function getAuthenticatedUser() {
@@ -44,3 +32,4 @@ const exports = {
     getAuthenticatedUser
 }
 export default exports;
+

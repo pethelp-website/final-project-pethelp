@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}>
             </Route>
-            <Route path="/signup" element={<FormSignup />}>
+            <Route path="/sign-up" element={<FormSignup />}>
             </Route>
           </Routes>
         </div>
@@ -26,3 +26,4 @@ function App() {
 }
 
 export default App;
+
