@@ -4,7 +4,31 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
+     const adminUser = {
+       email: "",
+       password: ""
+     }
+  
+     const [user, setUser] = useState({ email: "", password:""});
+     const [error, setError] = useState("");
+  
+     const Login = details => {
+       console.log(details);
+  
+       if(details.email === adminUser.email && details.password === adminUser.password){
+       console.log("Logged in");
+       setUser({
+       
+         email: details.email
+       });
+     } else {
+       console.log("Details do not match!"); 
+   setError("Details do not match!")
+   }
+  }
+
 function LoginForm({Login, error}) {
+  
     const [details, setDetails] = useState({ email:"", password:"" });
 
     const submitHandler = e => {
@@ -31,6 +55,8 @@ function LoginForm({Login, error}) {
 Login(details);
 }
 
+
+
 return (
 <Form  onSubmit={submitHandler}>
     <h3>Log In your account!</h3>
@@ -56,8 +82,12 @@ return (
 </Button>
 
 </Form>
-  )
+ 
+ )
+
 }
 
 export default LoginForm;
 
+//this is my real code
+ 
