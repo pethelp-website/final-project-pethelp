@@ -25,7 +25,9 @@ import Form from 'react-bootstrap/Form';
        console.log("Details do not match!"); 
    setError("Details do not match!")
    }
+   
   }
+
 
 function LoginForm({Login, error}) {
   
@@ -54,9 +56,6 @@ function LoginForm({Login, error}) {
         e.preventDefault();
 Login(details);
 }
-
-
-
 return (
 <Form  onSubmit={submitHandler}>
     <h3>Log In your account!</h3>
@@ -82,9 +81,7 @@ return (
 </Button>
 
 </Form>
- 
  )
-
 }
 
 export default LoginForm;
