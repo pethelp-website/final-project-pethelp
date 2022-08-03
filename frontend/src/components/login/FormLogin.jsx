@@ -24,19 +24,27 @@ const FormLogin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (values.email.length === 0) {
       setEmailError("Email required");
+    } else {
+      navigate("/", { replace: true });
     }
+    
     if (values.password.length === 0) {
       setPasswordError("Password required");
+    } else {
+      navigate("/", { replace: true });
     }
+    
     if (values.email !== User.email && values.password !== User.password) {
       console.log("Details do not match!");
       setError("Details do not match")
-    }
+    } 
+    
     setValues({ email: "", password: "" });
+   
 
-    navigate("/", { replace: true });
 
     fetch("http://localhost:3000/user/sign-in", {
       method: "POST",
