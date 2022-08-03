@@ -10,7 +10,7 @@ export async function sign_up({
     postcode,
     phonenumber,
 }) {
-    return fetch("localhost:3000/user/sign-up", {
+    return fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
