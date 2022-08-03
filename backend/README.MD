@@ -1,9 +1,9 @@
 # Backend project for PetHelp
 
 Database:
-`sudo -u postgres psql
-create database pethelp;
-create user pethelp with encrypted password '#####';
+    `sudo -u postgres psql`
+    `create database pethelp;`
+    `create user pethelp with encrypted password '#####';`
 
 
 
