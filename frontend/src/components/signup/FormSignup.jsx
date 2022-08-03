@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../style/sass/style.scss';
 import { Container, Col, Row, Form, Button} from 'react-bootstrap/';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -6,9 +7,12 @@ import loginService from '../../services/login'
 import validateInfo from "../../services/password-validation";
 import { useEffect } from "react";
 
+
 const FormSignup = () => {
+  
   let navigate = useNavigate();
 
+  
   const [values, setValues] = useState({ //uptade the state
     username: "",
     email: "",
@@ -65,7 +69,28 @@ const FormSignup = () => {
 
   return (
     //bootstrap form
+    <div>
+      <header className="header">
+    <div className="img__containter-box">
+      
+    </div>
+    <div class="header__logo-box">
+        <img src="" alt="logo" class="header__logo"/>
+        
+    </div>
+    <div class="header__text-box">
+
+        <h1 class="heading-primary">
+            <span class="heading-primary--main">Project Description</span>
+            <span class="heading-primary--sub">An introduction to INTEgrate</span>
+        </h1>
+
+        <a href="#" class="btn btn--white">Project Timeline</a>
+    </div>
+  </header>
+   
     <Container>
+      
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
@@ -113,12 +138,13 @@ const FormSignup = () => {
         </Col>
       </Row>
     </Container>
-
+    </div>
 
 
 
 
   )
+  
 };
 
 
