@@ -16,9 +16,10 @@ function App() {
         </Route>
         <Route path="/main-home" element={<MainHome />}>
         </Route>
+        <Route path="/login" element={<MainHome />}>
+        </Route>
       </Routes>
     </Router>
-
   );
 }
 
