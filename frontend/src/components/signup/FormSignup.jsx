@@ -71,7 +71,7 @@ const FormSignup = () => {
     event.preventDefault();
     const validatedErrors = validateInfo(values);
     setErrors(validatedErrors);
-    setSubmitted(true)
+    setSubmitted(true);
   }
 
   return (
