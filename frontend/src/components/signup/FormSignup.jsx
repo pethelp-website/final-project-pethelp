@@ -5,6 +5,7 @@ import { useState } from "react";
 import loginService from '../../services/login'
 import validateInfo from "../../services/password-validation";
 import { useEffect } from "react";
+import "./FormSignup.scss";
 
 
 const FormSignup = () => {
