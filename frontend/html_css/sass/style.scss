@@ -1,0 +1,20 @@
+@import 'abstract/function';
+@import 'abstract/mixins';
+@import 'abstract/variables';
+
+@import 'base/animation';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utils';
+
+@import 'components/header';
+
+
+
+
+@import 'pages/home';
+@import 'pages/logIn';
+@import 'pages/signUp.scss';
+@import 'pages/report';
+@import 'pages/adoption';
+@import 'pages/lost';
