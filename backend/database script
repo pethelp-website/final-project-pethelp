@@ -1,0 +1,75 @@
+```
+drop table if exists users;
+drop table if exists pet_report;
+drop table if exists shelter;
+create table users(
+   id SERIAL primary key,
+   name     VARCHAR(30) not null,
+   email    VARCHAR(120) not null,
+   address  VARCHAR(120),
+   city     VARCHAR(30) not null,
+   postcode VARCHAR(12),
+ 
+);
+
+
+insert into users (name, email, address, city, postcode, are_you_owner) values ('usman','abc@gmail.com','corts catalanes','Barcelona','b089');
+insert into users (name, email, address, city, postcode, are_you_owner) values ('Gloria','efg@gmail.com','calle valencia','Barcelona','b020');
+insert into users (name, email, address, city, postcode, are_you_owner) values ('Gabi','hij@gmail.com','calle montaner','valencia','a89');
+insert into users (name, email, address, city, postcode, are_you_owner) values ('isha','klm@gmail.com','calle rocafort','Barcelona','b020');
+insert into users (name, email, address, city, postcode, are_you_owner) values ('alisa','xyz@gmail.com','calle taragona','girona','f30');
+
+ALTER TABLE users ADD COLUMN password VARCHAR(15);
+DELETE FROM users WHERE id=2;
+
+
+
+select * from users;
+
+create table usertype (
+ id SERIAL primary key,
+ user_id      INT REFERENCES users(id),
+ type  VARCHAR(30) not null,
+ display_type  VARCHAR(30) not null
+);
+
+
+
+create table pet_report (
+	id SERIAL    primary key,
+	user_id      INT REFERENCES users(id),
+	shelter_id 	 INT REFERENCES shelter(id),
+	race         VARCHAR(30) not null,
+	color        VARCHAR(30) not null,
+	
+);
+ALTER TABLE pet_report  ADD COLUMN image bytea;
+alter table pet_report rename column pet to petType;
+ALTER TABLE pet_report  DROP COLUMN ;
+
+ALTER TABLE pet_report  DROP COLUMN pettype;
+select * from pet_report;
+
+
+create table shelter (
+id SERIAL     primary key,
+name 		  VARCHAR(30) not null,
+location      VARCHAR(120),
+
+
+);
+
+ALTER TABLE shelter  DROP COLUMN discription;
+
+select * from shelter;
+
+
+
+
+
+
+
+	
+
+
+```

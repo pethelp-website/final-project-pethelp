@@ -4,7 +4,11 @@
 export async function sign_up({
     username,
     email,
-    password
+    password,
+    adress,
+    city,
+    postcode,
+    phonenumber,
 }) {
     return fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
         method: "POST",
@@ -15,6 +19,10 @@ export async function sign_up({
             username,
             email,
             password,
+            adress,
+            city,
+            postcode,
+            phonenumber,
         })
     }).then(response => response.json());
 };
