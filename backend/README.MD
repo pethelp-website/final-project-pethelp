@@ -1,5 +1,16 @@
 # Backend project for PetHelp
 
+Database:
+`sudo -u postgres psql
+create database pethelp;
+create user pethelp with encrypted password '#####';
+
+
+
+`
+
+-------------
+
 
 the server is running on:
 `localhost:3000`
