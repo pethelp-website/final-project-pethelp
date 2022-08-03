@@ -6,6 +6,7 @@ import loginService from '../../services/login'
 import validateInfo from "../../services/password-validation";
 import { useEffect } from "react";
 
+
 const FormSignup = () => {
   let navigate = useNavigate();
 
