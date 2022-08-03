@@ -71,18 +71,22 @@ const FormSignup = () => {
     //bootstrap form
     <div>
       <header className="header">
-    <div className="img__containter-box">
-      
-    </div>
-    <div class="header__logo-box">
-        <img src="" alt="logo" class="header__logo"/>
+      <div class="header__logo-box">
+        <div className="header__logo">
+
+        </div>
+        
         
     </div>
+    <div className="header__img-box">
+      
+    </div>
+   
     <div class="header__text-box">
 
         <h1 class="heading-primary">
-            <span class="heading-primary--main">Project Description</span>
-            <span class="heading-primary--sub">An introduction to INTEgrate</span>
+            <span class="heading-primary--main">Pet Help</span>
+            <span class="heading-primary--sub">second</span>
         </h1>
 
         <a href="#" class="btn btn--white">Project Timeline</a>

@@ -1,0 +1,23 @@
+.header{
+    &__logo-box{
+        position: absolute;
+      top: 5rem;
+      left: 5rem;
+    }
+    &__logo{
+        background-image: url('../../img/icon/icon_basic.png');
+        z-index: 3;
+        height: 6rem;
+    }
+    &__img-box{
+        background-image: url('../../img/dog_imgs/dog_hortz_1.jpg');
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        height: 50rem;
+        width: 100%;
+        background-position: 50% 40%;
+        border-radius: 2px;
+        overflow: none;
+    }
+}
