@@ -68,8 +68,8 @@ import { Button, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 function LoginForm() {
   const User = {
-        email: "admin@a.com",
-         password: "123"
+        email: "",
+         password: ""
        }
     const [values, setValues] = useState({
         email: "",
@@ -140,7 +140,7 @@ function LoginForm() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                     type="password"
-                    placeholder="Password"
+                    placeholder="Enter Password"
                     onChange={e => setValues({...values, password: e.target.value})}value={values.password} />
                 {passwordError && <div className="error"> {passwordError} </div>}
             </Form.Group>
