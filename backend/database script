@@ -9,7 +9,7 @@ create table users(
    address  VARCHAR(120),
    city     VARCHAR(30) not null,
    postcode VARCHAR(12),
-   password VARCHAR(15) not null
+   password VARCHAR(250) not null
   );
 
 
