@@ -1,10 +1,5 @@
 import React from 'react';
-
-import '../../style/sass/style.scss';
-import { Container, Col, Row, Form, Button} from 'react-bootstrap/';
-
 import { Container, Col, Row, Form, Button } from 'react-bootstrap/';
-
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import loginService from '../../services/login'
@@ -15,10 +10,10 @@ import "./FormSignup.scss";
 
 
 const FormSignup = () => {
-  
+
   let navigate = useNavigate();
 
-  
+
   const [values, setValues] = useState({ //uptade the state
     username: "",
     email: "",
@@ -26,7 +21,7 @@ const FormSignup = () => {
     adress: "",
     city: "",
     postcode: "",
-    phonenumber:"",
+    phonenumber: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -83,33 +78,8 @@ const FormSignup = () => {
   }
 
   return (
-    //bootstrap form
-    <div>
-      <header className="header">
-      <div class="header__logo-box">
-        <div className="header__logo">
 
-        </div>
-        
-        
-    </div>
-    <div className="header__img-box">
-      
-    </div>
-   
-    <div class="header__text-box">
-
-        <h1 class="heading-primary">
-            <span class="heading-primary--main">Pet Help</span>
-            <span class="heading-primary--sub">second</span>
-        </h1>
-
-        <a href="#" class="btn btn--white">Project Timeline</a>
-    </div>
-  </header>
-   
     <Container>
-      
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
@@ -193,13 +163,13 @@ const FormSignup = () => {
         </Col>
       </Row>
     </Container>
-    </div>
+
 
 
 
 
   )
-  
+
 };
 
 
