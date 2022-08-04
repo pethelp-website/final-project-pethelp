@@ -1,19 +1,34 @@
 import React from 'react';
+
+import '../../style/sass/style.scss';
 import { Container, Col, Row, Form, Button} from 'react-bootstrap/';
+
+import { Container, Col, Row, Form, Button } from 'react-bootstrap/';
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import loginService from '../../services/login'
 import validateInfo from "../../services/password-validation";
 import { useEffect } from "react";
+import "./FormSignup.scss";
+
+
 
 const FormSignup = () => {
+  
   let navigate = useNavigate();
 
+  
   const [values, setValues] = useState({ //uptade the state
     username: "",
     email: "",
     password: "",
-  })
+    adress: "",
+    city: "",
+    postcode: "",
+    phonenumber:"",
+  });
+
   const [errors, setErrors] = useState({});
   const [isSubmitted, setSubmitted] = useState(false);
 
@@ -32,6 +47,10 @@ const FormSignup = () => {
       username: values.username,
       email: values.email,
       password: values.password,
+      adress: values.adress,
+      city: values.city,
+      postcode: values.postcode,
+      phonenumber: values.phonenumber
     };
 
     loginService.sign_up(formData)
@@ -60,46 +79,107 @@ const FormSignup = () => {
     event.preventDefault();
     const validatedErrors = validateInfo(values);
     setErrors(validatedErrors);
-    setSubmitted(true)
+    setSubmitted(true);
   }
 
   return (
     //bootstrap form
+    <div>
+      <header className="header">
+      <div class="header__logo-box">
+        <div className="header__logo">
+
+        </div>
+        
+        
+    </div>
+    <div className="header__img-box">
+      
+    </div>
+   
+    <div class="header__text-box">
+
+        <h1 class="heading-primary">
+            <span class="heading-primary--main">Pet Help</span>
+            <span class="heading-primary--sub">second</span>
+        </h1>
+
+        <a href="#" class="btn btn--white">Project Timeline</a>
+    </div>
+  </header>
+   
     <Container>
+      
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
-            <Form.Group  className="mb-3" controlId="formBasicUsername">
-              <div className="title">
-                <h1>Create an account</h1>
-              </div>
-
-              <Form.Label>Username</Form.Label>
+            <div className="title">
+              <h1>Create an account</h1>
+            </div>
+            <Form.Group as={Col} md="3" controlId="formBasicUsername">
+              <Form.Label >Username</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter username"
                 name="username"
                 value={values.username}
                 onChange={handleChange} />
               {errors.username && <p>{errors.username}</p>}
             </Form.Group>
 
-            <Form.Group  className="mb-3" controlId="formBasicEmail">
+            <Form.Group as={Col} md="3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
                 name="email"
                 value={values.email}
                 onChange={handleChange} />
               {errors.email && <p>{errors.email}</p>}
             </Form.Group>
 
-            <Form.Group  className="mb-3" controlId="formBasicPassword">
+            <Form.Group as={Col} md="3" controlId="formBasicCAdress">
+              <Form.Label>Adress</Form.Label>
+              <Form.Control
+                type="text"
+                name="adress"
+                values={values.adress}
+                onChange={handleChange} />
+              {errors.adress && <p>{errors.adress}</p>}
+            </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="formBasicCity">
+              <Form.Label>City</Form.Label>
+              <Form.Control
+                type="text"
+                name="city"
+                values={values.city}
+                onChange={handleChange} />
+              {errors.city && <p>{errors.city}</p>}
+            </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="formBasicPostCode">
+              <Form.Label>Postcode</Form.Label>
+              <Form.Control
+                type="text"
+                name="postcode"
+                values={values.postcode}
+                onChange={handleChange} />
+              {errors.postcode && <p>{errors.postcode}</p>}
+            </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="formBasicPhoneNumber">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="text"
+                name="phonenumber"
+                values={values.phonenumber}
+                onChange={handleChange} />
+              {errors.phonenumber && <p>{errors.phonenumber}</p>}
+            </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
                 name="password"
                 value={values.password}
                 onChange={handleChange} />
@@ -113,12 +193,13 @@ const FormSignup = () => {
         </Col>
       </Row>
     </Container>
-
+    </div>
 
 
 
 
   )
+  
 };
 
 
