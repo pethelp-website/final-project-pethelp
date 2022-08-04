@@ -67,29 +67,22 @@ router.post("/sign-up", async (req, res) => {
         // we add newUser to usersDb
         client1.query(
           INSERT_QUERY,
-          [name, email, address, city, postcode, password],
+          [name, email, address, city, postcode, bcryptPassword],
           (error, response) => {
             if (error) {
               console.log("Something went wrong" + error);
-              // return "error";
+              
             }
             if (response) {
               console.log(response);
-              /* Once the user registration is done successfully, we will generate a
-                jsonwebtoken and send it back to user. This token will be used for
-                accessing other resources to verify identity of the user.
-                
-                The following generateJWT function does not exist till now but we
-                will create it in the next step. */
-    
+                  
               const jwtToken = generateJWT(email);
     
               return res
                 .status(201)
                 .send({ jwtToken: jwtToken, isAuthenticated: true });
             }
-            //console.log("response: ", response);
-            //return "OK";
+            
           }
         );
       }
@@ -108,41 +101,47 @@ router.post("/sign-in", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    /*const query = "SELECT * from users_proj WHERE username = $1";
     console.log("email",email);
-      client.query(query, [email], (error, response)=> {
-        console.log("query",query);
+    client1.query(SELECT_QUERY, [email], (error, response)=> {
+        //console.log("query",query);
         if (error) {
           console.log("Something went wrong" + error);
-          res.json( "KO");
+          res.status(404).json({error: "Invalid Credential", isAuthenticated: false}); 
         }
         //res.json(response.rows);
         if (response.rows.length==0) {
             res.status(404).json({error: "Invalid Credential", isAuthenticated: false}); 
         } else {
 
-          console.log("password",response.rows[0].password);
+          console.log("password bd",response.rows[0].password);
+          console.log("password user",password);
           const isValidPassword =  bcrypt.compare(
             password,
             response.rows[0].password
-          );
-      
-          if (!isValidPassword) {
-            res.status(401).json({error: "Invalid Credential", isAuthenticated: false});
-          }
-      
+          ).then(valid => {
+
+            console.log("isValidPassword", valid);
+        
+            if (!valid) {
+              res.status(401).json({error: "Invalid Credential", isAuthenticated: false});
+            } else {
+
+              // if the password matches with hashed password then we generate a new token and send it back to user
+              const jwtToken = generateJWT(response.rows[0].id);
           
-          // if the password matches with hashed password then we generate a new token and send it back to user
-          const jwtToken = generateJWT(response.rows[0].id);
-      
-          res.status(200).send({ jwtToken, isAuthenticated: true });
-          
+              res.status(200).send({ jwtToken, isAuthenticated: true });
+              
+            }
+        
+            
+          })
+
         }
-      });*/
+      })
 
-    const jwtToken = generateJWT(email);
+    //const jwtToken = generateJWT(email);
 
-    res.status(200).send({ jwtToken, isAuthenticated: true });
+    //res.status(200).send({ jwtToken, isAuthenticated: true });
     // if the user exist then we will compare the password provided by user with the hashed password we stored during user registration
   } catch (error) {
     console.error(error.message);
