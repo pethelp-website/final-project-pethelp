@@ -78,96 +78,98 @@ const FormSignup = () => {
   }
 
   return (
-
-    <Container>
+    <Container style={{display: 'flex', justifyContent: 'center'}}>
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>
-            <div className="title">
-              <h1>Create an account</h1>
+            <div className="signup-title">
+              <h1 className="mt-5">Create an account</h1>
             </div>
-            <Form.Group as={Col} md="3" controlId="formBasicUsername">
+            <Form.Group className="my-3" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
               <Form.Control
                 type="text"
                 name="username"
                 value={values.username}
-                onChange={handleChange} />
+                onChange={handleChange}
+                autoFocus
+                />
               {errors.username && <p>{errors.username}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicEmail">
+            <Form.Group  className="my-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 value={values.email}
-                onChange={handleChange} />
+                onChange={handleChange}
+                 />
               {errors.email && <p>{errors.email}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicCAdress">
+            <Form.Group className="my-3" controlId="formBasicCAdress">
               <Form.Label>Adress</Form.Label>
               <Form.Control
                 type="text"
                 name="adress"
                 values={values.adress}
-                onChange={handleChange} />
+                onChange={handleChange}
+              />
               {errors.adress && <p>{errors.adress}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicCity">
+            <Form.Group className="my-3" controlId="formBasicCity">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
                 name="city"
                 values={values.city}
-                onChange={handleChange} />
+                onChange={handleChange}
+                 />
               {errors.city && <p>{errors.city}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicPostCode">
+            <Form.Group className="my-3" controlId="formBasicPostCode">
               <Form.Label>Postcode</Form.Label>
               <Form.Control
                 type="text"
                 name="postcode"
                 values={values.postcode}
-                onChange={handleChange} />
+                onChange={handleChange}
+                 />
               {errors.postcode && <p>{errors.postcode}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicPhoneNumber">
+            <Form.Group className="my-3" controlId="formBasicPhoneNumber">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="text"
                 name="phonenumber"
                 values={values.phonenumber}
-                onChange={handleChange} />
+                onChange={handleChange}
+                />
               {errors.phonenumber && <p>{errors.phonenumber}</p>}
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formBasicPassword">
+            <Form.Group className="my-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
                 value={values.password}
-                onChange={handleChange} />
+                onChange={handleChange}
+                />
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button className="my-3" variant="primary" type="submit">
               SIGN UP
             </Button>
           </Form>
         </Col>
       </Row>
     </Container>
-
-
-
-
-
   )
 
 };

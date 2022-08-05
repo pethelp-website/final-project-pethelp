@@ -1,7 +1,7 @@
 export default function validateInfo(values) {
     let errors = {};
     //validation in regex format
-    const userNameValidation = /^[a-z0-9_-](?=.{6,20}$)/;;
+    const userNameValidation = /^[a-z0-9_-](?=.{6,10}$)/;;
     const uppercaseRegExp = /(?=.*?[A-Z])/;
     const digitsRegExp = /(?=.*?[0-9])/;
     const minLengthRegExp = /.{6,20}/;
