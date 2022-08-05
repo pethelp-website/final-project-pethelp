@@ -3,7 +3,7 @@
 import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
-import { Button, Col, Form } from 'react-bootstrap';
+import { Button, Col, Form, Container, Row } from 'react-bootstrap';
 
 
 function FormLogin() {
@@ -31,10 +31,10 @@ function FormLogin() {
             setPasswordError("Password required");
             return;
         }
-        
+
         setValues({ email: "", password: "" });
-        
-        fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
+
+        fetch("localhost:3000/user/sign-in", {
             method: "POST",
             headers: {
                 authorization: getLocalStorageInfo(),
@@ -54,30 +54,41 @@ function FormLogin() {
             .catch((error) => console.log(error));
     };
     return (
-        <Form onSubmit={handleSubmit}>
-            <h3>Log In your account!</h3>
-            <Form.Group as={Col} md="3" className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    onChange={e => setValues({ ...values, email: e.target.value })}
-                    values={values.email} />
-                {emailError && <div className="error"> {emailError} </div>}
-            </Form.Group>
-            <Form.Group as={Col} md="3" className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    onChange={e => setValues({ ...values, password: e.target.value })}
-                    value={values.password} />
-                {passwordError && <div className="error"> {passwordError} </div>}
-            </Form.Group>
-            <Button variant="primary" type="submit" value="Login" >
-                Log In
-            </Button>
-        </Form>
+        <Container style={{display: 'flex', justifyContent: 'center'}}>
+            <Row>
+                <Col>
+                    <Form onSubmit={handleSubmit}>
+                        <h1 className="mt-5">Login your account</h1>
+                        <Form.Group  className="mb-3" controlId="formBasicEmail">
+                            <Form.Label className="my-3">Email address</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                onChange={e => setValues({ ...values, email: e.target.value })}
+                                values={values.email}
+                                autoFocus
+                            />
+                            {emailError && <div className="error"> {emailError} </div>}
+                        </Form.Group>
+                        <Form.Group className="my-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                onChange={e => setValues({ ...values, password: e.target.value })}
+                                value={values.password}
+                                maxLength={10}
+                            />
+                            {passwordError && <div className="error"> {passwordError} </div>}
+                        </Form.Group>
+                        <Button  variant="primary" type="submit" value="Login" className="my-3" >
+                            LOGIN
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
+
     )
 }
 
