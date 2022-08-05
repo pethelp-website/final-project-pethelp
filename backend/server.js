@@ -25,6 +25,7 @@ app.post("/form", function (req, res) {
     const petFinderName = req.body.name;
     const petFinderEmail = req.body.email;
     const petFinderPhoneNumber = req.body.phoneNumber;
+    const petFinderPostcode = req.body.postCode;
     const newPetType = req.body.petType;
     const petRace = req.body.race;
     const petColor = req.body.color;
@@ -33,7 +34,7 @@ app.post("/form", function (req, res) {
     const locationOfShelter = req.body.shelterLocation;
   
     const query =
-      "INSERT INTO forms (name, email, phoneNumber, petType, race, color, location, shelter, shelterLocation) VALUES ($1, $2, $3,$4, $5, $6, $7, $8, $9)";
+      "INSERT INTO forms (name, email, phoneNumber,postCode, petType, race, color, location, shelter, shelterLocation) VALUES ($1, $2, $3,$4, $5, $6, $7, $8, $9, $10)";
   
     pool
       .query(query, [petFinderName, petFinderEmail, petFinderPhoneNumber, newPetType, petRace, petColor, petLocation, nameOfShelter, locationOfShelter])
