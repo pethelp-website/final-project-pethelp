@@ -1,24 +1,46 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const cors = require("cors");
 const { Pool } = require('pg');
-const bodyParser = require("body-parser")
+//const bodyParser = require("body-parser")
 
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'dummydb',
-    password: '',
-    port: 5432
+/*const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'database script',
+  password: '',
+  port: 5432
+});*/
+
+// initializing express application
+const app = express();
+
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+const corsOptions = {
+  origin: "http://localhost:3000"
+};
+app.use(cors(corsOptions));  // enable CORS
+
+//app.use(bodyParser.json)
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to MigraCode Auth application." });
 });
 
-app.use(bodyParser.json)
 
 // An endpoint to get all the form from the database
 app.get("/form", function(req, res) {
     pool.query('SELECT * FROM form', (error, result) => {
         res.json(result.rows);
     });
+   //res.json({Message:".test"})
 });
+
+
+
 
 // An endpoint to create a new form for the database
 app.post("/form", function (req, res) {
@@ -37,7 +59,7 @@ app.post("/form", function (req, res) {
       "INSERT INTO forms (name, email, phoneNumber,postCode, petType, race, color, location, shelter, shelterLocation) VALUES ($1, $2, $3,$4, $5, $6, $7, $8, $9, $10)";
   
     pool
-      .query(query, [petFinderName, petFinderEmail, petFinderPhoneNumber, newPetType, petRace, petColor, petLocation, nameOfShelter, locationOfShelter])
+      .query(query, [petFinderName, petFinderEmail, petFinderPhoneNumber,petFinderPostcode, newPetType, petRace, petColor, petLocation, nameOfShelter, locationOfShelter])
       .then(() => res.send("Found lost pet form created!"))
       .catch((e) => console.error(e));
   });
@@ -102,7 +124,7 @@ app.post("/form", function (req, res) {
       .catch((e) => console.error(e));
   });
 
- // The endpoint for uploading images
+  // The endpoint for uploading images
 const path = require('path')
 const multer = require('multer');
 
@@ -129,47 +151,11 @@ app.post('/upload', upload.single('image'), (req, res) => {
       });
 
 
-/*//the second image endpoint
-const multer = require('multer');
-import morgan from 'morgan';
-import express from 'express';
-const path = require('path')
-const multer = require('multer');
-const upload = multer({storage: storage});
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(morgan('dev'));
-
-app.use(express.static(__dirname, 'public'));
-
-const storage = multer.diskStorage({
-  destination: function(req, file, callback) {
-    callback(null, 'images');
-  },
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + path.extname(file.originalname));
-  }
+// set port, listen for requests
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
 
-app.post('/upload', upload.single('image'), (req, res) => {
-    if (!req.file) {
-      console.log("No file received");
-      return res.send({
-        success: false
-      });
-  
-    } else {
-      console.log('file received');
-      return res.send({
-        success: true
-      })
-    }
-  });
-  */
 
 
-
-app.listen(3000, function(){
-    console.log("Server is listerning on port 3000. Ready to accept requests!");
-})
