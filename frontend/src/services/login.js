@@ -2,10 +2,10 @@
 
 
 export async function sign_up({
-    username,
+    name,
     email,
     password,
-    adress,
+    address,
     city,
     postcode,
     phonenumber,
@@ -16,10 +16,10 @@ export async function sign_up({
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username,
+            name,
             email,
             password,
-            adress,
+            address,
             city,
             postcode,
             phonenumber,

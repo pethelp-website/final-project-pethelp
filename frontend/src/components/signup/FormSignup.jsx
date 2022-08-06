@@ -15,10 +15,10 @@ const FormSignup = () => {
 
 
   const [values, setValues] = useState({ //uptade the state
-    username: "",
+    name: "",
     email: "",
     password: "",
-    adress: "",
+    address: "",
     city: "",
     postcode: "",
     phonenumber: "",
@@ -39,10 +39,10 @@ const FormSignup = () => {
     }
 
     const formData = {
-      username: values.username,
+      name: values.name,
       email: values.email,
       password: values.password,
-      adress: values.adress,
+      address: values.address,
       city: values.city,
       postcode: values.postcode,
       phonenumber: values.phonenumber
@@ -89,12 +89,12 @@ const FormSignup = () => {
               <Form.Label >Username</Form.Label>
               <Form.Control
                 type="text"
-                name="username"
-                value={values.username}
+                name="name"
+                value={values.name}
                 onChange={handleChange}
                 autoFocus
                 />
-              {errors.username && <p>{errors.username}</p>}
+              {errors.name && <p>{errors.name}</p>}
             </Form.Group>
 
             <Form.Group  className="my-3" controlId="formBasicEmail">
@@ -112,11 +112,11 @@ const FormSignup = () => {
               <Form.Label>Adress</Form.Label>
               <Form.Control
                 type="text"
-                name="adress"
-                values={values.adress}
+                name="address"
+                values={values.address}
                 onChange={handleChange}
               />
-              {errors.adress && <p>{errors.adress}</p>}
+              {errors.address && <p>{errors.address}</p>}
             </Form.Group>
 
             <Form.Group className="my-3" controlId="formBasicCity">
