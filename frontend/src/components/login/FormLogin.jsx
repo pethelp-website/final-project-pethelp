@@ -34,7 +34,7 @@ function FormLogin() {
 
         setValues({ email: "", password: "" });
 
-        fetch("localhost:3000/user/sign-in", {
+        fetch("http://localhost:3000/user/sign-in", {
             method: "POST",
             headers: {
                 authorization: getLocalStorageInfo(),
@@ -77,7 +77,6 @@ function FormLogin() {
                                 placeholder="Password"
                                 onChange={e => setValues({ ...values, password: e.target.value })}
                                 value={values.password}
-                                maxLength={10}
                             />
                             {passwordError && <div className="error"> {passwordError} </div>}
                         </Form.Group>
