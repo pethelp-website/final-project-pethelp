@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Row, Container, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import adoptPhoto from "../../../images/adoptImage.jpg";
 import reportPhoto from "../../../images/reportImg.jpg";
 import "./MainHome.scss";
@@ -25,7 +26,7 @@ const MainHome = () => {
                   Some quick example text to build on the card title and make up the
                   bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Click here</Button>
+                <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -39,7 +40,7 @@ const MainHome = () => {
                   Some quick example text to build on the card title and make up the
                   bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary" className='main-button'>Click here</Button>
+                <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
               </Card.Body>
             </Card>
           </Col>

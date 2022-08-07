@@ -78,12 +78,12 @@ const FormSignup = () => {
   }
 
   return (
-    <Container style={{display: 'flex', justifyContent: 'center'}}>
+    <Container style={{ display: 'flex', justifyContent: 'center' }} >
       <Row>
-        <Col>
+        <Col id="signup-form" className="p-4">
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
-              <h1 className="mt-5">Create an account</h1>
+              <h1 className="mt-2">Create an account</h1>
             </div>
             <Form.Group className="my-3" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
@@ -93,18 +93,18 @@ const FormSignup = () => {
                 value={values.name}
                 onChange={handleChange}
                 autoFocus
-                />
+              />
               {errors.name && <p>{errors.name}</p>}
             </Form.Group>
 
-            <Form.Group  className="my-3" controlId="formBasicEmail">
+            <Form.Group className="my-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 value={values.email}
                 onChange={handleChange}
-                 />
+              />
               {errors.email && <p>{errors.email}</p>}
             </Form.Group>
 
@@ -126,7 +126,7 @@ const FormSignup = () => {
                 name="city"
                 values={values.city}
                 onChange={handleChange}
-                 />
+              />
               {errors.city && <p>{errors.city}</p>}
             </Form.Group>
 
@@ -137,7 +137,7 @@ const FormSignup = () => {
                 name="postcode"
                 values={values.postcode}
                 onChange={handleChange}
-                 />
+              />
               {errors.postcode && <p>{errors.postcode}</p>}
             </Form.Group>
 
@@ -148,7 +148,7 @@ const FormSignup = () => {
                 name="phonenumber"
                 values={values.phonenumber}
                 onChange={handleChange}
-                />
+              />
               {errors.phonenumber && <p>{errors.phonenumber}</p>}
             </Form.Group>
 
@@ -159,7 +159,7 @@ const FormSignup = () => {
                 name="password"
                 value={values.password}
                 onChange={handleChange}
-                />
+              />
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
 
@@ -168,8 +168,11 @@ const FormSignup = () => {
             </Button>
           </Form>
         </Col>
+
       </Row>
     </Container>
+
+
   )
 
 };
