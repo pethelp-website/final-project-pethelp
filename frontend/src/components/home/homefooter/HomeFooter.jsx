@@ -1,15 +1,19 @@
 //Isha´s code!
 
 import React from 'react';
-import { CDBFooter, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter} from 'cdbreact';
 import { CDBBox } from 'cdbreact';
 import "./HomeFooter.scss";
+import faceLogo from "../../../images/facebook (3).png";
+import instaLogo from "../../../images/instagram (1).png";
+import twitterLogo from "../../../images/twitter.png";
 
 
 const HomeFooter = () => {
   return (
-    <div className="footer">
-      <CDBFooter className="shadow"  >
+    <div id="container">
+
+      <CDBFooter className="shadow fixed-bottom" id="footer">
         <CDBBox
           display="flex"
           justifyContent="between"
@@ -20,23 +24,50 @@ const HomeFooter = () => {
           <CDBBox display="flex" alignItems="center">
 
           </CDBBox>
-          <CDBBox>
-            <small className="ml-2">&copy; PetHelp, 2022. All rights reserved.</small>
+          <CDBBox display="flex" alignItems="center">
+            <small className="d-flex align-items-center">&copy; PetHelp, 2022. All rights reserved.</small>
           </CDBBox>
           <CDBBox display="flex">
-            <CDBBtn flat color="dark" className="p-2">
-              <CDBIcon fab icon="facebook-f" />
-            </CDBBtn>
-            <CDBBtn flat color="dark" className="mx-3 p-2">
-              <CDBIcon fab icon="twitter" />
-            </CDBBtn>
-            <CDBBtn flat color="dark" className="p-2">
-              <CDBIcon fab icon="instagram" />
-            </CDBBtn>
+
+
+          <CDBBox display="flex"  className="p-2">
+          <a href="https://www.facebook.com/" target="blank" className="d-flex align-items-end p-0">
+            <img
+              alt="face-logo"
+              src={faceLogo}
+              width="30px"
+            />
+          </a>
+        </CDBBox>
+        <CDBBox display="flex"  className="p-2">
+          <a href= "https://www.instagram.com/" target="blank" className="d-flex align-items-end p-0">
+            <img
+              alt="insta-logo"
+              src={instaLogo}
+              width="30px"
+            />
+          </a>
+        </CDBBox>
+
+        <CDBBox display="flex"  className="p-2">
+          <a href="https://www.twitter.com/" target="blank" className="d-flex align-items-end p-0">
+            <img
+              alt="twitter-logo"
+              src={twitterLogo}
+              width="30px"
+            />
+          </a>
+        </CDBBox>
+
+           
+
+
+
           </CDBBox>
         </CDBBox>
       </CDBFooter>
     </div>
+
   )
 }
 

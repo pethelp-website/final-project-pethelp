@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function HomeHeader() {
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar  variant="dark" className="navbar sticky-top" expand="lg">
           <Container>
             <Navbar.Brand as={Link} to={"/"}>
               <img

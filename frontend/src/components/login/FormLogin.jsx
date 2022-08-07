@@ -18,8 +18,8 @@ function FormLogin() {
     const [passwordError, setPasswordError] = useState("");
 
     useEffect(() => {
-        console.log(values)
-    }, [values])
+        console.log(values, emailError, passwordError)
+    }, [values, emailError, passwordError])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -32,7 +32,6 @@ function FormLogin() {
             return;
         }
 
-        setValues({ email: "", password: "" });
 
         fetch("http://localhost:3000/user/sign-in", {
             method: "POST",
@@ -45,20 +44,30 @@ function FormLogin() {
                 password: values.password,
             }),
         })
-            .then(response => response.json())
+            .then(response => {
+                setPasswordError(null);
+                if (response.status === 200) {
+                  return response.json();
+                }
+                setPasswordError("Username or password is incorrect");
+                throw Error('error');
+            })
             .then((data) => {
                 localStorage.setItem("token", data.jwtToken);
                 navigate("/", { replace: true });
                 console.log(data);
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error)
+            });
+            
     };
     return (
         <Container style={{display: 'flex', justifyContent: 'center'}}>
             <Row>
                 <Col>
                     <Form onSubmit={handleSubmit}>
-                        <h1 className="mt-5">Login your account</h1>
+                        <h1 className="mt-4">Login your account</h1>
                         <Form.Group  className="mb-3" controlId="formBasicEmail">
                             <Form.Label className="my-3">Email address</Form.Label>
                             <Form.Control
