@@ -168,11 +168,8 @@ const FormSignup = () => {
             </Button>
           </Form>
         </Col>
-
       </Row>
     </Container>
-
-
   )
 
 };

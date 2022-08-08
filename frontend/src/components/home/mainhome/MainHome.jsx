@@ -7,8 +7,7 @@ import "./MainHome.scss";
 
 
 const MainHome = () => {
-  //split the h1 title 
-  
+ 
   return (
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}>

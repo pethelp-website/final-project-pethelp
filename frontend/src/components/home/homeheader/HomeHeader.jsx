@@ -22,6 +22,8 @@ function HomeHeader() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav id="nav-links">
+              <Nav.Link as={Link} to={"/report-page"} >Found a pet</Nav.Link>
+              <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
               <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>
               <Nav.Link as={Link} to={"/sign-up"}>Signup</Nav.Link>
             </Nav>
