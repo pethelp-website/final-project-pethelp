@@ -1,4 +1,4 @@
-```
+drop table if exists usertype;
 drop table if exists users;
 drop table if exists pet_report;
 drop table if exists shelter;
@@ -9,22 +9,17 @@ create table users(
    address  VARCHAR(120),
    city     VARCHAR(30) not null,
    postcode VARCHAR(12),
- 
-);
+   password VARCHAR(250) not null
+  );
 
 
-insert into users (name, email, address, city, postcode, are_you_owner) values ('usman','abc@gmail.com','corts catalanes','Barcelona','b089');
-insert into users (name, email, address, city, postcode, are_you_owner) values ('Gloria','efg@gmail.com','calle valencia','Barcelona','b020');
-insert into users (name, email, address, city, postcode, are_you_owner) values ('Gabi','hij@gmail.com','calle montaner','valencia','a89');
-insert into users (name, email, address, city, postcode, are_you_owner) values ('isha','klm@gmail.com','calle rocafort','Barcelona','b020');
-insert into users (name, email, address, city, postcode, are_you_owner) values ('alisa','xyz@gmail.com','calle taragona','girona','f30');
-
-ALTER TABLE users ADD COLUMN password VARCHAR(15);
-DELETE FROM users WHERE id=2;
+insert into users (name, email, address, city, postcode, password) values ('usman','abc@gmail.com','corts catalanes','Barcelona','b089','pass1');
+insert into users (name, email, address, city, postcode, password) values ('Gloria','efg@gmail.com','calle valencia','Barcelona','b020','pass1');
+insert into users (name, email, address, city, postcode, password) values ('Gabi','hij@gmail.com','calle montaner','valencia','a89','pass1');
+insert into users (name, email, address, city, postcode, password) values ('isha','klm@gmail.com','calle rocafort','Barcelona','b020','pass1');
+insert into users (name, email, address, city, postcode, password) values ('alisa','xyz@gmail.com','calle taragona','girona','f30','pass1');
 
 
-
-select * from users;
 
 create table usertype (
  id SERIAL primary key,
@@ -34,6 +29,11 @@ create table usertype (
 );
 
 
+create table shelter (
+id SERIAL     primary key,
+name 		  VARCHAR(30) not null,
+location      VARCHAR(120)
+);
 
 create table pet_report (
 	id SERIAL    primary key,
@@ -41,35 +41,10 @@ create table pet_report (
 	shelter_id 	 INT REFERENCES shelter(id),
 	race         VARCHAR(30) not null,
 	color        VARCHAR(30) not null,
-	
-);
-ALTER TABLE pet_report  ADD COLUMN image bytea;
-alter table pet_report rename column pet to petType;
-ALTER TABLE pet_report  DROP COLUMN ;
-
-ALTER TABLE pet_report  DROP COLUMN pettype;
-select * from pet_report;
-
-
-create table shelter (
-id SERIAL     primary key,
-name 		  VARCHAR(30) not null,
-location      VARCHAR(120),
-
-
+	image 		 bytea,
+	type 		 VARCHAR(15)
 );
 
-ALTER TABLE shelter  DROP COLUMN discription;
+
 
 select * from shelter;
-
-
-
-
-
-
-
-	
-
-
-```

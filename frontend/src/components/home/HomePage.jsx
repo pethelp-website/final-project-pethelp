@@ -1,11 +1,12 @@
-import React from 'react'
-//import loginService from '../../services/login';
+import React from 'react';
+import MainHome from './mainhome/MainHome';
+
 
 const HomePage = () => {
-  //const user = loginService.getAuthenticatedUser();
+  
   return (
     <div className="form-content-right">
-        <div className="form-sucess"> Home page</div>
+        <MainHome />
        
     </div>
   )

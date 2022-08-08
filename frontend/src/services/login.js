@@ -2,24 +2,24 @@
 
 
 export async function sign_up({
-    username,
+    name,
     email,
     password,
-    adress,
+    address,
     city,
     postcode,
     phonenumber,
 }) {
-    return fetch("https://run.mocky.io/v3/b1734bbd-64b6-42e0-9350-69f76fdaff42", {
+    return fetch("http://localhost:3000/user/sign-up", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username,
+            name,
             email,
             password,
-            adress,
+            address,
             city,
             postcode,
             phonenumber,
