@@ -35,7 +35,7 @@ const HomeFooter = () => {
             <img
               alt="face-logo"
               src={faceLogo}
-              width="30px"
+              width="24px"
             />
           </a>
         </CDBBox>
@@ -44,7 +44,7 @@ const HomeFooter = () => {
             <img
               alt="insta-logo"
               src={instaLogo}
-              width="30px"
+              width="24px"
             />
           </a>
         </CDBBox>
@@ -54,7 +54,7 @@ const HomeFooter = () => {
             <img
               alt="twitter-logo"
               src={twitterLogo}
-              width="30px"
+              width="24px"
             />
           </a>
         </CDBBox>

@@ -7,13 +7,15 @@ import "./MainHome.scss";
 
 
 const MainHome = () => {
+  //split the h1 title 
+  
   return (
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h1 className="mt-5">Find your lost pet</h1>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <h2 className="mt-1">Browse lost pets from our network {"\n"} or inform us about a found one.</h2>
+        <h2 className="mt-1" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
       </div>
       <Container>
         <Row style={{display: 'flex', justifyContent: 'center'}}>
@@ -21,10 +23,10 @@ const MainHome = () => {
             <Card style={{ width: '18rem' }} className="mt-5 mb-4">
               <Card.Img variant="top" src={reportPhoto} />
               <Card.Body >
-                <Card.Title>Report a lost pet</Card.Title>
+                <Card.Title>Report a found pet</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
+                If you have found a stray pet, you can submit your report to our database, 
+                and help them reunite with their family.
                 </Card.Text>
                 <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
               </Card.Body>
@@ -37,8 +39,8 @@ const MainHome = () => {
               <Card.Body>
                 <Card.Title>Find your lost pet</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the
-                  bulk of the card's content.
+                Lost a pet and are looking to be reunited with them? See our list of lost animals 
+                found, and where they are at now.
                 </Card.Text>
                 <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
               </Card.Body>
