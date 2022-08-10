@@ -3,13 +3,17 @@ const cors = require("cors");
 const { Pool } = require('pg');
 //const bodyParser = require("body-parser")
 
-/*const pool = new Pool({
+const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'database script',
-  password: '',
+  database: 'PT-db',
+  password: 'Generations39',
   port: 5432
-});*/
+});
+
+pool.connect()
+
+
 
 // initializing express application
 const app = express();
@@ -31,6 +35,9 @@ app.get("/", (req, res) => {
 });
 
 
+
+
+
 // An endpoint to get all the form from the database
 app.get("/form", function(req, res) {
     pool.query('SELECT * FROM form', (error, result) => {
@@ -42,7 +49,7 @@ app.get("/form", function(req, res) {
 
 
 
-// An endpoint to create a new form for the database
+/*// An endpoint to create a new form for the database
 app.post("/form", function (req, res) {
     const petFinderName = req.body.name;
     const petFinderEmail = req.body.email;
@@ -62,11 +69,28 @@ app.post("/form", function (req, res) {
       .query(query, [petFinderName, petFinderEmail, petFinderPhoneNumber,petFinderPostcode, newPetType, petRace, petColor, petLocation, nameOfShelter, locationOfShelter])
       .then(() => res.send("Found lost pet form created!"))
       .catch((e) => console.error(e));
-  });
+  });*/
+
+  // An endpoint to create a new form for the database(Usman)
+app.post("/pet_report", function (req, res) {
+  const user = req.body.user_id;
+  const shelter = req.body.shelter_id;
+  const petRace = req.body.race;
+  const petColor = req.body.color;
+  const petType = req.body.type;
+
+  const query =
+    "INSERT INTO forms (user_id, shelter_id, race, color, petType) VALUES ($1, $2, $3,$4, $5)";
+
+  pool
+    .query(query, [user, shelter, petRace, petColor, petType, ])
+    .then(() => res.send("Found lost pet form created!"))
+    .catch((e) => console.error(e));
+});
 
   //an endpoint to get the form by color
 
-  app.get("/form", function (req, res) {
+  app.get("/pet_report", function (req, res) {
     pool
       .query("SELECT * FROM form ORDER BY color")
       .then((result) => res.json(result.rows))
@@ -75,7 +99,7 @@ app.post("/form", function (req, res) {
 
    //an endpoint to get the form by petType
   
-   app.get("/form", function (req, res) {
+   app.get("/pet_report", function (req, res) {
     pool
       .query("SELECT * FROM form ORDER BY petType")
       .then((result) => res.json(result.rows))
@@ -84,7 +108,7 @@ app.post("/form", function (req, res) {
 
    //an endpoint to get the form by race
   
-   app.get("/form", function (req, res) {
+   app.get("/pet_report", function (req, res) {
     pool
       .query("SELECT * FROM form ORDER BY race")
       .then((result) => res.json(result.rows))
@@ -93,7 +117,7 @@ app.post("/form", function (req, res) {
 
   //an endpoint that loads a specific form by ID
 
-  app.get("/form/:formId", function (req, res) {
+  app.get("/pet_report/:pet_reportId", function (req, res) {
     const formId = req.params.formId;
   
     pool
@@ -103,7 +127,7 @@ app.post("/form", function (req, res) {
   });
 
   //An endpoint to update the form(the location of the pet)
-  app.patch("/form/:formId", function (req, res) {
+  app.patch("/pet_report/:pet_reportId", function (req, res) {
     const formId = req.params.formId;
     const petLocation = req.body.location;
   
@@ -115,7 +139,7 @@ app.post("/form", function (req, res) {
 
   //An endpoint to delete form by ID
 
-  app.delete("/form/:formId", function (req, res) {
+  app.delete("/pet_report/:pet_reportId", function (req, res) {
     const formId = req.params.formId;
   
     pool
@@ -142,7 +166,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 app.get('/upload', (req, res) => {
-    res.render("upload")
+    res.render("upload.html")
     
       });
 app.post('/upload', upload.single('image'), (req, res) => {
