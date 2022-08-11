@@ -1,9 +1,9 @@
 import React from 'react';
 
-const UserPage = () => {
+const UserPage = (values) => {
   return (
     <div>
-      <h1>This is the user page!</h1>
+      <h2>Welcome back! </h2>
     </div>
   )
 }

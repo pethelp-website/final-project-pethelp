@@ -85,7 +85,7 @@ const FormSignup = () => {
             <div className="signup-title">
               <h1 className="mt-2">Create an account</h1>
             </div>
-            <Form.Group className="my-3" controlId="formBasicUsername">
+            <Form.Group className="my-2" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
               <Form.Control
                 type="text"
@@ -97,7 +97,7 @@ const FormSignup = () => {
               {errors.name && <p>{errors.name}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicEmail">
+            <Form.Group className="my-2" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -108,7 +108,7 @@ const FormSignup = () => {
               {errors.email && <p>{errors.email}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicCAdress">
+            <Form.Group className="my-2" controlId="formBasicCAdress">
               <Form.Label>Adress</Form.Label>
               <Form.Control
                 type="text"
@@ -119,7 +119,7 @@ const FormSignup = () => {
               {errors.address && <p>{errors.address}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicCity">
+            <Form.Group className="my-2" controlId="formBasicCity">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
@@ -130,7 +130,7 @@ const FormSignup = () => {
               {errors.city && <p>{errors.city}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPostCode">
+            <Form.Group className="my-2" controlId="formBasicPostCode">
               <Form.Label>Postcode</Form.Label>
               <Form.Control
                 type="text"
@@ -141,7 +141,7 @@ const FormSignup = () => {
               {errors.postcode && <p>{errors.postcode}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPhoneNumber">
+            <Form.Group className="my-2" controlId="formBasicPhoneNumber">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="text"
@@ -152,7 +152,7 @@ const FormSignup = () => {
               {errors.phonenumber && <p>{errors.phonenumber}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPassword">
+            <Form.Group className="my-2" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -163,16 +163,13 @@ const FormSignup = () => {
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
 
-            <Button className="my-3" variant="primary" type="submit">
+            <Button className="my-2" variant="primary" type="submit">
               SIGN UP
             </Button>
           </Form>
         </Col>
-
       </Row>
     </Container>
-
-
   )
 
 };
