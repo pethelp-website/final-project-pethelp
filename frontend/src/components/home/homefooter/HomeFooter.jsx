@@ -18,11 +18,10 @@ const HomeFooter = () => {
           display="flex"
           justifyContent="between"
           alignItems="center"
-          className="mx-auto py-4 flex-wrap"
+          className="mx-auto py-3 flex-wrap"
           style={{ width: '80%' }}
         >
           <CDBBox display="flex" alignItems="center">
-
           </CDBBox>
           <CDBBox display="flex" alignItems="center">
             <small className="d-flex align-items-center">&copy; PetHelp, 2022. All rights reserved.</small>

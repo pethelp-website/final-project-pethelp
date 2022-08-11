@@ -3,7 +3,7 @@
 import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
-import { Button, Col, Form, Container, Row } from 'react-bootstrap';
+import { Button, Form, Container } from 'react-bootstrap';
 
 
 function FormLogin() {
@@ -16,10 +16,16 @@ function FormLogin() {
     });
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    //const [isLoggedin, setIsLoggedin] = useState(false); //change state 
 
     useEffect(() => {
         console.log(values, emailError, passwordError)
-    }, [values, emailError, passwordError])
+    }, [values, emailError, passwordError]);
+
+    /*const logout = () => {
+        localStorage.removeItem('token');
+        setIsLoggedin(false);
+    }*/
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,54 +53,53 @@ function FormLogin() {
             .then(response => {
                 setPasswordError(null);
                 if (response.status === 200) {
-                  return response.json();
+                    return response.json();
                 }
                 setPasswordError("Username or password is incorrect");
                 throw Error('error');
             })
             .then((data) => {
                 localStorage.setItem("token", data.jwtToken);
-                navigate("/", { replace: true });
+                //setIsLoggedin(true);
+                navigate("/user-page", { replace: true });
                 console.log(data);
             })
             .catch((error) => {
                 console.log(error)
             });
-            
     };
+
     return (
-        <Container style={{display: 'flex', justifyContent: 'center'}}>
-            <Row>
-                <Col>
-                    <Form onSubmit={handleSubmit}>
-                        <h1 className="mt-4">Login your account</h1>
-                        <Form.Group  className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="my-3">Email address</Form.Label>
-                            <Form.Control
-                                type="email"
-                                placeholder="Enter email"
-                                onChange={e => setValues({ ...values, email: e.target.value })}
-                                values={values.email}
-                                autoFocus
-                            />
-                            {emailError && <div className="error"> {emailError} </div>}
-                        </Form.Group>
-                        <Form.Group className="my-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Password"
-                                onChange={e => setValues({ ...values, password: e.target.value })}
-                                value={values.password}
-                            />
-                            {passwordError && <div className="error"> {passwordError} </div>}
-                        </Form.Group>
-                        <Button  variant="primary" type="submit" value="Login" className="my-3" >
-                            LOGIN
-                        </Button>
-                    </Form>
-                </Col>
-            </Row>
+        <Container style={{ display: 'flex', justifyContent: 'center' }}>
+            <div>
+                <Form onSubmit={handleSubmit}>
+                    <h1 className="mt-4">Login your account</h1>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className="my-2">Email address</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            onChange={e => setValues({ ...values, email: e.target.value })}
+                            values={values.email}
+                            autoFocus
+                        />
+                        {emailError && <div className="error"> {emailError} </div>}
+                    </Form.Group>
+                    <Form.Group className="my-2" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Password"
+                            onChange={e => setValues({ ...values, password: e.target.value })}
+                            value={values.password}
+                        />
+                        {passwordError && <div className="error"> {passwordError} </div>}
+                    </Form.Group>
+                    <Button variant="primary" type="submit" value="Login" className="my-3" >
+                        LOGIN
+                    </Button>
+                </Form>
+            </div>
         </Container>
 
     )
