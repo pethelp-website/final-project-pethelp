@@ -1,6 +1,5 @@
 //Here we have all codes that we can import and reuse it.
 
-
 export async function sign_up({
     name,
     email,
@@ -25,7 +24,16 @@ export async function sign_up({
             phonenumber,
         })
     }).then(response => response.json());
+
+
 };
+
+
+export function isLoggedIn(){
+
+
+    return getAuthenticatedUser() != null;
+}
 
 export function getAuthenticatedUser() {
     const user = localStorage.getItem("token");
