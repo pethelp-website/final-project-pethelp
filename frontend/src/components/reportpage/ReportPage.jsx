@@ -3,20 +3,22 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import { Container } from 'react-bootstrap';
+import loginService from "../../services/loginService";
 
 
 const ReportPage = () => {
   let navigate = useNavigate();
 
   const [values, setValues] = useState({
-    name: "",
-    pettype: "",
-    petcolor: "",
-    petrace: "",
-    location: "",
-    sheltername: "",
-    image: ""
+    userName: "",
+    petType: "",
+    petColor: "",
+    petRace: "",
+    shelterName: "",
+    photo: ""
   });
+
+  const [errors, setErrors] = useState();
 
 
   useEffect(() => {
@@ -27,15 +29,20 @@ const ReportPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("https://run.mocky.io/v3/e6c1e99e-557a-49c7-bc7c-dd44c1c66531", {
+    if (!loginService.isLoggedIn()) {
+      setErrors("Login required to submit this form");
+      return;
+    }
+
+
+    fetch("http://localhost:3000/pet/report", {
       method: "POST",
       body: JSON.stringify({
-        name: values.name,
-        pettype: values.pettype,
-        petcolor: values.petcolor,
-        petrace: values.petrace,
-        location: values.location,
-        sheltername: values.sheltername, 
+        userName: values.userName,
+        petType: values.petType,
+        petColor: values.petColor,
+        petRace: values.petRace,
+        shelterName: values.shelterName,
       })
     })
       .then(response => {
@@ -56,10 +63,10 @@ const ReportPage = () => {
 
         <h1 className="mt-3">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Full typename</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, name: e.target.value })}
-            values={values.name}
+            onChange={e => setValues({ ...values, userName: e.target.value })}
+            values={values.userName}
             autoFocus
             required
           />
@@ -67,8 +74,8 @@ const ReportPage = () => {
         <Form.Group className="mb-2" controlId="formBasicpettype">
           <Form.Label>Pet type</Form.Label>
           <Form.Select
-            onChange={e => setValues({ ...values, pettype: e.target.value })}
-            values={values.pettype}
+            onChange={e => setValues({ ...values, PetType: e.target.value })}
+            values={values.petType}
             required
           >
             <option key='blankChoice' hidden value>Select an option</option>
@@ -79,38 +86,32 @@ const ReportPage = () => {
         <Form.Group className="mb-2" controlId="formBasicpetcolor">
           <Form.Label>Pet color</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, petcolor: e.target.value })}
-            values={values.petcolor}
+            onChange={e => setValues({ ...values, petColor: e.target.value })}
+            values={values.petColor}
             required
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="formBasicrace">
           <Form.Label>Pet race</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, petrace: e.target.value })}
-            values={values.petrace}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-2" controlId="formBasicrace">
-          <Form.Label>Location</Form.Label>
-          <Form.Control type="text"
-            onChange={e => setValues({ ...values, location: e.target.value })}
-            values={values.location}
+            onChange={e => setValues({ ...values, petRace: e.target.value })}
+            values={values.race}
             required
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="formBasicrace">
           <Form.Label>Shelter name</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, sheltername: e.target.value })}
-            values={values.sheltername}
+            onChange={e => setValues({ ...values, shelterName: e.target.value })}
+            values={values.shelterName}
           />
         </Form.Group>
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Upload Pet Image</Form.Label>
+
           <Form.Control type="file" />
         </Form.Group>
+        {errors && <div>{errors}</div>}
         <Button variant="primary" type="submit">
           Submit
         </Button>

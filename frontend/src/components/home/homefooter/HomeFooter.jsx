@@ -1,5 +1,3 @@
-//Isha´s code!
-
 import React from 'react';
 import { CDBFooter} from 'cdbreact';
 import { CDBBox } from 'cdbreact';
@@ -7,6 +5,7 @@ import "./HomeFooter.scss";
 import faceLogo from "../../../images/facebook (3).png";
 import instaLogo from "../../../images/instagram (1).png";
 import twitterLogo from "../../../images/twitter.png";
+
 
 
 const HomeFooter = () => {

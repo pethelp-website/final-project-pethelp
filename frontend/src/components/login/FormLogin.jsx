@@ -1,5 +1,3 @@
-//Isha´s code
-
 import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
@@ -56,7 +54,7 @@ function FormLogin() {
                 throw Error('error');
             })
             .then((data) => {
-                localStorage.setItem("token", data.jwtToken);
+                localStorage.setItem("token", JSON.stringify(data));
                 navigate("/user-page", { replace: true });
                 console.log(data);
             })
