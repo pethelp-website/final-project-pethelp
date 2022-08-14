@@ -1,5 +1,3 @@
-//Isha´s code
-
 import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
@@ -14,18 +12,15 @@ function FormLogin() {
         email: "",
         password: "",
     });
+    
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    //const [isLoggedin, setIsLoggedin] = useState(false); //change state 
+   
 
     useEffect(() => {
         console.log(values, emailError, passwordError)
     }, [values, emailError, passwordError]);
 
-    /*const logout = () => {
-        localStorage.removeItem('token');
-        setIsLoggedin(false);
-    }*/
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -59,8 +54,7 @@ function FormLogin() {
                 throw Error('error');
             })
             .then((data) => {
-                localStorage.setItem("token", data.jwtToken);
-                //setIsLoggedin(true);
+                localStorage.setItem("token", JSON.stringify(data));
                 navigate("/user-page", { replace: true });
                 console.log(data);
             })
@@ -72,7 +66,7 @@ function FormLogin() {
     return (
         <Container style={{ display: 'flex', justifyContent: 'center' }}>
             <div>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} className="form-login">
                     <h1 className="mt-4">Login your account</h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="my-2">Email address</Form.Label>

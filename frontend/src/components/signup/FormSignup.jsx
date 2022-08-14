@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Col, Row, Form, Button } from 'react-bootstrap/';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import loginService from '../../services/login'
+import loginService from '../../services/loginService'
 import validateInfo from "../../services/password-validation";
 import { useEffect } from "react";
 import "./FormSignup.scss";
@@ -83,7 +83,7 @@ const FormSignup = () => {
         <Col id="signup-form" className="p-4">
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
-              <h1 className="mt-2">Create an account</h1>
+              <h1 className="mt-1">Create an account</h1>
             </div>
             <Form.Group className="my-2" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
