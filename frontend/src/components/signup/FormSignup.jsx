@@ -3,7 +3,7 @@ import { Container, Col, Row, Form, Button } from 'react-bootstrap/';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import loginService from '../../services/loginService'
-import validateInfo from "../../services/password-validation";
+import validateInfo from "../../services/validateInfo";
 import { useEffect } from "react";
 import "./FormSignup.scss";
 
@@ -50,14 +50,17 @@ const FormSignup = () => {
 
     loginService.sign_up(formData)
       .then(data => {
-        localStorage.setItem("token", JSON.stringify(data));
-        navigate("/", { replace: true });
-        console.log(data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+        if (data.error === "User already exist!") {
+          setErrors({
+            userAlreadyExists: "User already exists!",
+          })
+          return;
+        }
+        navigate("/login", { replace: true });
+        
+      });
   }, [errors, isSubmitted, values, navigate]);
+
 
 
   const handleChange = (e) => {
@@ -73,6 +76,7 @@ const FormSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const validatedErrors = validateInfo(values);
+    
     setErrors(validatedErrors);
     setSubmitted(true);
   }
@@ -162,7 +166,7 @@ const FormSignup = () => {
               />
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
-
+            {errors.userAlreadyExists && <p>{errors.userAlreadyExists}</p>} 
             <Button className="my-2" variant="primary" type="submit">
               SIGN UP
             </Button>
