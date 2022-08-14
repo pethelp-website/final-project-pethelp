@@ -1,6 +1,39 @@
-.navbar {
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-    position:block;
-}
+// .navbar {
+//     background-color: rgba(0,0,0,0.8);
+//     color: white;
+//     position:block;
+// }
 
+
+@import '../../../style/style.scss';
+
+.navbar{
+    background-image:linear-gradient(45deg, $old-rose,lighten($chestnut,30%));
+    padding: 5rem 0rem;
+    // height:13rem;
+
+
+    &__title{
+        font-size: 3rem;
+        color:$chestnut;
+        font-weight: 400;
+        &:hover,
+        &:focus{
+            color:$chestnut;
+        }
+    }
+
+    &__logo{
+        height: 4rem;
+        padding-right:3rem;
+    }
+
+    &__logIn{
+        font-size: 3rem;
+    }
+
+    &__signUp{
+        font-size: 3rem;
+
+    }
+}
