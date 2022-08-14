@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import loginService from "../../services/loginService";
+import ReportMessage from "./ReportMessage";
 
 
 const ReportPage = () => {
@@ -49,7 +50,7 @@ const ReportPage = () => {
         console.log(response)
       })
       .then(data => {
-        navigate("/", { replace: true });
+        navigate("/report-message", { replace: true });
         console.log(data)
       })
       .catch((error) => {
@@ -63,7 +64,7 @@ const ReportPage = () => {
 
         <h1 className="mt-3">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
-          <Form.Label>Full typename</Form.Label>
+          <Form.Label>Full name</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, userName: e.target.value })}
             values={values.userName}

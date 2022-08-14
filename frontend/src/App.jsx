@@ -9,6 +9,7 @@ import AdmPage from "./components/userspage/adm/AdmPage";
 import UserPage from "./components/userspage/user/UserPage.jsx";
 import ReportPage from "../src/components/reportpage/ReportPage";
 import MissingPage from "../src/components/missingpage/MissingPage";
+import ReportMessage from "../src/components/reportpage/ReportMessage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.scss";
@@ -40,6 +41,8 @@ function App() {
             <Route path="/report-page" element={<ReportPage />}>
             </Route>
             <Route path="/missing-page" element={<MissingPage />}>
+            </Route>
+            <Route path="/report-message" element={<ReportMessage />}>
             </Route>
           </Routes>
         </div>
