@@ -24,7 +24,7 @@ export default function validateInfo(values) {
     if (!values.name.trim()) {
         errors.name = "Username is required";
     } else if (!userNameValidation.test(values.name)) {
-        errors.name = "Minimum 4 characters long"
+        errors.name = "Invalid username"
     };
 
 
