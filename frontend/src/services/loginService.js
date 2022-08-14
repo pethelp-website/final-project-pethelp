@@ -26,8 +26,6 @@ export async function sign_up({
             phonenumber,
         })
     }).then(response => response.json());
-
-
 };
 
 
@@ -60,13 +58,15 @@ export function getAuthenticatedUser() {
     } else {
         return JSON.parse(user);
     }
-}
+};
+
 
 const exports = {
     sign_up,
     getAuthenticatedUser,
     isLoggedIn,
     logout
-}
+};
+
 export default exports;
 

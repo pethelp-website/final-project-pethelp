@@ -1,21 +1,28 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import loginService from "../../../services/loginService";
 import "./HomeHeader.scss";
 import logo from "../../../images/logo.png";
 import { Link } from "react-router-dom";
-import loginService from "../../../services/loginService"
 import { useNavigate } from "react-router-dom";
+
+
 
 function HomeHeader() {
   let navigate = useNavigate();
 
+  //remove auth token
   const endLoginSession = () => {
     loginService.logout()
       .then(data => {
         navigate("/login", { replace: true });
         console.log(data);
       })
-    };
+  };
+
+
+  //function from services checks if user is logged in
+  const isLoggedIn = loginService.isLoggedIn();
 
   return (
     <div>
@@ -34,9 +41,9 @@ function HomeHeader() {
           <Nav id="nav-links">
             <Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link>
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
-            <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>
-            <Nav.Link as={Link} to={"/sign-up"}>Signup</Nav.Link>
-            <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>
+            {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
+            {!isLoggedIn && <Nav.Link as={Link} to={"/sign-up"}>Signup</Nav.Link>}
+            {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
