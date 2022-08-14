@@ -22,7 +22,7 @@ function HomeHeader() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Nav id="nav-links">
+            <Nav id="nav-links" >
               <Nav.Link as={Link} to={"/login"} classname='navbar__logIn' >Login</Nav.Link>
               <Nav.Link as={Link} to={"/sign-up"} className='navbar__signUp'>Signup</Nav.Link>
             </Nav>

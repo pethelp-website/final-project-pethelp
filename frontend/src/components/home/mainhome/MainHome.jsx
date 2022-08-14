@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import adoptPhoto from "../../../images/adoptImage.jpg";
 import reportPhoto from "../../../images/reportImg.jpg";
 import "./MainHome.scss";
+import '../../../style/style.scss';
 
 
 const MainHome = () => {
@@ -28,7 +29,7 @@ const MainHome = () => {
                 If you have found a stray pet, you can submit your report to our database, 
                 and help them reunite with their family.
                 </Card.Text>
-                <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
+                <Button variant="primary" className='button' as={Link} to={"/report-page"}>Click here</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -42,7 +43,7 @@ const MainHome = () => {
                 Lost a pet and are looking to be reunited with them? See our list of lost animals 
                 found, and where they are at now.
                 </Card.Text>
-                <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
+                <Button variant="primary" className='main-button button' as={Link} to={"/missing-page"}>Click here</Button>
               </Card.Body>
             </Card>
           </Col>

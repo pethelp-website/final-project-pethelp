@@ -89,7 +89,7 @@ function FormLogin() {
                             />
                             {passwordError && <div className="error"> {passwordError} </div>}
                         </Form.Group>
-                        <Button  variant="primary" type="submit" value="Login" className="my-3" >
+                        <Button  variant="primary" type="submit" value="Login" className="my-3 button" >
                             LOGIN
                         </Button>
                     </Form>

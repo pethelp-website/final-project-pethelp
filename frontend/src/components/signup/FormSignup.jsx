@@ -163,7 +163,7 @@ const FormSignup = () => {
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
 
-            <Button className="my-3" variant="primary" type="submit">
+            <Button className="my-3 button" variant="primary" type="submit">
               SIGN UP
             </Button>
           </Form>
