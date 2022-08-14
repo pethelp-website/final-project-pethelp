@@ -1,10 +1,10 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import {Col} from 'react-bootstrap';
 
 const ReportMessage = () => {
   return (
     <Col style={{ display: 'flex', justifyContent: 'center' }}>
-    <Row>Thanks for submit the form!</Row>
+    <h3 className="mt-5">Your request has been successfully registered.</h3>
     </Col>
   )
 }

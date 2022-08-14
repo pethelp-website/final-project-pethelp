@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import loginService from "../../services/loginService";
-import ReportMessage from "./ReportMessage";
 
 
 const ReportPage = () => {
