@@ -1,11 +1,12 @@
 import React from 'react';
-import HomeHeader from "./homeheader/HomeHeader";
+import MainHome from './mainhome/MainHome';
+
 
 const HomePage = () => {
   
   return (
     <div className="form-content-right">
-        <HomeHeader />
+        <MainHome />
        
     </div>
   )
