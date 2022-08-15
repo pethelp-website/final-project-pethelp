@@ -7,7 +7,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'petdatabase',
-  password: 'Generations39',
+  password: '',
   port: 5432
 });
 
@@ -39,27 +39,6 @@ app.get("/form", function (req, res) {
   //res.json({Message:".test"})
 });
 
-/*// An endpoint to create a new form for the database
-app.post("/form", function (req, res) {
-    const petFinderName = req.body.name;
-    const petFinderEmail = req.body.email;
-    const petFinderPhoneNumber = req.body.phoneNumber;
-    const petFinderPostcode = req.body.postCode;
-    const newPetType = req.body.petType;
-    const petRace = req.body.race;
-    const petColor = req.body.color;
-    const petLocation = req.body.location;
-    const nameOfShelter = req.body.shelter;
-    const locationOfShelter = req.body.shelterLocation;
-  
-    const query =
-      "INSERT INTO forms (name, email, phoneNumber,postCode, petType, race, color, location, shelter, shelterLocation) VALUES ($1, $2, $3,$4, $5, $6, $7, $8, $9, $10)";
-  
-    pool
-      .query(query, [petFinderName, petFinderEmail, petFinderPhoneNumber,petFinderPostcode, newPetType, petRace, petColor, petLocation, nameOfShelter, locationOfShelter])
-      .then(() => res.send("Found lost pet form created!"))
-      .catch((e) => console.error(e));
-  });*/
 
 // An endpoint to create a new form for the database(Usman)
 app.post("/pet_report", function (req, res) {
