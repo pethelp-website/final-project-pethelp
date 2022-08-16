@@ -1,3 +1,13 @@
-#subtitle {
-    font-size: 25px;
+@import '../../../style/style.scss';
+.text-content{
+    margin-bottom:2rem;
+    color: $charcoal;
+}
+.row{
+    height: 97vh;
+}
+.first-col{
+    font-size: larger;
+    background-color: rgb(250, 215, 221);
+    
 }

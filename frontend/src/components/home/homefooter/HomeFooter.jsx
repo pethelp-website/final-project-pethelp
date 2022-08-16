@@ -1,3 +1,7 @@
+
+//Isha´s code!
+import '../../../style/style.scss';
+
 import React from 'react';
 import { CDBFooter} from 'cdbreact';
 import { CDBBox } from 'cdbreact';
@@ -10,25 +14,29 @@ import twitterLogo from "../../../images/twitter.png";
 
 const HomeFooter = () => {
   return (
-    <div id="container">
+    <div  id="container">
 
-      <CDBFooter className="shadow fixed-bottom" id="footer">
+      <CDBFooter className="shadow float-bottom footer" id="footer">
         <CDBBox
           display="flex"
           justifyContent="between"
           alignItems="center"
+
+          className="mx-auto py-4 flex-wrap footer_content"
+
           className="mx-auto py-3 flex-wrap"
+
           style={{ width: '80%' }}
         >
           <CDBBox display="flex" alignItems="center">
           </CDBBox>
-          <CDBBox display="flex" alignItems="center">
+          <CDBBox display="flex" className='footer__text' alignItems="center">
             <small className="d-flex align-items-center">&copy; PetHelp, 2022. All rights reserved.</small>
           </CDBBox>
           <CDBBox display="flex">
 
 
-          <CDBBox display="flex"  className="p-2">
+          <CDBBox display="flex"  className="p-2 footer__icon--facebook">
           <a href="https://www.facebook.com/" target="blank" className="d-flex align-items-end p-0">
             <img
               alt="face-logo"
@@ -37,7 +45,7 @@ const HomeFooter = () => {
             />
           </a>
         </CDBBox>
-        <CDBBox display="flex"  className="p-2">
+        <CDBBox display="flex"  className="p-2 footer__icon--ins">
           <a href= "https://www.instagram.com/" target="blank" className="d-flex align-items-end p-0">
             <img
               alt="insta-logo"
@@ -47,7 +55,7 @@ const HomeFooter = () => {
           </a>
         </CDBBox>
 
-        <CDBBox display="flex"  className="p-2">
+        <CDBBox display="flex"  className="p-2 footer__icon--twitter">
           <a href="https://www.twitter.com/" target="blank" className="d-flex align-items-end p-0">
             <img
               alt="twitter-logo"
