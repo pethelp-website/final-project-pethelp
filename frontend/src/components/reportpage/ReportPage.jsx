@@ -11,7 +11,7 @@ const ReportPage = () => {
 
   const [values, setValues] = useState({
     userName: "",
-    petType: "",
+    type: "",
     petColor: "",
     petRace: "",
     shelterName: "",
@@ -39,7 +39,7 @@ const ReportPage = () => {
       method: "POST",
       body: JSON.stringify({
         userName: values.userName,
-        petType: values.petType,
+        type: values.type,
         petColor: values.petColor,
         petRace: values.petRace,
         shelterName: values.shelterName,
@@ -74,8 +74,8 @@ const ReportPage = () => {
         <Form.Group className="mb-2" controlId="formBasicpettype">
           <Form.Label>Pet type</Form.Label>
           <Form.Select
-            onChange={e => setValues({ ...values, PetType: e.target.value })}
-            values={values.petType}
+            onChange={e => setValues({ ...values, type: e.target.value })}
+            values={values.type}
             required
           >
             <option key='blankChoice' hidden value>Select an option</option>
@@ -87,7 +87,7 @@ const ReportPage = () => {
           <Form.Label>Pet color</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, petColor: e.target.value })}
-            values={values.petColor}
+            values={values.color}
             required
           />
         </Form.Group>
