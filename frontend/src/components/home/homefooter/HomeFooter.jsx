@@ -1,5 +1,7 @@
+
 //Isha´s code!
 import '../../../style/style.scss';
+
 import React from 'react';
 import { CDBFooter} from 'cdbreact';
 import { CDBBox } from 'cdbreact';
@@ -7,6 +9,7 @@ import "./HomeFooter.scss";
 import faceLogo from "../../../images/facebook (3).png";
 import instaLogo from "../../../images/instagram (1).png";
 import twitterLogo from "../../../images/twitter.png";
+
 
 
 const HomeFooter = () => {
@@ -18,11 +21,14 @@ const HomeFooter = () => {
           display="flex"
           justifyContent="between"
           alignItems="center"
+
           className="mx-auto py-4 flex-wrap footer_content"
+
+          className="mx-auto py-3 flex-wrap"
+
           style={{ width: '80%' }}
         >
           <CDBBox display="flex" alignItems="center">
-
           </CDBBox>
           <CDBBox display="flex" className='footer__text' alignItems="center">
             <small className="d-flex align-items-center">&copy; PetHelp, 2022. All rights reserved.</small>

@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Col, Row, Form, Button } from 'react-bootstrap/';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import loginService from '../../services/login'
-import validateInfo from "../../services/password-validation";
+import loginService from '../../services/loginService'
+import validateInfo from "../../services/validateInfo";
 import { useEffect } from "react";
 import "./FormSignup.scss";
 
@@ -50,14 +50,17 @@ const FormSignup = () => {
 
     loginService.sign_up(formData)
       .then(data => {
-        localStorage.setItem("token", JSON.stringify(data));
-        navigate("/", { replace: true });
-        console.log(data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+        if (data.error === "User already exist!") {
+          setErrors({
+            userAlreadyExists: "User already exists!",
+          })
+          return;
+        }
+        navigate("/login", { replace: true });
+        
+      });
   }, [errors, isSubmitted, values, navigate]);
+
 
 
   const handleChange = (e) => {
@@ -73,6 +76,7 @@ const FormSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const validatedErrors = validateInfo(values);
+    
     setErrors(validatedErrors);
     setSubmitted(true);
   }
@@ -83,9 +87,9 @@ const FormSignup = () => {
         <Col id="signup-form" className="p-4">
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
-              <h1 className="mt-2">Create an account</h1>
+              <h1 className="mt-1">Create an account</h1>
             </div>
-            <Form.Group className="my-3" controlId="formBasicUsername">
+            <Form.Group className="my-2" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
               <Form.Control
                 type="text"
@@ -97,7 +101,7 @@ const FormSignup = () => {
               {errors.name && <p>{errors.name}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicEmail">
+            <Form.Group className="my-2" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -108,7 +112,7 @@ const FormSignup = () => {
               {errors.email && <p>{errors.email}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicCAdress">
+            <Form.Group className="my-2" controlId="formBasicCAdress">
               <Form.Label>Adress</Form.Label>
               <Form.Control
                 type="text"
@@ -119,7 +123,7 @@ const FormSignup = () => {
               {errors.address && <p>{errors.address}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicCity">
+            <Form.Group className="my-2" controlId="formBasicCity">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
@@ -130,7 +134,7 @@ const FormSignup = () => {
               {errors.city && <p>{errors.city}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPostCode">
+            <Form.Group className="my-2" controlId="formBasicPostCode">
               <Form.Label>Postcode</Form.Label>
               <Form.Control
                 type="text"
@@ -141,7 +145,7 @@ const FormSignup = () => {
               {errors.postcode && <p>{errors.postcode}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPhoneNumber">
+            <Form.Group className="my-2" controlId="formBasicPhoneNumber">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="text"
@@ -152,7 +156,7 @@ const FormSignup = () => {
               {errors.phonenumber && <p>{errors.phonenumber}</p>}
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="formBasicPassword">
+            <Form.Group className="my-2" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -164,15 +168,15 @@ const FormSignup = () => {
             </Form.Group>
 
             <Button className="my-3 button" variant="primary" type="submit">
+            {errors.userAlreadyExists && <p>{errors.userAlreadyExists}</p>} 
+            <Button className="my-2" variant="primary" type="submit">
+
               SIGN UP
             </Button>
           </Form>
         </Col>
-
       </Row>
     </Container>
-
-
   )
 
 };

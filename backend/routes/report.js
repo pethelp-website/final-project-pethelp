@@ -20,7 +20,7 @@ const report = express.Router(); // we create a new router using express's inbui
     "photo": "img/pet1.jpg" 
 }
  */
-report.post("/report", async (req, res) => {
+/*report.post("/report", async (req, res) => {
   const {
     username,
     petType,
@@ -63,7 +63,7 @@ report.post("/report", async (req, res) => {
     "photo": "img/pet1.jpg"
 }
  */
-report.get("/report", async (req, res) => {
+/*report.get("/report", async (req, res) => {
   try {
     let response = {
       status: "OK", // could be OK or KO
@@ -90,6 +90,7 @@ report.get("/report", async (req, res) => {
     console.error(error.message);
     res.status(500).send({ status: "KO", status_description: error.message });
   }
-});
+});*/
+
 
 module.exports = report; // we need to export this router to implement it inside our server.js file
