@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import adoptPhoto from "../../../images/adoptImage.jpg";
 import reportPhoto from "../../../images/reportImg.jpg";
 import "./MainHome.scss";
+import loginService from "../../../services/loginService";
 
 
 const MainHome = () => {
-
+  const isLoggedIn = loginService.isLoggedIn();
+  
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -17,9 +19,9 @@ const MainHome = () => {
         <h2 className="mt-1" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
       </div>
       <Container className="container">
-        <Row style={{ display: 'flex', justifyContent: 'center' }}>
+      <Row style={{ display: 'flex', justifyContent: 'center' }}>
           <Col md={4}>
-            <Card style={{ width: '18rem' }} className="mt-5 mb-4">
+          {isLoggedIn &&<Card style={{ width: '18rem' }} className="mt-5 mb-4">
               <Card.Img variant="top" src={reportPhoto} />
               <Card.Body >
                 <Card.Title>Report a found pet</Card.Title>
@@ -29,7 +31,7 @@ const MainHome = () => {
                 </Card.Text>
                 <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
               </Card.Body>
-            </Card>
+            </Card> }
           </Col>
 
           <Col md={4}>
