@@ -5,12 +5,13 @@ const user = require("./routes/user");
 const report = require("./routes/report");
 
 // initializing express application
+const app = express();
 
 // parse request of content-type - application/json
 app.use(express.json());
 
 const corsOptions = {
-    origin: "http://localhost:3000"
+    origin: "http://localhost:4000"
 };
 app.use(cors(corsOptions)); // enable CORS
 
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 app.use("/user", user);
 app.use("/pet", report);
 
-const cors = require("cors");
+
 const { Pool } = require("pg");
 //const bodyParser = require("body-parser")
 
@@ -29,14 +30,13 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'petdatabase',
-  password: '',
+  password: 'Generations39',
   port: 5432
 });
 
 pool.connect()
 
-// initializing express application
-const app = express();
+
 
 // parse requests of content-type - application/json
 app.use(express.json());
