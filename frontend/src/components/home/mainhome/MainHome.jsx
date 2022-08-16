@@ -11,12 +11,14 @@ const MainHome = () => {
   //split the h1 title 
   
   return (
-    <div>
+    <div >
+      <div className="text-content">
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h1 className="mt-5">Find your lost pet</h1>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <h2 className="mt-1" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
+      </div>
       </div>
       <Container>
         <Row className="row" style={{display: 'flex', justifyContent: 'center'}}>

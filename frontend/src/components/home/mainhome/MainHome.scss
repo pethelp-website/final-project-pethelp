@@ -1,9 +1,13 @@
-// .button{
-//     height:20rem;
-// }
-
+@import '../../../style/style.scss';
+.text-content{
+    margin-bottom:2rem;
+    color: $charcoal;
+}
+.row{
+    height: 97vh;
+}
 .first-col{
     font-size: larger;
-    background-color: antiquewhite;
+    background-color: rgb(250, 215, 221);
     
 }
