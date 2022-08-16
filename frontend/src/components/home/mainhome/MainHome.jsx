@@ -19,7 +19,11 @@ const MainHome = () => {
         <h2 className="mt-1" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
       </div>
       <Container>
-        <Row style={{display: 'flex', justifyContent: 'center'}}>
+        <Row className="row" style={{display: 'flex', justifyContent: 'center'}}>
+          <div className="col-1-of-2 first-col">
+            any content/column of 2- can be adjusted to more columns
+          </div>
+          <div className="col-1-of-2">
           <Col md={4}>
             <Card style={{ width: '18rem' }} className="mt-5 mb-4">
               <Card.Img variant="top" src={reportPhoto} />
@@ -47,6 +51,7 @@ const MainHome = () => {
               </Card.Body>
             </Card>
           </Col>
+          </div>
         </Row>
       </Container>
     </div>
