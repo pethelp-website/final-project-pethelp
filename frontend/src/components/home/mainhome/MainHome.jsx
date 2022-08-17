@@ -11,26 +11,9 @@ const MainHome = () => {
 
   return (
 
-    <div >
-      <div className="text-content">
-      <div style={{display: 'flex', justifyContent: 'center'}}>
 
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-
-        <h1 className="mt-5">Find your lost pet</h1>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h2 className="mt-1" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
-      </div>
-
-      </div>
-      <Container>
-        <Row className="row" style={{display: 'flex', justifyContent: 'center'}}>
-          <div className="col-1-of-2 first-col">
-            any content/column of 2- can be adjusted to more columns
-          </div>
-          <div className="col-1-of-2">
+      
+         
 
       <Container className="container">
         <Row style={{ display: 'flex', justifyContent: 'center' }}>
@@ -48,6 +31,7 @@ const MainHome = () => {
               </Card.Body>
             </Card>
           </Col>
+          
 
           <Col md={4}>
             <Card style={{ width: '18rem' }} className="mt-5 mb-4">
@@ -62,10 +46,10 @@ const MainHome = () => {
               </Card.Body>
             </Card>
           </Col>
-          </div>
-        </Row>
-      </Container>
-    </div>
+          </Row>
+          </Container>
+      
+
 
 
   )

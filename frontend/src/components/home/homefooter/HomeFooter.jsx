@@ -22,9 +22,9 @@ const HomeFooter = () => {
           justifyContent="between"
           alignItems="center"
 
-          className="mx-auto py-4 flex-wrap footer_content"
+          className="mx-auto py-4 flex-wrap footer_content py-3"
 
-          className="mx-auto py-3 flex-wrap"
+          // className="mx-auto  flex-wrap"
 
           style={{ width: '80%' }}
         >

@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, Container } from 'react-bootstrap';
+import { Button, Row,Col,Form, Container } from 'react-bootstrap';
 
 
 function FormLogin() {
@@ -64,7 +64,7 @@ function FormLogin() {
     };
 
     return (
-
+<div>
         <Container style={{display: 'flex', justifyContent: 'center'}}>
             <Row>
                 <Col>
@@ -97,9 +97,11 @@ function FormLogin() {
                     </Form>
                 </Col>
             </Row>
+            </Container>
+
 
         <Container style={{ display: 'flex', justifyContent: 'center' }}>
-            <div>
+          
                 <Form onSubmit={handleSubmit} className="form-login">
                     <h1 className="mt-4">Login your account</h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -127,10 +129,10 @@ function FormLogin() {
                         LOGIN
                     </Button>
                 </Form>
-            </div>
+      
 
         </Container>
-
+        </div>
     )
 }
 
