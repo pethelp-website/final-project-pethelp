@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-    origin: "http://localhost:4000"
+    origin: "http://localhost:3000"
 };
 app.use(cors(corsOptions)); // enable CORS
 
