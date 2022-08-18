@@ -12,12 +12,11 @@ const MainHome = () => {
 
   return (
     <div>
-      <Carousel className="carousel" variant="dark">
-      <Carousel.Item className="item" md={4}>
+      <Carousel className="carousel" variant="dark" interval={10000}>
+        <Carousel.Item className="item" md={4}>
           <Carousel.Caption className="carousel-caption">
             <h2 className="h2-text" id="subtitle">Browse lost pets or report about a found one.</h2>
-            <p>Lost a pet and are looking to be reunited with them? See our list of lost animals
-              found, and where they are at now</p>
+            <p>Lost a pet and is looking for it? See our list of lost animals found.</p>
             <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
           </Carousel.Caption>
           <img
@@ -27,8 +26,8 @@ const MainHome = () => {
             alt="First slide"
           />
         </Carousel.Item>
-       
-        {isLoggedIn &&<Carousel.Item className="item">
+
+        {isLoggedIn && <Carousel.Item className="item">
           <img
             className="d-block w-100"
             src={findPet}
@@ -36,8 +35,7 @@ const MainHome = () => {
           />
           <Carousel.Caption className="carousel-caption">
             <h2 className="h2-text">Report a found pet</h2>
-            <p>If you have found a stray pet, you can submit your report to our database,
-              and help them reunite with their family.</p>
+            <p>If you have found a lost pet, submit your report here.</p>
             <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
           </Carousel.Caption>
         </Carousel.Item> }
