@@ -11,18 +11,14 @@ const MainHome = () => {
 
   return (
 
-
-      
-         
-
       <Container className="container">
         <Row style={{ display: 'flex', justifyContent: 'center' }}>
 
           <Col md={4}>
-            <Card style={{ width: '18rem' }} className="mt-5 mb-4">
+            <Card style={{ width: '23rem' }} className="mt-5 mb-4">
               <Card.Img variant="top" src={reportPhoto} />
               <Card.Body >
-                <Card.Title>Report a found pet</Card.Title>
+                <Card.Title className='heading-tertiary'>Report a found pet</Card.Title>
                 <Card.Text>
                   If you have found a stray pet, you can submit your report to our database,
                   and help them reunite with their family.
@@ -34,10 +30,10 @@ const MainHome = () => {
           
 
           <Col md={4}>
-            <Card style={{ width: '18rem' }} className="mt-5 mb-4">
+            <Card style={{ width: '23rem' }} className="mt-5 mb-4">
               <Card.Img variant="top" src={adoptPhoto} />
               <Card.Body>
-                <Card.Title>Find your lost pet</Card.Title>
+                <Card.Title className='heading-tertiary'>Find your lost pet</Card.Title>
                 <Card.Text>
                   Lost a pet and are looking to be reunited with them? See our list of lost animals
                   found, and where they are at now.
