@@ -30,15 +30,11 @@
         padding:0 4rem;
     }
 
-    // &__text {
-    //     font-size: x-large;
-    //     padding-right: 3rem;
-    //     transition: all 0.4s;
-    //     }
+    &__text {
+        font-size: x-large;
+        padding-right: 3rem;
+        transition: all 0.4s;
+        }
 
-nav.link{
-    font-size: 13rem;
-    &:hover,
-    &:focus
-        {transform: rotateX(4deg);} 
-}}
+
+}
