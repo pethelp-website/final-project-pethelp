@@ -67,7 +67,7 @@ function FormLogin() {
         <Container style={{ display: 'flex', justifyContent: 'center' }}>
             <div>
                 <Form onSubmit={handleSubmit} className="form-login">
-                    <h1 className="mt-4">Login your account</h1>
+                    <h2 className="mt-4">Login your account</h2>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="my-2">Email address</Form.Label>
                         <Form.Control
