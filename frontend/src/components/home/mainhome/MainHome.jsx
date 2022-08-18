@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, Row, Container, Col, Carousel } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import reportPhoto from "../../../images/reportImg.jpg";
-import findPet from "../../../images/FindPet.jpg";
+import lostImg from "../../../images/lostImg.jpg";
+import findPet from "../../../images/REPORT.jpg";
 import "./MainHome.scss";
 import loginService from "../../../services/loginService";
 
@@ -16,7 +16,7 @@ const MainHome = () => {
         <Row style={{ display: 'flex', justifyContent: 'center' }}>
           <Col md={4}>
             {isLoggedIn && <Card style={{ width: '18rem' }} className="mt-5 mb-4">
-              <Card.Img variant="top" src={reportPhoto} />
+              <Card.Img variant="top" src={lostImg} />
               <Card.Body >
                 <Card.Title>Report a found pet</Card.Title>
                 <Card.Text>
@@ -33,7 +33,7 @@ const MainHome = () => {
       <Carousel className="carousel" variant="dark">
         <Carousel.Item className="item" md={4}>
           <Carousel.Caption className="carousel-caption">
-            <h2 className="h2-text" id="subtitle">Browse lost pets from our network or inform us about a found one.</h2>
+            <h2 className="h2-text" id="subtitle">Browse lost pets or report about a found one.</h2>
             <p>Lost a pet and are looking to be reunited with them? See our list of lost animals
               found, and where they are at now</p>
             <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
@@ -41,7 +41,7 @@ const MainHome = () => {
           <img
             md={4}
             className="d-block w-100 "
-            src={reportPhoto}
+            src={lostImg}
             alt="First slide"
           />
         </Carousel.Item>
