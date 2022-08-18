@@ -100,38 +100,7 @@ function FormLogin() {
             </Container>
 
 
-        <Container style={{ display: 'flex', justifyContent: 'center' }}>
-          
-                <Form onSubmit={handleSubmit} className="form-login">
-                    <h1 className="mt-4">Login your account</h1>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="my-2">Email address</Form.Label>
-                        <Form.Control
-                            type="email"
-                            placeholder="Enter email"
-                            onChange={e => setValues({ ...values, email: e.target.value })}
-                            values={values.email}
-                            autoFocus
-                        />
-                        {emailError && <div className="error"> {emailError} </div>}
-                    </Form.Group>
-                    <Form.Group className="my-2" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            placeholder="Password"
-                            onChange={e => setValues({ ...values, password: e.target.value })}
-                            value={values.password}
-                        />
-                        {passwordError && <div className="error"> {passwordError} </div>}
-                    </Form.Group>
-                    <Button variant="primary" type="submit" value="Login" className="my-3" >
-                        LOGIN
-                    </Button>
-                </Form>
-      
 
-        </Container>
         </div>
     )
 }
