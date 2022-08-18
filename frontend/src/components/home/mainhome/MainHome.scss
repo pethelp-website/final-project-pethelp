@@ -1,3 +1,26 @@
-#subtitle {
-    font-size: 25px;
+.carousel-caption {
+    position: absolute;
+    top: -6px
+}
+
+
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height:50vh;
+    overflow: hidden;
+}
+
+.carousel-item::before{
+    content: "";
+    display: block;
+    position:absolute;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+}
+.carousel{
+    position: absolute;
+    top: 120px;
 }
