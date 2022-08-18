@@ -27,16 +27,18 @@
 
     &__logo{
         height: 4rem;
-        padding-right:3rem;
+        padding:0 4rem;
     }
 
-    &__logIn{
-        font-size: 2rem;
-        font-weight: 900;
-    }
+    // &__text {
+    //     font-size: x-large;
+    //     padding-right: 3rem;
+    //     transition: all 0.4s;
+    //     }
 
-    &__signUp{
-        font-size: 2rem;
-
-    }
-}
+nav.link{
+    font-size: 13rem;
+    &:hover,
+    &:focus
+        {transform: rotateX(4deg);} 
+}}

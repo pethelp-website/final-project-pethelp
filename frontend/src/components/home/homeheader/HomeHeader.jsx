@@ -32,7 +32,7 @@ function HomeHeader() {
       <Navbar variant="dark" className="navbar sticky-top" expand="lg">
 
         <Container>
-          <Navbar.Brand as={Link} to={"/"} className='navbar__title'>
+          <Navbar.Brand as={Link} to={"/"} className='navbar__title logo'>
             <img
               id="logo"
               alt=""
@@ -41,16 +41,16 @@ function HomeHeader() {
             />{' '}
             Pet Help
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav id="nav-links" >
               <Nav.Link as={Link} to={"/login"} classname='navbar__logIn' >Login</Nav.Link>
               <Nav.Link as={Link} to={"/sign-up"} className='navbar__signUp'>Signup</Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse> */}
         </Container>
 
-        <Navbar.Brand as={Link} to={"/"}>
+        {/* <Navbar.Brand as={Link} to={"/"}>
           <img
             id="logo"
             alt=""
@@ -58,11 +58,11 @@ function HomeHeader() {
             className="d-inline-block align-top"
           />{' '}
           PetHelp
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav id="nav-links">
-            <Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link>
+        </Navbar.Brand> */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between navbar__text">
+          <Nav id="nav-links" className='nav__links'>
+            <Nav.Link  as={Link} to={"/report-page"}>Found a pet</Nav.Link>
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
             {!isLoggedIn && <Nav.Link as={Link} to={"/sign-up"}>Signup</Nav.Link>}
