@@ -1,7 +1,32 @@
+@import '../../../style/style.scss';
 #footer {
     text-align: center;
     width: 100%;
-    color: #6e6e73;
-    background-color: #f5f5f7;
+    color:$khaki-x-11-light-khaki;
+    background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
     margin-top:auto;
 }
+.logo-box{
+    display: flex;
+    justify-content: baseline;
+    transition: all 0.2s ease-in-out;
+    &__facebook{
+        &:hover,
+        &:active {
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }
+    &__ins{
+        &:hover,
+        &:active {
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }
+    &__twitter{
+        &:hover,
+        &:active {
+        
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }}
+    
