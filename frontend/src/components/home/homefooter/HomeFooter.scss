@@ -2,9 +2,12 @@
 #footer {
     text-align: center;
     width: 100%;
-    color:$khaki-x-11-light-khaki;
+    color:$color-grey-light-1;
     background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
     margin-top:auto;
+}
+.text{
+    cursor:default;
 }
 .logo-box{
     display: flex;

@@ -23,7 +23,7 @@ const HomeFooter = () => {
           <CDBBox display="flex" alignItems="center">
           </CDBBox>
           <CDBBox display="flex" alignItems="center">
-            <small className="d-flex align-items-center">&copy; PetHelp, 2022. All rights reserved.</small>
+            <small className="d-flex align-items-center text">&copy; PetHelp, 2022. All rights reserved.</small>
           </CDBBox>
           <CDBBox display="flex">
 
