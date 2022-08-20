@@ -1,7 +1,4 @@
-@import './abstracts/variables';
-@import './abstracts/mixins';
-@import './base/typography';
+@import './abstract/variables';
 @import './base/animation';
-@import './base/base';
-@import './components/button';
-@import './layout/grid'
+@import './base/typography';
+@import './component/button';

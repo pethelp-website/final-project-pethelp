@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import loginService from "../../services/loginService";
 
 
+
 const ReportPage = () => {
   let navigate = useNavigate();
 
@@ -25,11 +26,12 @@ const ReportPage = () => {
     console.log(values)
   }, [values]);
 
-
+  const isLoggedIn = loginService.isLoggedIn();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!loginService.isLoggedIn()) {
+    if (!isLoggedIn) {
       setErrors("Login required to submit this form");
       return;
     }
@@ -59,8 +61,7 @@ const ReportPage = () => {
 
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
-      <Form onSubmit={handleSubmit}>
-
+      {isLoggedIn && <Form onSubmit={handleSubmit}>
         <h1 className="mt-3">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
           <Form.Label>Full name</Form.Label>
@@ -115,7 +116,7 @@ const ReportPage = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form>
+      </Form> }
     </Container>
   );
 }

@@ -87,7 +87,7 @@ const FormSignup = () => {
         <Col id="signup-form" className="p-4">
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
-              <h1 className="mt-1">Create an account</h1>
+              <h2 className="mt-1">Create an account</h2>
             </div>
             <Form.Group className="my-2" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>
@@ -166,10 +166,10 @@ const FormSignup = () => {
               />
               {errors.password && <p>{errors.password}</p>}
             </Form.Group>
-
-            <Button className="my-3 button" variant="primary" type="submit"></Button>
             {errors.userAlreadyExists && <p>{errors.userAlreadyExists}</p>} 
-            <Button className="my-2" variant="primary" type="submit"> SIGN UP</Button>
+            <Button className="my-2" variant="primary" type="submit">
+              SIGN UP
+            </Button>
           </Form>
         </Col>
       </Row>

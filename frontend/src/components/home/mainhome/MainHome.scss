@@ -1,8 +1,43 @@
-@import '../../../style/style.scss';
-.text-content{
-    margin-bottom:2rem;
-    color: $charcoal;
+.carousel-caption {
+    position: absolute;
+    top: -6px
 }
-.row{
-    padding-top: 3rem;
+
+
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height:50vh;
+    overflow: hidden;
+}
+
+.carousel-item::before{
+    content: "";
+    display: block;
+    position:absolute;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+}
+.carousel{
+    position: absolute;
+    top: 120px;
+}
+
+.h2-text{
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    animation: leftIn 1s ease-out;
+    margin-bottom: 0.5rem;
+    &--p{
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+        animation: rightIn 1s ease-out;
+    }
 }
