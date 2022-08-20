@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, Container } from 'react-bootstrap';
-
+import '../../style/style.scss';
 
 function FormLogin() {
 
@@ -67,7 +67,7 @@ function FormLogin() {
         <Container style={{ display: 'flex', justifyContent: 'center' }}>
             <div>
                 <Form onSubmit={handleSubmit} className="form-login">
-                    <h2 className="mt-4">Login your account</h2>
+                    <h2 className="mt-4 heading-secondary">Login your account</h2>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="my-2">Email address</Form.Label>
                         <Form.Control
@@ -89,7 +89,7 @@ function FormLogin() {
                         />
                         {passwordError && <div className="error"> {passwordError} </div>}
                     </Form.Group>
-                    <Button variant="primary" type="submit" value="Login" className="my-3" >
+                    <Button variant="primary" type="submit" value="Login" className="my-3 button" >
                         LOGIN
                     </Button>
                 </Form>

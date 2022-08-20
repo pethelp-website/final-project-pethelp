@@ -87,7 +87,7 @@ const FormSignup = () => {
         <Col id="signup-form" className="p-4">
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
-              <h2 className="mt-1">Create an account</h2>
+              <h2 className="mt-1 heading-secondary">Create an account</h2>
             </div>
             <Form.Group className="my-2" controlId="formBasicUsername">
               <Form.Label >Username</Form.Label>

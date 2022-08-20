@@ -12,12 +12,12 @@ const MainHome = () => {
 
   return (
     <div>
-      <Carousel className="carousel" variant="dark" interval={10000}>
+      <Carousel className="carousel " variant="dark" interval={10000}>
         <Carousel.Item className="item" md={4}>
           <Carousel.Caption className="carousel-caption">
-            <h2 className="h2-text heading-secondary" id="subtitle">Browse lost pets or report about a found one.</h2>
+            <h2 className="h2-text heading-primary" id="subtitle">Browse lost pets or report about a found one.</h2>
             <p className='h2-text--p'>Lost a pet and is looking for it? See our list of lost animals found.</p>
-            <Button variant="primary" className='main-button button btn--white' as={Link} to={"/missing-page"}>Click here</Button>
+            <Button variant="primary" className='main-button btnh btnh--white' as={Link} to={"/missing-page"}>Click here</Button>
           </Carousel.Caption>
           <img
             md={4}
