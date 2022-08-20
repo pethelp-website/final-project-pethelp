@@ -33,10 +33,10 @@
     }
     
     &--white {
-      background-color: #fff;
+      background-color: $old-rose;
       color: #777;
       &::after {
-        background-color: #fff;
+        background-color: $old-rose;
       }
     }
     
