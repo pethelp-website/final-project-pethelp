@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-    origin: "http://localhost:4000"
+    origin: "http://localhost:3000"
 };
 app.use(cors(corsOptions)); // enable CORS
 
@@ -29,8 +29,8 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'petdatabase',
-  password: 'Generations39',
+  database: 'pethelpdatabase',
+  password: "Generations39",
   port: 5432
 });
 
@@ -51,12 +51,19 @@ app.get("/", (req, res) => {
 });
 
 // An endpoint to get all the form from the database
-app.get("/form", function (req, res) {
-  pool.query("SELECT * FROM form", (error, result) => {
+app.get("/pet_report", function (req, res) {
+  pool.query("SELECT * FROM pet_report", (error, result) => {
     res.json(result.rows);
   });
   //res.json({Message:".test"})
 });
+/*{
+  "user_id": "5";
+  "shelter_id": "8";
+  "race": "jis";
+  "color": "black";
+  "type": "cat";
+}*/
 
 
 // An endpoint to create a new form for the database(Usman)
@@ -68,10 +75,10 @@ app.post("/pet_report", function (req, res) {
   const petType = req.body.type;
 
   const query =
-    "INSERT INTO forms (user_id, shelter_id, race, color, petType) VALUES ($1, $2, $3,$4, $5)";
+    "INSERT INTO pet_report (user_id, race, color, type) VALUES ($1, $2, $3,$4)";
 
   pool
-    .query(query, [user, shelter, petRace, petColor, petType])
+    .query(query, [user, petRace, petColor, petType])
     .then(() => res.send("Found lost pet form created!"))
     .catch((e) => console.error(e));
 });
@@ -80,7 +87,7 @@ app.post("/pet_report", function (req, res) {
 
 app.get("/pet_report", function (req, res) {
   pool
-    .query("SELECT * FROM form ORDER BY color")
+    .query("SELECT * FROM pet_report ORDER BY color")
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
