@@ -81,7 +81,7 @@ function FormLogin() {
                             values={values.email}
                             autoFocus
                         />
-                        {emailError && <div className="error"> {emailError} </div>}
+                        {emailError && <div className="error important-text"> {emailError} </div>}
                     </Form.Group>
                     <Form.Group className="my-2" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
@@ -91,9 +91,9 @@ function FormLogin() {
                             onChange={e => setValues({ ...values, password: e.target.value })}
                             value={values.password}
                         />
-                        {passwordError && <div className="error"> {passwordError} </div>}
+                        {passwordError && <div className="error important-text"> {passwordError} </div>}
                     </Form.Group>
-                    <Button variant="primary" type="submit" value="Login" className="my-3 button" >
+                    <Button variant="primary" type="submit" value="Login" className="my-3 button btn" >
                         LOGIN
                     </Button>
                 </Form>

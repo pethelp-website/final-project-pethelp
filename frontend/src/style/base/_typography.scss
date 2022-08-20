@@ -42,13 +42,13 @@ body {
 
 .important-text{
   text-transform: uppercase;
-  background-image:linear-gradient(to right, lighten($chestnut,30%), $chestnut);
+  background-image:linear-gradient(to right, lighten($chestnut,10%), $old-rose);
   -webkit-background-clip: text;
   color: transparent;
-  transition: all 0.9s; 
+  transition: all 0.2s; 
   display:inline-block; //has to be inline-block
   &:hover{
-    transform: skewY(2deg) skewX(2deg) scale(1.1);
+    transform: skewY(-2deg) skewX(2deg) scale(1.1);
     text-shadow: .5rem 1rem 2rem rgba( $color-black, 0.3);
   }
 
