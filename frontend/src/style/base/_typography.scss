@@ -1,5 +1,4 @@
 body {
-
     font-family: 'Dosis', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -9,7 +8,7 @@ body {
 
 
 
-    .heading-primary{
+.heading-primary{
         font-size: 2rem;
         font-weight: 400;
         text-align: center;
@@ -39,6 +38,19 @@ body {
   }
 }
 
+.heading-tertiary{
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform:capitalize;
+  text-align: center;
+  margin: 1rem;
+}
+.warning{
+  text-transform: capitalize;
+  color: orangered;
+  animation: shakingX 0.2s ease-in-out;
+  
+}
 
 .important-text{
   text-transform: uppercase;
@@ -51,14 +63,6 @@ body {
     transform: skewY(-2deg) skewX(2deg) scale(1.1);
     text-shadow: .5rem 1rem 2rem rgba( $color-black, 0.3);
   }
-
-    .heading-tertiary{
-        font-size: 2rem;
-        font-weight: 400;
-        text-transform:capitalize;
-        text-align: center;
-        margin: 1rem;
-      }
 
 
 }

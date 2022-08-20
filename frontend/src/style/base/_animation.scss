@@ -42,3 +42,22 @@
     }
   }
   
+@keyframes shakingX {
+  0%{
+    transform: translateX(0rem);
+  }
+  30%{
+    transform: translateX(0.3rem);
+
+  }
+  // 50%{
+  //   transform: translateX(1rem);
+
+  // }
+  70%{
+    transform: translateX(-0.3rem);
+  }
+  100%{
+    transform: translateX(0rem);
+  }
+}
