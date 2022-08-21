@@ -34,7 +34,7 @@ function FormLogin() {
         }
 
 
-        fetch("http://localhost:3000/user/sign-in", {
+        fetch("http://localhost:4000/user/sign-in", {
             method: "POST",
             headers: {
                 authorization: getLocalStorageInfo(),
@@ -55,7 +55,7 @@ function FormLogin() {
             })
             .then((data) => {
                 localStorage.setItem("token", JSON.stringify(data));
-                navigate("/user-page", { replace: true });
+                navigate("/", { replace: true });
                 console.log(data);
             })
             .catch((error) => {
