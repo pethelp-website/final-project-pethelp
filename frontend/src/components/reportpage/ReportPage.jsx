@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
-import { Container } from 'react-bootstrap';
+import { Container,  Button, Form } from 'react-bootstrap';
 import loginService from "../../services/loginService";
 
 
@@ -10,25 +8,29 @@ import loginService from "../../services/loginService";
 const ReportPage = () => {
   let navigate = useNavigate();
 
+
   const [values, setValues] = useState({
     user: "",
     petType: "",
     petColor: "",
     petRace: "",
-    shelter: ""
+    shelter: "",
+    image: "",
   });
 
   const [errors, setErrors] = useState();
+  
 
-
+  
   useEffect(() => {
     console.log(values)
   }, [values]);
 
   const isLoggedIn = loginService.isLoggedIn();
-  
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
 
     if (!isLoggedIn) {
       setErrors("Login required to submit this form");
@@ -109,13 +111,18 @@ const ReportPage = () => {
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Upload Pet Image</Form.Label>
 
-          <Form.Control type="file" />
+          <Form.Control
+            type="file"
+            name="image"
+            encType="multipart/form-data"
+            accept="jpg"
+            />
         </Form.Group>
         {errors && <div>{errors}</div>}
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form> }
+      </Form>}
     </Container>
   );
 }
