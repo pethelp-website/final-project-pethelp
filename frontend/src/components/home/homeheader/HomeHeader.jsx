@@ -40,16 +40,11 @@ function HomeHeader() {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav id="nav-links" >
           {isLoggedIn &&<Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link> }
-<<<<<<< HEAD
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
-            {!isLoggedIn && <Nav.Link as={Link} to={"/sign-up"}>Signup</Nav.Link>}
             {isLoggedIn &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link> }
-=======
             <Nav.Link as={Link} to={"/missing-page"}className='link'>Lost a pet</Nav.Link>
-            {!isLoggedIn && <Nav.Link className='link' as={Link} to={"/login"} >Login</Nav.Link>}
             {!isLoggedIn && <Nav.Link className='link'as={Link} to={"/sign-up"}>Signup</Nav.Link>}
->>>>>>> fbcb6807d4f7bfe5e72575108d1e85566d5052ba
             {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
