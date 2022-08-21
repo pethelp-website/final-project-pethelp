@@ -96,7 +96,7 @@ app.get("/pet_report", function (req, res) {
 
 app.get("/pet_report", function (req, res) {
   pool
-    .query("SELECT * FROM form ORDER BY petType")
+    .query("SELECT * FROM pet_report ORDER BY petType")
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
@@ -105,7 +105,7 @@ app.get("/pet_report", function (req, res) {
 
 app.get("/pet_report", function (req, res) {
   pool
-    .query("SELECT * FROM form ORDER BY race")
+    .query("SELECT * FROM pet_report ORDER BY race")
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
@@ -116,7 +116,7 @@ app.get("/pet_report/:pet_reportId", function (req, res) {
   const formId = req.params.formId;
 
   pool
-    .query("SELECT * FROM form WHERE id=$1", [formId])
+    .query("SELECT * FROM pet_report WHERE id=$1", [formId])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
@@ -127,7 +127,7 @@ app.patch("/pet_report/:pet_reportId", function (req, res) {
   const petLocation = req.body.location;
 
   pool
-    .query("UPDATE form SET location=$1 WHERE id=$2", [petLocation, formId])
+    .query("UPDATE pet_report SET location=$1 WHERE id=$2", [petLocation, formId])
     .then(() => res.send(`Form ${formId} updated!`))
     .catch((e) => console.error(e));
 });
@@ -138,7 +138,7 @@ app.delete("/pet_report/:pet_reportId", function (req, res) {
   const formId = req.params.formId;
 
   pool
-    .query("DELETE FROM form WHERE id=$1", [formId])
+    .query("DELETE FROM pet_report WHERE id=$1", [formId])
     .then(() => res.send(`Form ${formId} deleted!`))
     .catch((e) => console.error(e));
 });
