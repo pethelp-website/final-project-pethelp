@@ -22,7 +22,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'pethelpdatabase',
-  password: 'Generations39',
+  password: "Generations39",
   port: 5432
 });
 pool.connect()
