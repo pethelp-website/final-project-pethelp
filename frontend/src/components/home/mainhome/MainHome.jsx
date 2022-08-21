@@ -7,6 +7,8 @@ import "./MainHome.scss";
 import loginService from "../../../services/loginService";
 
 
+
+
 const MainHome = () => {
   const isLoggedIn = loginService.isLoggedIn();
 
@@ -16,8 +18,8 @@ const MainHome = () => {
         <Carousel.Item className="item" md={4}>
           <Carousel.Caption className="carousel-caption">
             <h2 className="h2-text" id="subtitle">Browse lost pets or report about a found one.</h2>
-            <p>Lost a pet and is looking for it? See our list of lost animals found.</p>
-            <Button variant="primary" className='main-button' as={Link} to={"/missing-page"}>Click here</Button>
+            <p className='h2-text--p'>Lost a pet and is looking for it? See our list of lost animals found.</p>
+            <Button variant="primary" className='main-button button btnh btnh--white' as={Link} to={"/missing-page"}>Click here</Button>
           </Carousel.Caption>
           <img
             md={4}
