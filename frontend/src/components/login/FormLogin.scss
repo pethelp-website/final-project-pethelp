@@ -1,3 +1,4 @@
+@import '../../../style/style.scss';
 .form-login {
     * {
         margin: 0;
@@ -78,9 +79,9 @@
         transition: all 0.1s;
     }
     
-    button:active {
-        transform: translateY(2px)
-    }
+    // button:active {
+    //     transform: translateY(2px)
+    // }
     
     .form-success {
         display: flex;

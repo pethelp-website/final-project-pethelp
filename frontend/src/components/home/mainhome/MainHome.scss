@@ -24,3 +24,20 @@
     position: absolute;
     top: 120px;
 }
+
+.h2-text{
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    animation: leftIn 1s ease-out;
+    margin-bottom: 0.5rem;
+    &--p{
+        display: block;
+        font-size: 1.7rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        animation: rightIn 1s ease-out;
+    }
+}
