@@ -42,3 +42,18 @@
     }
   }
   
+@keyframes shakingX {
+  0%{
+    transform: translateX(0rem);
+  }
+  33%{
+    transform: translateX(0.3rem);
+  }
+
+  67%{
+    transform: translateX(-0.3rem);
+  }
+  100%{
+    transform: translateX(0rem);
+  }
+}

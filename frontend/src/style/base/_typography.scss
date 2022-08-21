@@ -1,5 +1,4 @@
 body {
-
     font-family: 'Dosis', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -8,23 +7,62 @@ body {
     -moz-osx-font-smoothing: grayscale;}
 
 
-    .heading-tertiary{
-        font-size: 2rem;
-        font-weight: 400;
-        text-transform:capitalize;
-        text-align: center;
-        margin: 1rem;
-      }
 
 .heading-primary{
-
-}
-
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        margin: 1rem;
+        display: block;
+        font-weight: 400;
+        letter-spacing: .5rem;
+        text-transform: uppercase;
+        animation: leftIn 1s ease-out;
+        margin-bottom: 0.5rem;
+    }
+  
 .heading-secondary{
-    
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, $mustard, $old-rose);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color:transparent;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  margin-bottom: 2rem;
+
+  &:hover{transform: skewY(5deg) skewX(2deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba( $color-black, 0.15);
+  }
 }
 
 .heading-tertiary{
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform:capitalize;
+  text-align: center;
+  margin: 1rem;
+}
+.warning{
+  text-transform: capitalize;
+  color: orangered;
+  animation: shakingX 0.2s ease-in-out;
+  
+}
+
+.important-text{
+  text-transform: uppercase;
+  background-image:linear-gradient(to right, lighten($chestnut,10%), $old-rose);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.2s; 
+  display:inline-block; //has to be inline-block
+  &:hover{
+    transform: skewY(-2deg) skewX(2deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba( $color-black, 0.3);
+  }
 
 
 }
