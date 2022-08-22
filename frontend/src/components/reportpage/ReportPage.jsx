@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Container,  Button, Form } from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 import loginService from "../../services/loginService";
 
 
@@ -8,6 +8,8 @@ import loginService from "../../services/loginService";
 const ReportPage = () => {
   let navigate = useNavigate();
 
+  //image usestate
+  const [image, setImage] = useState({});
 
   const [values, setValues] = useState({
     user: "",
@@ -19,9 +21,30 @@ const ReportPage = () => {
   });
 
   const [errors, setErrors] = useState();
-  
 
-  
+  //Fetch to send the image
+  const fileOnchange = (event) => {
+    setImage(event.target.files[0]);
+  }
+
+  const sendImage = (event) => {
+    let formData = new FormData();
+
+    formData.append("image", image);
+
+    fetch("http://localhost:4000/upload", { 
+        method: 'POST',
+        body: formData
+    })
+    .then((res) => res.text())
+    .then((resBody) => {
+        console.log(resBody);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+}
+
   useEffect(() => {
     console.log(values)
   }, [values]);
@@ -63,7 +86,7 @@ const ReportPage = () => {
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
       {isLoggedIn && <Form onSubmit={handleSubmit}>
-        <h1 className="mt-3">Report a found pet</h1>
+        <h1 className="mt-5 heading-secondary">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
           <Form.Label>Full name</Form.Label>
           <Form.Control type="text"
@@ -114,12 +137,14 @@ const ReportPage = () => {
           <Form.Control
             type="file"
             name="image"
-            encType="multipart/form-data"
             accept="jpg"
-            />
+            onChange={fileOnchange}
+            enctype="multipart/form-data"
+            required
+          />
         </Form.Group>
         {errors && <div>{errors}</div>}
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={sendImage}>
           Submit
         </Button>
       </Form>}
