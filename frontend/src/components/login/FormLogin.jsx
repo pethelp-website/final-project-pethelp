@@ -34,7 +34,7 @@ function FormLogin() {
         }
 
 
-        fetch("http://localhost:3000/user/sign-in", {
+        fetch("http://localhost:4000/user/sign-in", {
             method: "POST",
             headers: {
                 authorization: getLocalStorageInfo(),
@@ -55,7 +55,7 @@ function FormLogin() {
             })
             .then((data) => {
                 localStorage.setItem("token", JSON.stringify(data));
-                navigate("/user-page", { replace: true });
+                navigate("/", { replace: true });
                 console.log(data);
             })
             .catch((error) => {
@@ -68,9 +68,7 @@ function FormLogin() {
             <div>
                 <Form onSubmit={handleSubmit} className="form-login">
 
-                    <h2 className="mt-4 heading-secondary">Login your account</h2>
-
-                    <h2 className="mt-4">Login your account</h2>
+                    <h2 className="mt-5 heading-secondary">Login your account</h2>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="my-2">Email address</Form.Label>

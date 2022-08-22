@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
-import { Container } from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 import loginService from "../../services/loginService";
 
 
@@ -10,41 +8,62 @@ import loginService from "../../services/loginService";
 const ReportPage = () => {
   let navigate = useNavigate();
 
+  //image usestate
+  const [image, setImage] = useState({});
+
   const [values, setValues] = useState({
-    userName: "",
-    type: "",
+    user: "",
+    petType: "",
     petColor: "",
     petRace: "",
-    shelterName: "",
-    photo: ""
+    shelter: "",
+    image: "",
   });
 
-  const [errors, setErrors] = useState();
 
+
+  //Fetch to send the image
+  const fileOnchange = (event) => {
+    setImage(event.target.files[0]);
+  }
+
+  const sendImage = (event) => {
+    let formData = new FormData();
+
+    formData.append("image", image);
+
+    fetch("http://localhost:4000/upload", { 
+        method: 'POST',
+        body: formData
+    })
+    .then((res) => res.text())
+    .then((resBody) => {
+        console.log(resBody);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+}
 
   useEffect(() => {
     console.log(values)
   }, [values]);
 
   const isLoggedIn = loginService.isLoggedIn();
-  
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isLoggedIn) {
-      setErrors("Login required to submit this form");
-      return;
-    }
 
 
-    fetch("http://localhost:3000/pet/report", {
+    fetch("http://localhost:4000/pet_report", {
       method: "POST",
       body: JSON.stringify({
-        userName: values.userName,
-        type: values.type,
-        petColor: values.petColor,
-        petRace: values.petRace,
-        shelterName: values.shelterName,
+        user: values.user_id,
+        petType: values.type,
+        petColor: values.color,
+        petRace: values.race,
+        shelter: values.shelter_id,
       })
     })
       .then(response => {
@@ -62,12 +81,12 @@ const ReportPage = () => {
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
       {isLoggedIn && <Form onSubmit={handleSubmit}>
-        <h1 className="mt-3">Report a found pet</h1>
+        <h1 className="mt-5 heading-secondary">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
           <Form.Label>Full name</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, userName: e.target.value })}
-            values={values.userName}
+            onChange={e => setValues({ ...values, user: e.target.value })}
+            values={values.user}
             autoFocus
             required
           />
@@ -75,8 +94,8 @@ const ReportPage = () => {
         <Form.Group className="mb-2" controlId="formBasicpettype">
           <Form.Label>Pet type</Form.Label>
           <Form.Select
-            onChange={e => setValues({ ...values, type: e.target.value })}
-            values={values.type}
+            onChange={e => setValues({ ...values, petType: e.target.value })}
+            values={values.petType}
             required
           >
             <option key='blankChoice' hidden value>Select an option</option>
@@ -88,7 +107,7 @@ const ReportPage = () => {
           <Form.Label>Pet color</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, petColor: e.target.value })}
-            values={values.color}
+            values={values.petColor}
             required
           />
         </Form.Group>
@@ -96,27 +115,33 @@ const ReportPage = () => {
           <Form.Label>Pet race</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, petRace: e.target.value })}
-            values={values.race}
+            values={values.petRace}
             required
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="formBasicrace">
           <Form.Label>Shelter name</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, shelterName: e.target.value })}
-            values={values.shelterName}
+            onChange={e => setValues({ ...values, shelter: e.target.value })}
+            values={values.shelter}
           />
         </Form.Group>
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Upload Pet Image</Form.Label>
 
-          <Form.Control type="file" />
+          <Form.Control
+            type="file"
+            name="image"
+            accept="jpg"
+            onChange={fileOnchange}
+            enctype="multipart/form-data"
+            required
+          />
         </Form.Group>
-        {errors && <div>{errors}</div>}
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={sendImage}>
           Submit
         </Button>
-      </Form> }
+      </Form>}
     </Container>
   );
 }

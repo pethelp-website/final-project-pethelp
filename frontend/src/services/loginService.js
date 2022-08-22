@@ -11,7 +11,7 @@ export async function sign_up({
     postcode,
     phonenumber,
 }) {
-    return fetch("http://localhost:3000/user/sign-up", {
+    return fetch("http://localhost:4000/user/sign-up", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
