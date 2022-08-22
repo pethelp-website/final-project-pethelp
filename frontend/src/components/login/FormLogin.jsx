@@ -78,6 +78,7 @@ function FormLogin() {
                             onChange={e => setValues({ ...values, email: e.target.value })}
                             values={values.email}
                             autoFocus
+                            className='input'
                         />
                         {emailError && <div className="error important-text"> {emailError} </div>}
                     </Form.Group>
@@ -88,6 +89,7 @@ function FormLogin() {
                             placeholder="Password"
                             onChange={e => setValues({ ...values, password: e.target.value })}
                             value={values.password}
+                            className='input'
                         />
                         {passwordError && <div className="error important-text"> {passwordError} </div>}
                     </Form.Group>
