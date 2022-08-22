@@ -23,7 +23,7 @@ export default function validateInfo(values) {
     if (!values.name.trim()) {
         errors.name = "Username is required";
     } else if (userNameHasUppercase) {
-        errors.name = "Only lowercase characters allowed"
+        errors.name = "Only lowercase characters allowed";
     } 
     
 
@@ -33,8 +33,7 @@ export default function validateInfo(values) {
         errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
         errors.email = "Email adress is invalid";
-    }
-
+    } 
 
     //Password- uppercase, one digit and 6 characters.
     if (passwordLength === 0) {

@@ -83,7 +83,7 @@ const ReportPage = () => {
       {isLoggedIn && <Form onSubmit={handleSubmit}>
         <h1 className="mt-5 heading-secondary">Report a found pet</h1>
         <Form.Group className="mb-2" controlId="formBasicpetname">
-          <Form.Label>Full name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, user: e.target.value })}
             values={values.user}
