@@ -164,7 +164,7 @@ const FormSignup = () => {
               {errors.phonenumber && <p className='warning'>{errors.phonenumber}</p>}
             </Form.Group>
 
-            <Form.Group className="my-2" controlId="formBasicPassword">
+            <Form.Group className="my-2 input" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -176,7 +176,7 @@ const FormSignup = () => {
               {errors.password && <p className='warning'>{errors.password}</p>}
             </Form.Group>
             {errors.userAlreadyExists && <p className='warning_exist'>{errors.userAlreadyExists}</p>} 
-            <Button className="my-2 btn" variant="primary" type="submit">
+            <Button className="my-4 btn" variant="primary" type="submit">
               SIGN UP
             </Button>
           </Form>
