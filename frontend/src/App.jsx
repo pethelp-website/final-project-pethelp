@@ -13,8 +13,6 @@ import ReportMessage from "../src/components/reportpage/ReportMessage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.scss";
-import Text from "../src/components/reportpage/Text";
-
 
 
 function App() {
@@ -45,8 +43,6 @@ function App() {
             <Route path="/missing-page" element={<MissingPage />}>
             </Route>
             <Route path="/report-message" element={<ReportMessage />}>
-            </Route>
-            <Route path="/text" element={<Text />}>
             </Route>
           </Routes>
         </div>
