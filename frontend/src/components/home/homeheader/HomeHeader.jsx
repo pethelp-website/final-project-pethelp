@@ -44,7 +44,7 @@ function HomeHeader() {
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
             {isLoggedIn &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link> }
             {!isLoggedIn && <Nav.Link className='link'as={Link} to={"/sign-up"}>Signup</Nav.Link>}
-            {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
+            {isLoggedIn && <Nav.Link  onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
