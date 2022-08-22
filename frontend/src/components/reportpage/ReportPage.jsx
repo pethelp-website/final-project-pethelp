@@ -20,7 +20,7 @@ const ReportPage = () => {
     image: "",
   });
 
-  const [errors, setErrors] = useState();
+
 
   //Fetch to send the image
   const fileOnchange = (event) => {
@@ -54,11 +54,6 @@ const ReportPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
-    if (!isLoggedIn) {
-      setErrors("Login required to submit this form");
-      return;
-    }
 
 
     fetch("http://localhost:4000/pet_report", {
@@ -143,7 +138,6 @@ const ReportPage = () => {
             required
           />
         </Form.Group>
-        {errors && <div>{errors}</div>}
         <Button variant="primary" type="submit" onClick={sendImage}>
           Submit
         </Button>
