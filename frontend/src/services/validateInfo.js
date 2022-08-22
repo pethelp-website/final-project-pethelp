@@ -1,7 +1,6 @@
 export default function validateInfo(values) {
     let errors = {};
     //validation in regex format
-    const userNameValidation = /^[a-z0-9_-](?=.{4,10}$)/;;
     const uppercaseRegExp = /(?=.*?[A-Z])/;
     const digitsRegExp = /(?=.*?[0-9])/;
     const minLengthRegExp = /.{6,20}/;
@@ -17,15 +16,16 @@ export default function validateInfo(values) {
     const digitsPhoneNumber = digitsRegExp.test(values.phonenumber);
     const onlyLettersCity = onlyLetters.test(values.city);
     const letterAndNumbersAdress = lettersAndNumbers.test(values.address);
-
+    const userNameHasUppercase = uppercaseRegExp.test(values.name);
 
 
     //username
     if (!values.name.trim()) {
         errors.name = "Username is required";
-    } else if (!userNameValidation.test(values.name)) {
-        errors.name = "Invalid username"
-    };
+    } else if (userNameHasUppercase) {
+        errors.name = "Only lowercase characters allowed"
+    } 
+    
 
 
     //email 
@@ -50,7 +50,7 @@ export default function validateInfo(values) {
     //adress- letters and numbers
     if (!letterAndNumbersAdress) {
         errors.address = "Adress is required";
-    } 
+    }
 
     //City- only letters.
     if (!onlyLettersCity) {
