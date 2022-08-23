@@ -81,7 +81,7 @@ const ReportPage = () => {
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
       {isLoggedIn && <Form onSubmit={handleSubmit}>
-        <h1 className="mt-5 heading-secondary">Report a found pet</h1>
+        <h1 className="mt-5 heading-secondary" id="title">Report a found pet</h1>
         <Form.Group className="my-2" controlId="formBasicpetname">
           <Form.Label className="my-2">Name</Form.Label>
           <Form.Control
