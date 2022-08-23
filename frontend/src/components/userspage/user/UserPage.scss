@@ -1,5 +1,10 @@
 #title {
     justify-content:center;
     display:flex;
-    margin:auto;
+}
+
+.card-button {
+    background-color: red;
+    min-width: 150px;
+    justify-content:center
 }
