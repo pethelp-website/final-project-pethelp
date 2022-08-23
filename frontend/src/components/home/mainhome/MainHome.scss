@@ -2,13 +2,27 @@
     position: absolute;
     top: -6px
 }
-
+@import '../../../style/style.scss';
 
 .carousel-item img {
-    object-fit: cover;
+    object-fit:contain;
     object-position: center;
-    height:50vh;
+    height:70vh;
     overflow: hidden;
+    margin-bottom: -40rem;
+    @include respond(big){
+        font-size: 5rem;
+        margin-bottom: -32rem;
+     }
+     @include respond(tab-land){
+        
+     }
+     @include respond(tab-port){
+ 
+     }
+     @include respond(phone){
+         
+     }
 }
 
 .carousel-item::before{
@@ -26,17 +40,49 @@
 
 .h2-text{
     display: block;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 400;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
     text-transform: uppercase;
     animation: leftIn 1s ease-out;
+    margin-top: 20rem;
     margin-bottom: 0.5rem;
+    padding-top: 2rem;
+    @include respond(big){
+       font-size: 4rem;
+       padding-top: 5rem;
+        letter-spacing: .2rem;
+
+    }
+    @include respond(tab-land){
+
+    }
+    @include respond(tab-port){
+
+    }
+    @include respond(phone){
+        
+    }
     &--p{
         display: block;
-        font-size: 1.7rem;
+        font-size: 2.5rem;
         font-weight: 600;
         letter-spacing: 0.2rem;
         animation: rightIn 1s ease-out;
+     
+        @include respond(big){
+            font-size: 2.5rem;
+            padding-top: 2rem;
+            letter-spacing: .5rem;
+         }
+         @include respond(tab-land){
+     
+         }
+         @include respond(tab-port){
+     
+         }
+         @include respond(phone){
+             
+         }
     }
 }
