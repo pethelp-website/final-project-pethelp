@@ -6,7 +6,7 @@ import loginService from '../../services/loginService'
 import validateInfo from "../../services/validateInfo";
 import { useEffect } from "react";
 import "./FormSignup.scss";
-
+import '../../style/style.scss';
 
 
 const FormSignup = () => {
@@ -88,9 +88,7 @@ const FormSignup = () => {
           <Form onSubmit={handleSubmit}>
             <div className="signup-title">
 
-              <h2 className="mt-1 heading-secondary">Create an account</h2>
-
-              <h2 className="mt-1">Create an account</h2>
+              <h2 className="mt-4 heading-secondary">Create an account</h2>
 
             </div>
             <Form.Group className="my-2" controlId="formBasicUsername">
@@ -101,6 +99,7 @@ const FormSignup = () => {
                 value={values.name}
                 onChange={handleChange}
                 autoFocus
+                className='input'
               />
               {errors.name && <p className='warning'>{errors.name}</p>}
             </Form.Group>
@@ -112,6 +111,7 @@ const FormSignup = () => {
                 name="email"
                 value={values.email}
                 onChange={handleChange}
+                className='input'
               />
               {errors.email && <p className='warning'>{errors.email}</p>}
             </Form.Group>
@@ -123,6 +123,7 @@ const FormSignup = () => {
                 name="address"
                 values={values.address}
                 onChange={handleChange}
+                className='input'
               />
               {errors.address && <p className='warning'>{errors.address}</p>}
             </Form.Group>
@@ -134,6 +135,7 @@ const FormSignup = () => {
                 name="city"
                 values={values.city}
                 onChange={handleChange}
+                className='input'
               />
               {errors.city && <p className='warning'>{errors.city}</p>}
             </Form.Group>
@@ -145,6 +147,7 @@ const FormSignup = () => {
                 name="postcode"
                 values={values.postcode}
                 onChange={handleChange}
+                className='input'
               />
               {errors.postcode && <p className='warning'>{errors.postcode}</p>}
             </Form.Group>
@@ -156,22 +159,24 @@ const FormSignup = () => {
                 name="phonenumber"
                 values={values.phonenumber}
                 onChange={handleChange}
+                className='input'
               />
               {errors.phonenumber && <p className='warning'>{errors.phonenumber}</p>}
             </Form.Group>
 
-            <Form.Group className="my-2" controlId="formBasicPassword">
+            <Form.Group className="my-2 input" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
                 value={values.password}
                 onChange={handleChange}
+                className='input'
               />
               {errors.password && <p className='warning'>{errors.password}</p>}
             </Form.Group>
-            {errors.userAlreadyExists && <p className='warning'>{errors.userAlreadyExists}</p>} 
-            <Button className="my-2 btn" variant="primary" type="submit">
+            {errors.userAlreadyExists && <p className='warning_exist'>{errors.userAlreadyExists}</p>} 
+            <Button className="my-4 btn" variant="primary" type="submit">
               SIGN UP
             </Button>
           </Form>

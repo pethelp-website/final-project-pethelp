@@ -37,8 +37,8 @@ const MainHome = () => {
           />
           <Carousel.Caption className="carousel-caption">
             <h2 className="h2-text">Report a found pet</h2>
-            <p>If you have found a lost pet, submit your report here.</p>
-            <Button variant="primary" as={Link} to={"/report-page"}>Click here</Button>
+            <p className='h2-text--p'>If you have found a lost pet, submit your report here.</p>
+            <Button variant="primary" className='main-button button btnh btnh--white' as={Link} to={"/report-page"}>Click here</Button>
           </Carousel.Caption>
         </Carousel.Item> }
       </Carousel>

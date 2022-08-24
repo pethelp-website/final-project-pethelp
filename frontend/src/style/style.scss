@@ -1,3 +1,4 @@
+@import './mixins/mixins';
 @import './abstract/variables';
 
 @import './base/base';
@@ -7,3 +8,4 @@
 
 
 @import './component/button';
+@import './component/formInput'

@@ -9,7 +9,6 @@ const app = express();
 
 // parse request of content-type - application/json
 app.use(express.json());
-
 const corsOptions = {
     origin: "http://localhost:3000"
 };
@@ -22,27 +21,21 @@ app.get("/", (req, res) => {
 app.use("/user", user);
 app.use("/pet", report);
 
-
 const { Pool } = require("pg");
 //const bodyParser = require("body-parser")
-
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'pethelpdatabase',
-  password: "Generations39",
+  password: 'Generations39',
   port: 5432
 });
 
 pool.connect()
 
-
-
 // parse requests of content-type - application/json
 app.use(express.json());
-
 app.use(cors(corsOptions)); // enable CORS
-
 //app.use(bodyParser.json)
 
 // simple route
@@ -64,8 +57,6 @@ app.get("/pet_report", function (req, res) {
   "color": "black";
   "type": "cat";
 }*/
-
-
 // An endpoint to create a new form for the database(Usman)
 app.post("/pet_report", function (req, res) {
   const user = req.body.userName;
@@ -73,7 +64,7 @@ app.post("/pet_report", function (req, res) {
   const petRace = req.body.race;
   const petColor = req.body.color;
   const petType = req.body.type;
-
+  
   const query =
     "INSERT INTO pet_report (userName, shelterName, race, color, type) VALUES ($1, $2, $3,$4, $5)";
 
@@ -82,16 +73,13 @@ app.post("/pet_report", function (req, res) {
     .then(() => res.send("Found lost pet form created!"))
     .catch((e) => console.error(e));
 });
-
 //an endpoint to get the form by color
-
 app.get("/pet_report", function (req, res) {
   pool
     .query("SELECT * FROM pet_report ORDER BY color")
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
-
 //an endpoint to get the form by petType
 
 app.get("/pet_report", function (req, res) {
@@ -100,7 +88,6 @@ app.get("/pet_report", function (req, res) {
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
-
 //an endpoint to get the form by race
 
 app.get("/pet_report", function (req, res) {
@@ -109,9 +96,7 @@ app.get("/pet_report", function (req, res) {
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
-
 //an endpoint that loads a specific form by ID
-
 app.get("/pet_report/:pet_reportId", function (req, res) {
   const formId = req.params.formId;
 
@@ -120,7 +105,6 @@ app.get("/pet_report/:pet_reportId", function (req, res) {
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
-
 //An endpoint to update the form(the location of the pet)
 app.patch("/pet_report/:pet_reportId", function (req, res) {
   const pet_reportId = req.params.pet_reportId;
@@ -131,9 +115,7 @@ app.patch("/pet_report/:pet_reportId", function (req, res) {
     .then(() => res.send(`Form ${pet_reportId} updated!`))
     .catch((e) => console.error(e));
 });
-
 //An endpoint to delete form by ID
-
 app.delete("/pet_report/:pet_reportId", function (req, res) {
   const pet_reportId = req.params.pet_reportId;
 
@@ -142,11 +124,9 @@ app.delete("/pet_report/:pet_reportId", function (req, res) {
     .then(() => res.send(`Form ${formId} deleted!`))
     .catch((e) => console.error(e));
 });
-
 // The endpoint for uploading images
 const path = require("path");
 const multer = require("multer");
-
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, "./Images");
@@ -155,24 +135,18 @@ const storage = multer.diskStorage({
     callback(null, Date.now() + path.extname(file.originalname));
   },
 });
-
 const upload = multer({ storage: storage });
-
 app.get("/upload", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
-
 app.post("/upload", upload.single("image"), (req, res) => {
   console.log(req.file);
   res.send("Image Uploaded");
 });
-
 app.post("/multi-upload", upload.array("images", 3), (req, res) => {
   console.log(req.files);
   res.send("Images Uploaded");
 });
-
-
 // set port, listen for requests
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
