@@ -78,7 +78,7 @@ app.post("/pet_report", function (req, res) {
     "INSERT INTO pet_report (userName, shelterName, race, color, type) VALUES ($1, $2, $3,$4, $5)";
 
   pool
-    .query(query, [user, petRace, petColor, petType])
+    .query(query, [user,shelter, petRace, petColor, petType])
     .then(() => res.send("Found lost pet form created!"))
     .catch((e) => console.error(e));
 });
