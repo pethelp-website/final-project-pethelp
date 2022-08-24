@@ -58,8 +58,8 @@ app.get("/pet_report", function (req, res) {
   //res.json({Message:".test"})
 });
 /*{
-  "user_id": "5";
-  "shelter_id": "8";
+  "userName": "5";
+  "shelterName": "8";
   "race": "jis";
   "color": "black";
   "type": "cat";
@@ -68,14 +68,14 @@ app.get("/pet_report", function (req, res) {
 
 // An endpoint to create a new form for the database(Usman)
 app.post("/pet_report", function (req, res) {
-  const user = req.body.user_id;
-  const shelter = req.body.shelter_id;
+  const user = req.body.userName;
+  const shelter = req.body.shelterName;
   const petRace = req.body.race;
   const petColor = req.body.color;
   const petType = req.body.type;
 
   const query =
-    "INSERT INTO pet_report (user_id, race, color, type) VALUES ($1, $2, $3,$4)";
+    "INSERT INTO pet_report (userName, shelterName, race, color, type) VALUES ($1, $2, $3,$4, $5)";
 
   pool
     .query(query, [user, petRace, petColor, petType])
@@ -123,22 +123,22 @@ app.get("/pet_report/:pet_reportId", function (req, res) {
 
 //An endpoint to update the form(the location of the pet)
 app.patch("/pet_report/:pet_reportId", function (req, res) {
-  const formId = req.params.formId;
+  const pet_reportId = req.params.pet_reportId;
   const petLocation = req.body.location;
 
   pool
     .query("UPDATE pet_report SET location=$1 WHERE id=$2", [petLocation, formId])
-    .then(() => res.send(`Form ${formId} updated!`))
+    .then(() => res.send(`Form ${pet_reportId} updated!`))
     .catch((e) => console.error(e));
 });
 
 //An endpoint to delete form by ID
 
 app.delete("/pet_report/:pet_reportId", function (req, res) {
-  const formId = req.params.formId;
+  const pet_reportId = req.params.pet_reportId;
 
   pool
-    .query("DELETE FROM pet_report WHERE id=$1", [formId])
+    .query("DELETE FROM pet_report WHERE id=$1", [pet_reportId])
     .then(() => res.send(`Form ${formId} deleted!`))
     .catch((e) => console.error(e));
 });
@@ -159,7 +159,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.get("/upload", (req, res) => {
-  res.sendFile(path.join(__dirname, "upload.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.post("/upload", upload.single("image"), (req, res) => {
