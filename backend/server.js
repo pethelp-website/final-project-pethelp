@@ -98,20 +98,20 @@ app.get("/pet_report", function (req, res) {
 });
 //an endpoint that loads a specific form by ID
 app.get("/pet_report/:pet_reportId", function (req, res) {
-  const formId = req.params.formId;
+  const pet_reportId = req.params.pet_reportId;
 
   pool
-    .query("SELECT * FROM pet_report WHERE id=$1", [formId])
+    .query("SELECT * FROM pet_report WHERE id=$1", [pet_reportId])
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
 //An endpoint to update the form(the location of the pet)
 app.patch("/pet_report/:pet_reportId", function (req, res) {
   const pet_reportId = req.params.pet_reportId;
-  const petLocation = req.body.location;
+  const petLocation = req.body.shelter;
 
   pool
-    .query("UPDATE pet_report SET location=$1 WHERE id=$2", [petLocation, formId])
+    .query("UPDATE pet_report SET shelter=$1 WHERE id=$2", [petLocation, pet_reportId])
     .then(() => res.send(`Form ${pet_reportId} updated!`))
     .catch((e) => console.error(e));
 });
@@ -121,7 +121,7 @@ app.delete("/pet_report/:pet_reportId", function (req, res) {
 
   pool
     .query("DELETE FROM pet_report WHERE id=$1", [pet_reportId])
-    .then(() => res.send(`Form ${formId} deleted!`))
+    .then(() => res.send(`Form ${pet_reportId} deleted!`))
     .catch((e) => console.error(e));
 });
 // The endpoint for uploading images
