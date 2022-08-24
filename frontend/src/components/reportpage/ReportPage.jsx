@@ -59,11 +59,11 @@ const ReportPage = () => {
     fetch("http://localhost:4000/pet_report", {
       method: "POST",
       body: JSON.stringify({
-        user: values.user_id,
+        user: values.userName,
         petType: values.type,
         petColor: values.color,
         petRace: values.race,
-        shelter: values.shelter_id,
+        shelter: values.shelterName,
       })
     })
       .then(response => {
