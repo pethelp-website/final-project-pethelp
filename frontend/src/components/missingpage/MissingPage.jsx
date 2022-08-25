@@ -11,12 +11,14 @@ const MissingPage = () => {
     fetch(
       "http://localhost:4000//pet_report", { 
         method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
       } 
     )
-      .then((res) => res.json())
-      .then((data) => {
-        setreportData(data);
-      });
+      .then((res) => console.log(res.json()))
+      .then((data) => {setreportData(data)})
+      .catch((error) => console.log(error))
   }, []);
 
   if (!reportData) {
