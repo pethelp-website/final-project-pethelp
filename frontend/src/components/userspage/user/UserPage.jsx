@@ -5,18 +5,20 @@ import image from "../../../images/profile.jpg";
 
 
 const UserPage = () => {
-  const [reportData, setreportData] = useState(null);
+  const [reportData, setreportData] = useState([]);
 
   useEffect(() => {
     fetch(
       "http://localhost:4000/pet_report/:pet_reportId", { //Get all forms by id
       method: "GET",
-    } 
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
     )
       .then((res) => res.json())
-      .then((data) => {
-        setreportData(data);
-      });
+      .then((data) => { setreportData(data) })
+      .catch((error) => console.log(error))
 
   }, []);
 
@@ -33,11 +35,10 @@ const UserPage = () => {
                 <Card style={{ width: '25rem' }} className="mt-5 mb-2">
                   <Card.Img variant="top" src={image} />
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item >Contact Name: </ListGroup.Item>
-                    <ListGroup.Item >Shelter Name: </ListGroup.Item>
+                    <ListGroup.Item>Shelter Name: </ListGroup.Item>
                     <ListGroup.Item >Pet Color: </ListGroup.Item>
-                    <ListGroup.Item >Pet Type: </ListGroup.Item>
-                    <ListGroup.Item>Race: </ListGroup.Item>
+                    <ListGroup.Item>Pet Type: </ListGroup.Item>
+                    <ListGroup.Item >Race: </ListGroup.Item>
                   </ListGroup>
                   <Button className="card-button">Delete</Button>
                 </Card>
