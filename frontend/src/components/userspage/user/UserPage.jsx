@@ -28,7 +28,7 @@ const UserPage = () => {
 
   return (
     <div>
-      <h1 className="mt-5 heading-secondary title" >My reports</h1>
+      <h1 className="mt-5 heading-secondary title" id="title">My reports</h1>
       <Container>
             <Row className="row">
               <Col md={3}>

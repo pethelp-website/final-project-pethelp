@@ -37,7 +37,7 @@ const GetReports = () => {
 
   return (
     <div>
-      <h1 className="mt-5 heading-secondary title">All reports</h1>
+      <h1 className="mt-5 heading-secondary title" id="title">All reports</h1>
       <Container className="row">
         {Data.map((value, index) => {
           return (
