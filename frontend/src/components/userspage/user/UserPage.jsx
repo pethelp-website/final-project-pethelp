@@ -28,17 +28,17 @@ const UserPage = () => {
 
   return (
     <div>
-      <h1 className="mt-5 heading-secondary" id="title">My reports</h1>
+      <h1 className="mt-5 heading-secondary title" >My reports</h1>
       <Container>
-            <Row style={{ display: 'flex', justifyContent: 'center' }}>
+            <Row className="row">
               <Col md={3}>
-                <Card style={{ width: '25rem' }} className="mt-5 mb-2">
+                <Card  className="mt-5 mb-2 card" >
                   <Card.Img variant="top" src={image} />
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Shelter Name: </ListGroup.Item>
-                    <ListGroup.Item >Pet Color: </ListGroup.Item>
-                    <ListGroup.Item>Pet Type: </ListGroup.Item>
-                    <ListGroup.Item >Race: </ListGroup.Item>
+                    <ListGroup.Item><strong>Shelter name:</strong></ListGroup.Item>
+                    <ListGroup.Item ><strong>Pet color:</strong></ListGroup.Item>
+                    <ListGroup.Item><strong>Pet type:</strong></ListGroup.Item>
+                    <ListGroup.Item ><strong>Pet race:</strong></ListGroup.Item>
                   </ListGroup>
                   <Button className="card-button">Delete</Button>
                 </Card>

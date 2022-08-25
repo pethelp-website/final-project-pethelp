@@ -1,10 +1,13 @@
-import { React, useState, useEffect } from 'react';
-import { ListGroup, Card, Col, Row, Container } from 'react-bootstrap';
-import image from "../../images/profile.jpg";
-import "./MissingPage.scss";
+import {React, useState, useEffect} from 'react';
+import { ListGroup, Card, Col, Button, Row, Container } from 'react-bootstrap';
+import image from "../../../../images/1661074037273.jpg";
+import "./GetReports.scss";
 
-const MissingPage = () => {
-  const [reportData, setreportData] = useState([]);
+
+
+const GetReports = () => {
+
+   const [Data, setData] = useState([]);
 
   //Gets all forms from database
   useEffect(() => {
@@ -20,7 +23,7 @@ const MissingPage = () => {
         return res.json();
       })
       .then((data) => {
-        setreportData(data);
+        setData(data);
         console.log(data)
       })
       .catch((error) => {
@@ -28,19 +31,19 @@ const MissingPage = () => {
       });
   }, []);
 
-  if (!reportData) {
+  if (!Data) {
     return <div>No data found</div>;
   }
 
   return (
     <div>
-      <h1 className="mt-5 heading-secondary title" id="h1">Search lost pets</h1>
-      <Container>
-        {reportData.map((value, index) => {
+      <h1 className="mt-5 heading-secondary title">All reports</h1>
+      <Container className="row">
+        {Data.map((value, index) => {
           return (
-            <Row style={{ display: 'flex', justifyContent: 'center' }}>
+            <Row>
               <Col md={3}>
-                <Card style={{ width: '25rem' }} className="mt-5 mb-2">
+                <Card className="mt-5 mb-2" id="card">
                   <Card.Img variant="top" src={image} />
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item key={index}><strong>Contact name:</strong> {value.username}</ListGroup.Item>
@@ -49,6 +52,7 @@ const MissingPage = () => {
                     <ListGroup.Item key={index}><strong>Pet type:</strong> {value.type}</ListGroup.Item>
                     <ListGroup.Item key={index}><strong>Race:</strong> {value.race}</ListGroup.Item>
                   </ListGroup>
+                  <Button className="card-button">Delete</Button>
                 </Card>
               </Col>
             </Row >
@@ -57,6 +61,6 @@ const MissingPage = () => {
       </Container>
     </div>
   )
-};
+}
 
-export default MissingPage;
+export default GetReports;
