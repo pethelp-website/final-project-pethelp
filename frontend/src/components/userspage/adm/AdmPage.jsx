@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import "../adm/AdmPage.scss"
 import {
   CDBSidebar,
@@ -12,27 +12,25 @@ import {
 
 const AdmPage = () => {
   return (
-    <div>
-      <div className="adm-container">
-        <CDBSidebar>
-          <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-            <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-              Dashboard
-            </a>
-          </CDBSidebarHeader>
-          <CDBSidebarContent className="sidebar-content">
-            <CDBSidebarMenu>
-              <NavLink exact to="/" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="columns">Users</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="/tables" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="table">Reports tables</CDBSidebarMenuItem>
-              </NavLink>
-            </CDBSidebarMenu>
-          </CDBSidebarContent>
-        </CDBSidebar>
-      </div>
+
+    <div className="adm-container">
+      <CDBSidebar>
+        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+          Dashboard
+        </CDBSidebarHeader>
+        <CDBSidebarContent className="sidebar-content">
+          <CDBSidebarMenu>
+            <NavLink as={Link} to={"/adm-page"} activeclassname="activeClicked">
+              <CDBSidebarMenuItem icon="columns">Users</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink as={Link} to={"/"} activeclassname="activeClicked">
+              <CDBSidebarMenuItem icon="table">Reports tables</CDBSidebarMenuItem>
+            </NavLink>
+          </CDBSidebarMenu>
+        </CDBSidebarContent>
+      </CDBSidebar>
     </div>
+
   )
 }
 
