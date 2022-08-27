@@ -1,0 +1,16 @@
+.searchbar input {
+    height: 45px;
+    width: 200px;
+}
+
+.searchbar {
+   display: flex;
+   justify-content: flex-end;
+   position:absolute;
+   top:40px;
+   right:10px;
+}
+
+Button {
+    margin-top:3px !important;
+}
