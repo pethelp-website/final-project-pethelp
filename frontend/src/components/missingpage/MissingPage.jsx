@@ -1,12 +1,11 @@
-import { React} from 'react';
-import SearchBar from './searchbar/SearchBar';
+import { React } from 'react';
 import CardComponent from "./card/CardComponent";
 
 
 const MissingPage = () => {
   return (
     <div>
-      <SearchBar />
+      <h1 className="heading-secondary">Search lost pets</h1>
       <CardComponent />
     </div >
   )

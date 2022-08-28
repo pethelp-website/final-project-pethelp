@@ -129,7 +129,7 @@ const ReportPage = () => {
           />
         </Form.Group>
         <Form.Group className="my-2" controlId="formBasicrace">
-          <Form.Label>Shelter name</Form.Label>
+          <Form.Label>Location</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, shelterName: e.target.value })}
             values={values.shelterName}
