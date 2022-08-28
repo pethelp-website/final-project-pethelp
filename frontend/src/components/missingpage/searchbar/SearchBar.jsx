@@ -1,37 +1,55 @@
-import { React, useState } from 'react';
-import { Form, Button, Container, Col } from 'react-bootstrap';
+import { React, useState, useEffect } from 'react';
+import { Form, Button, Container, Col, Row } from 'react-bootstrap';
 import "./SearchBar.scss";
 
 
 
 const SearchBar = (props) => {
-    const [searchInput, setSearchInput] = useState("");
+    const [query, setQuery] = useState("");
+    const [reportData, setReportData] = useState([]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.search(searchInput);
-    }
-
-    const handleSearchInput = (event) => {
-        setSearchInput(event.target.value);
-        console.log(event.target.value);
-    }
+    useEffect(() => {
+        fetch(
+          "http://localhost:4000/pet_report/type/:pet_reportType", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            setReportData(data);
+            console.log(data)
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, []);
+              
     return (
-        <div>       
-           <Container style={{ display: 'flex', justifyContent: 'end' }}>
-                    <Col md={6} className="searchbar">
-                        <Form className="d-flex mt-5 mb-2" onSubmit={handleSubmit}>
+        <div>
+            <h1 className="heading-secondary">Search lost pets</h1>
+            <Container>
+                <Col lg={{
+                    span: 6
+                }} className="searchbar">
+                    <Row>
+                        <Form className="d-flex mt-5 mb-2">
                             <Form.Control
                                 type="text"
                                 placeholder="Search"
                                 className="me-2"
                                 aria-label="Search"
-                                results={searchInput}
-                                onChange={handleSearchInput}
+                                results={query}
+                                onChange={(e) => setQuery(e.target.value)}
                             />
                             <Button className="button btn">Search</Button>
                         </Form>
-                    </Col>
+                    </Row>
+                </Col>
             </Container>
         </div>
     )

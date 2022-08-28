@@ -1,16 +1,15 @@
 import React from 'react';
 import "../adm/AdmPage.scss";
+import GetReports from "./reportdata/GetReports";
 
-
-import SideBar from "./sidebar/Sidebar";
 
 
 
 const AdmPage = () => {
   return (
     <div>
-      
-      <SideBar />
+      <h1 className="mt-5 heading-secondary">Admin Dashboard</h1>
+      <GetReports />
     </div>
   )
 }
