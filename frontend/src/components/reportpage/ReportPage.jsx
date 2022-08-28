@@ -84,7 +84,7 @@ const ReportPage = () => {
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
       {isLoggedIn && <Form onSubmit={handleSubmit}>
-        <h1 className="mt-5 heading-secondary" id="title">Report a found pet</h1>
+        <h1 className="mt-5 heading-secondary">Report a found pet</h1>
         <Form.Group className="my-2" controlId="formBasicpetname">
           <Form.Label className="my-2">Name</Form.Label>
           <Form.Control
@@ -129,7 +129,7 @@ const ReportPage = () => {
           />
         </Form.Group>
         <Form.Group className="my-2" controlId="formBasicrace">
-          <Form.Label>Shelter name</Form.Label>
+          <Form.Label>Location</Form.Label>
           <Form.Control type="text"
             onChange={e => setValues({ ...values, shelterName: e.target.value })}
             values={values.shelterName}
