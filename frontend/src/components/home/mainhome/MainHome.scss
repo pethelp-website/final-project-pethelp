@@ -1,14 +1,42 @@
+@import '../../../style/style.scss';
 .carousel-caption {
     position: absolute;
-    top: -6px
+    top: -16rem;
+    @include respond(big){
+        top: -24rem;
+     }
+     @include respond(tab-land){
+        top: -16rem;
+     }
+     @include respond(tab-port){
+        top: -10rem;
+     }
+     @include respond(phone){
+        top: -15rem;
+     }
 }
 
 
 .carousel-item img {
-    object-fit: cover;
-    object-position: center;
-    height:50vh;
+    object-fit:contain;
+    object-position:center;
+    height:110vh;
     overflow: hidden;
+    margin-bottom: -25rem;
+    @include respond(big){
+        // font-size: 5rem;
+        // margin-bottom: -32rem;
+     }
+     @include respond(tab-land){
+        height:100vh;
+     }
+     @include respond(tab-port){
+        height:100vh;
+     }
+     @include respond(phone){
+        height:80vh;
+        margin-bottom: -20rem;
+     }
 }
 
 .carousel-item::before{
@@ -21,22 +49,66 @@
 }
 .carousel{
     position: absolute;
-    top: 120px;
+    top: 1rem;
 }
 
 .h2-text{
     display: block;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 400;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
     text-transform: uppercase;
     animation: leftIn 1s ease-out;
+    margin-top: 20rem;
     margin-bottom: 0.5rem;
+    padding-top: 2rem;
+    @include respond(big){
+       font-size: 4rem;
+       padding-top: 5rem;
+        letter-spacing: .2rem;
+
+    }
+    @include respond(tab-land){
+        font-size: 2.9rem;
+        padding-top: 5rem;
+         letter-spacing: .2rem;
+    }
+    @include respond(tab-port){
+        font-size: 1.5rem;
+        padding-top: 5rem;
+         letter-spacing: .2rem;
+    }
+    @include respond(phone){
+        font-size: 1.3rem;
+        padding-top: 5rem;
+         letter-spacing: .2rem;
+    }
     &--p{
         display: block;
-        font-size: 1.7rem;
+        font-size: 2.5rem;
         font-weight: 600;
         letter-spacing: 0.2rem;
         animation: rightIn 1s ease-out;
+     
+        @include respond(big){
+            font-size: 2.3rem;
+            padding-top: 2rem;
+            letter-spacing: .5rem;
+         }
+         @include respond(tab-land){
+            font-size: 2rem;
+            padding-top: 2rem;
+            letter-spacing: .1rem;
+         }
+         @include respond(tab-port){
+            font-size: 1.2rem;
+            padding-top: 2rem;
+            letter-spacing: .1rem;
+         }
+         @include respond(phone){
+            font-size: 1rem;
+            padding-top: 2rem;
+            letter-spacing: .1rem;
+         }
     }
 }

@@ -18,7 +18,6 @@
 }
 
 a.link{
-    
         padding-right: 8rem !important;
         transition: all 1s;
         &:hover,
@@ -26,4 +25,18 @@ a.link{
             color: $khaki-x-11-light-khaki !important;
         }
     
+}
+
+.justify-content-end{
+    @include respond(tab-port){
+        a.nav-link{
+           padding-left:2rem ;
+       
+        }
+    }
+    @include respond(phone){
+        a.nav-link{
+           padding-left:1rem ;
+        }
+    }
 }
