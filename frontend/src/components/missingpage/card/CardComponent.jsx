@@ -50,8 +50,8 @@ const SearchBar = () => {
                     </Col>}
                     {reportData && results.map((value, index) => {
                         return (
-                            <Col key={index} lg={3} md={4}>
-                                <Card style={{ width: '25rem' }} className="card">
+                            <Col key={index} md={4} xs={12}>
+                                <Card style={{ width: '25rem' }} className="mb-3">
                                     <Card.Img variant="top" src={image} />
                                     <ListGroup className="list-group-flush">
                                         <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
