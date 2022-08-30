@@ -5,6 +5,7 @@ const fs = require("fs"); // fs is node's inbuilt file system module used to man
 
 const generateJWT = require("./generateJWT");
 const client = require("../utils/openConnection");
+const generateFakeJWT = require("./generateJWT");
 
 const router = express.Router(); // we create a new router using express's inbuilt Router method
 
@@ -143,6 +144,21 @@ router.post("/sign-in", async (req, res) => {
 
     //res.status(200).send({ jwtToken, isAuthenticated: true });
     // if the user exist then we will compare the password provided by user with the hashed password we stored during user registration
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send({ error: error.message });
+  }
+});
+
+// user logout
+router.post("/logout", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const jwtToken = generateFakeJWT(0);
+          
+              res.status(200).send({ jwtToken, isAuthenticated: false });
+    
   } catch (error) {
     console.error(error.message);
     res.status(500).send({ error: error.message });
