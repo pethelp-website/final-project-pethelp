@@ -36,17 +36,25 @@ export function isLoggedIn() {
 
 
 //Logout function to end the login session in backend.
-const logout = async () => {
-    return fetch("https://run.mocky.io/v3/e6c1e99e-557a-49c7-bc7c-dd44c1c66531", {
+export async function logout() {
+    return fetch("http://localhost:4000/logout", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
     })
         .then(response => {
             console.log(response);
         }).then(data => {
             localStorage.removeItem('token');
             console.log(data);
-        });
+        }).catch(error => {
+            console.log(error);
+        })
 }
+
+ 
+
 
 
 //checks if the user is authenticated

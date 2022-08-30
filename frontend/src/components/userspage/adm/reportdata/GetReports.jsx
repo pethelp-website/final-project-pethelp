@@ -1,12 +1,14 @@
-import {React, useState, useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import { ListGroup, Card, Col, Button, Row, Container } from 'react-bootstrap';
 import image from "../../../../images/1661074037273.jpg";
 import "./GetReports.scss";
+import deleteReport from "./deleteReport";
 
 
 
 const GetReports = () => {
   const [reportData, setreportData] = useState([]);
+
 
   //Gets all forms from database
   useEffect(() => {
@@ -30,10 +32,12 @@ const GetReports = () => {
       });
   }, []);
 
+  
   if (!reportData) {
     return <div>No data found</div>;
   }
 
+  
   return (
     <div>
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
@@ -51,7 +55,7 @@ const GetReports = () => {
                     <ListGroup.Item><strong>Pet type:</strong> {value.type}</ListGroup.Item>
                     <ListGroup.Item><strong>Race:</strong> {value.race}</ListGroup.Item>
                   </ListGroup>
-                  <Button className="report-button">Delete</Button>
+                  <Button className="report-button" onClick={() => deleteReport(value.id)}>Delete</Button>
                 </Card>
               </Col>
             )
