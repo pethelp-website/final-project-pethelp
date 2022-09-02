@@ -7,8 +7,8 @@ import image from "../../../images/profile.jpg";
 const UserPage = () => {
   return (
     <div>
+       <h1 className="mt-5 mb-2 heading-secondary">My reports</h1>
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 className="mt-5 mb-2 heading-secondary">My reports</h1>
         <Row>
           <Col lg={{
             span: 3

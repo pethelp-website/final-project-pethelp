@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { ListGroup, Card, Col, Button, Row, Container } from 'react-bootstrap';
 import image from "../../../../images/1661074037273.jpg";
 import "./GetReports.scss";
-import deleteReport from "./deleteReport";
+import deleteReport from "../../../../services/deleteReport";
 
 
 
@@ -45,7 +45,7 @@ const GetReports = () => {
           {reportData.map((value, index) => {
             return (
               <Col key={index} lg={{
-                span: 3
+                span: 4
               }}>
                 <Card style={{ width: '25rem' }} className="card">
                   <Card.Img variant="top" src={image} />

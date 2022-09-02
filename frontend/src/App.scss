@@ -3,3 +3,14 @@
     flex-direction: column;
     padding-bottom: 90px; 
 }
+
+.card {
+    width: 30%;
+    border-radius: 15px;
+    @extend .dFlex !optional;
+    position: relative;
+    transform:scale(.9);
+    transition: all .3s ease-in-out;
+    margin: bottom 50px;
+
+}

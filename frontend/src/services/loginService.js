@@ -45,6 +45,7 @@ export async function logout() {
     })
         .then(response => {
             console.log(response);
+            
         }).then(data => {
             localStorage.removeItem('token');
             console.log(data);
