@@ -12,6 +12,7 @@ const router = express.Router(); // we create a new router using express's inbui
 const INSERT_QUERY =
   "INSERT INTO users (name, email, address, city, postcode, password) VALUES($1, $2, $3, $4, $5, $6)";
 const SELECT_QUERY = "SELECT * from users WHERE (email=$1)";
+const DELTE_QUERY = "DELETE from users WHERE (email=$1)";
 
 const clientDB = new Client(client());
 
@@ -158,6 +159,44 @@ router.post("/logout", async (req, res) => {
     const jwtToken = generateFakeJWT(0);
           
               res.status(200).send({ jwtToken, isAuthenticated: false });
+    
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send({ error: error.message });
+  }
+});
+
+// user delete
+router.delete("/", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    client1.query(
+      DELTE_QUERY,
+      [email],
+      (error, response) => {
+        if (error) {
+          console.log("Something went wrong" + error);
+          return res
+            .status(201)
+            .send({ status: "KO", description: error});
+          
+        }
+        if (response.rowCount >0) {
+             
+          
+          return res
+            .status(201)
+            .send({ status: "OK"});
+        } else {
+          return res
+            .status(404)
+            .send({ status: "KO", description: "User not found"});
+        }
+        
+      }
+    );     
+              
     
   } catch (error) {
     console.error(error.message);
