@@ -1,10 +1,10 @@
+@import '../../../style/style.scss';
 .searchbar {
     display: flex;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    width: 230px;
-    height: 35px;
+    top:12rem;
+    margin-left: 6rem;
+    width:14rem;
+    height: 3rem;
 }
 
 
@@ -21,7 +21,7 @@
 }
 
 .form-control {
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 
