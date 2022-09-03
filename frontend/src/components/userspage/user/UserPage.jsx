@@ -14,7 +14,7 @@ const UserPage = () => {
             span: 3
           }}>
             <Card style={{ width: '25rem' }} className="card">
-              <Card.Img variant="top" src={image} />
+              <Card.Img variant="top" src={image} className="image"/>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item ><strong>Shelter name:</strong> </ListGroup.Item>
                 <ListGroup.Item ><strong>Pet color:</strong> </ListGroup.Item>
