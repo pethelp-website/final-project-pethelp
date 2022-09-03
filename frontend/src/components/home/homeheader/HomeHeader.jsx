@@ -43,6 +43,7 @@ function HomeHeader() {
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
             {isLoggedIn &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link> }
+            <Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link> 
             {!isLoggedIn && <Nav.Link className='link'as={Link} to={"/sign-up"}>Signup</Nav.Link>}
             {isLoggedIn && <Nav.Link  onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>

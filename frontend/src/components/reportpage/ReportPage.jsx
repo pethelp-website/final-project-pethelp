@@ -12,11 +12,11 @@ const ReportPage = () => {
   const [image, setImage] = useState({});
 
   const [values, setValues] = useState({
-    user: "",
-    petType: "",
-    petColor: "",
-    petRace: "",
-    shelter: "",
+    userName: "",
+    shelterName: "",
+    type: "",
+    color: "",
+    race: "",
     image: "",
   });
 
@@ -27,7 +27,7 @@ const ReportPage = () => {
     setImage(event.target.files[0]);
   }
 
-  const sendImage = (event) => {
+  const sendImage = () => {
     let formData = new FormData();
 
     formData.append("image", image);
@@ -58,12 +58,15 @@ const ReportPage = () => {
 
     fetch("http://localhost:4000/pet_report", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        user: values.user_id,
-        petType: values.type,
-        petColor: values.color,
-        petRace: values.race,
-        shelter: values.shelter_id,
+        userName: values.userName,
+        shelterName: values.shelterName,
+        race: values.race,
+        color: values.color,
+        type: values.type,
       })
     })
       .then(response => {
@@ -86,8 +89,8 @@ const ReportPage = () => {
           <Form.Label className="my-2">Name</Form.Label>
           <Form.Control
             type="text"
-            onChange={e => setValues({ ...values, user: e.target.value })}
-            values={values.user}
+            onChange={e => setValues({ ...values, userName: e.target.value })}
+            values={values.userName}
             autoFocus
             className="input"
             required
@@ -96,8 +99,8 @@ const ReportPage = () => {
         <Form.Group className="my-2" controlId="formBasicpettype">
           <Form.Label className="my-2">Pet type</Form.Label>
           <Form.Select
-            onChange={e => setValues({ ...values, petType: e.target.value })}
-            values={values.petType}
+            onChange={e => setValues({ ...values, type: e.target.value })}
+            values={values.type}
             className="input"
             required
           >
@@ -108,9 +111,10 @@ const ReportPage = () => {
         </Form.Group>
         <Form.Group className="my-2" controlId="formBasicpetcolor">
           <Form.Label>Pet color</Form.Label>
-          <Form.Control type="text"
-            onChange={e => setValues({ ...values, petColor: e.target.value })}
-            values={values.petColor}
+          <Form.Control
+            type="text"
+            onChange={e => setValues({ ...values, color: e.target.value })}
+            values={values.color}
             className="input"
             required
           />
@@ -118,17 +122,17 @@ const ReportPage = () => {
         <Form.Group className="my-2" controlId="formBasicrace">
           <Form.Label>Pet race</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, petRace: e.target.value })}
-            values={values.petRace}
+            onChange={e => setValues({ ...values, race: e.target.value })}
+            values={values.race}
             className="input"
             required
           />
         </Form.Group>
         <Form.Group className="my-2" controlId="formBasicrace">
-          <Form.Label>Shelter name</Form.Label>
+          <Form.Label>Location</Form.Label>
           <Form.Control type="text"
-            onChange={e => setValues({ ...values, shelter: e.target.value })}
-            values={values.shelter}
+            onChange={e => setValues({ ...values, shelterName: e.target.value })}
+            values={values.shelterName}
             className="input"
           />
         </Form.Group>
@@ -140,7 +144,7 @@ const ReportPage = () => {
             name="image"
             accept="jpg"
             onChange={fileOnchange}
-            enctype="multipart/form-data"
+            encType="multipart/form-data"
             className="input"
             required
           />
