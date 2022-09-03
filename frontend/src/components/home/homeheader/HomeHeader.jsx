@@ -11,9 +11,12 @@ import { useNavigate } from "react-router-dom";
 function HomeHeader() {
   let navigate = useNavigate();
 
-  //remove auth token
+  //logout function
   const endLoginSession = () => {
-    loginService.logout()
+    loginService.logout({
+      password: 'Qualqur',
+      email:"alissa@gmail.com"
+    })
       .then(data => {
         navigate("/login", { replace: true });
         console.log(data);
