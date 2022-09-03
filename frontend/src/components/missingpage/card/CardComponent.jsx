@@ -56,8 +56,9 @@ const SearchBar = () => {
             results.map((value, index) => {
               return (
                 <Col key={index} md={4} xs={12}>
-                  <Card style={{ width: "25rem" }} className="mb-3">
+                  <Card style={{ width: "25rem" }} className="mb-3 card" id="card">
                     <Card.Img
+                      className="image"
                       variant="top"
                       src={
                         value.image
