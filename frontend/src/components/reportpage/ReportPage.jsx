@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Button, Form } from "react-bootstrap";
 import loginService from "../../services/loginService";
-import "./ReportPage.scss";
 
 
 const ReportPage = () => {

@@ -1,9 +1,10 @@
 @import '../../../style/style.scss';
+
 .searchbar {
     display: flex;
-    top:12rem;
+    top: 12rem;
     margin-left: 6rem;
-    width:14rem;
+    width: 14rem;
     height: 3rem;
 }
 
@@ -25,5 +26,11 @@
 }
 
 #card {
-    max-height: 350px
+    max-height: 340px
+}
+
+.container {
+    display: flex;
+    justify-content:center;
+
 }
