@@ -31,8 +31,8 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "pethelpdatabase2",
-  password: "Generations39",
+  database: "pethelp",
+  password: "8014",
   port: 5432,
 });
 
@@ -72,6 +72,8 @@ app.get("/pet_report", function (req, res) {
   "color": "black";
   "type": "cat";
 }*/
+
+
 // An endpoint to create a new form for the database(Usman)
 app.post("/pet_report", upload.single("image"), function (req, res) {
   const user = req.body.userName;
