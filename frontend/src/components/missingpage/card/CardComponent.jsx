@@ -49,7 +49,7 @@ const SearchBar = () => {
                         return (
                             <Col key={index} md={4} xs={12}>
                                 <Card style={{ width: '25rem' }} className="mb-3">
-                                    <Card.Img variant="top"
+                                    <Card.Img variant="top"className="image"
                                      src={`http://localhost:4000/${value.image}`}
                                     />
                                     <ListGroup className="list-group-flush">
