@@ -3,9 +3,10 @@ const { Client } = require("pg");
 const bcrypt = require("bcrypt"); // bcrypt is used to hash password before saving it to database
 const fs = require("fs"); // fs is node's inbuilt file system module used to manage files
 
-const generateJWT = require("./generateJWT");
+const { generateJWT, generateFakeJWT, extractUser } = require("./generateJWT");
 const client = require("../utils/openConnection");
-const generateFakeJWT = require("./generateJWT");
+//const generateFakeJWT = require("./generateJWT");
+//const extractUser = require("./generateJWT");
 
 const router = express.Router(); // we create a new router using express's inbuilt Router method
 
@@ -50,7 +51,10 @@ router.post("/sign-up", async (req, res) => {
     const user = "";
     
     const salt = await bcrypt.genSalt(10);
+    console.log("salt", salt);
     const bcryptPassword = await bcrypt.hash(password, salt);
+    console.log("bcrypt", bcrypt);
+    const jwtToken =  generateJWT(email);
 
     // Check user don't exists
     client1.query(SELECT_QUERY, [email], (error, response) => {
@@ -78,7 +82,8 @@ router.post("/sign-up", async (req, res) => {
             if (response) {
               console.log(response);
                   
-              const jwtToken = generateJWT(email);
+              
+              console.log("jwtToken", jwtToken);
     
               return res
                 .status(201)
@@ -130,6 +135,7 @@ router.post("/sign-in", async (req, res) => {
 
               // if the password matches with hashed password then we generate a new token and send it back to user
               const jwtToken = generateJWT(response.rows[0].id);
+              //.then(token => {console.log("token",token);});
           
               res.status(200).send({ jwtToken, isAuthenticated: true });
               
@@ -153,10 +159,13 @@ router.post("/sign-in", async (req, res) => {
 
 // user logout
 router.post("/logout", async (req, res) => {
-  const { email, password } = req.body;
+  const { token } = req.body;
 
   try {
-    const jwtToken = generateFakeJWT(0);
+    //console.log( extractUser(token));
+    const user =  extractUser(token);
+    console.log("user", user);
+    const jwtToken = generateFakeJWT(user);
           
               res.status(200).send({ jwtToken, isAuthenticated: false });
     
