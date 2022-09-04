@@ -1,0 +1,42 @@
+@import '../../../style/style.scss';
+.navbar {
+    background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
+    color: $color-grey-light-1;
+    position:block;
+    &__brand{
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        
+    }
+    &__logo{
+        height: 2rem;
+        padding-left: 3rem;
+        
+    }
+ 
+    
+}
+
+a.link{
+        padding-right: 8rem !important;
+        transition: all 1s;
+        &:hover,
+        &:active{
+            color: $khaki-x-11-light-khaki !important;
+        }
+    
+}
+
+.justify-content-end{
+    @include respond(tab-port){
+        a.nav-link{
+           padding-left:2rem ;
+       
+        }
+    }
+    @include respond(phone){
+        a.nav-link{
+           padding-left:1rem ;
+        }
+    }
+}

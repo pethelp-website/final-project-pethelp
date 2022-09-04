@@ -1,0 +1,29 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 90px;
+    align-items:space-between;
+    justify-content:space-between;
+}
+
+.card {
+    width: 320px;
+    height: 415px;
+    border-radius: 15px;
+    @extend .dFlex !optional;
+    position: relative;
+    transform: scale(.9);
+    transition: all .3s ease-in-out;
+    margin: bottom 50px;
+}
+
+
+.image {
+    height: 180px;
+    max-height: 200px;
+    width: auto;
+    max-width: 250px;
+}
+
+
+

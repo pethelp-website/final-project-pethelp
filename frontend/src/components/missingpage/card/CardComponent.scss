@@ -1,0 +1,57 @@
+@import '../../../style/style.scss';
+
+.searchbar {
+
+    position:fixed;
+    right:1rem;
+    width:14rem;
+
+    display: flex;
+    top: 12rem;
+    margin-left: 6rem;
+    width: 14rem;
+
+    height: 3rem;
+    margin-bottom: 2rem;
+    @include respond(big){
+        top:7.5rem;
+        
+     }
+     @include respond(tab-land){
+        top:7.5rem;
+     }
+     @include respond(tab-port){
+        top:7.5rem;
+     }
+     @include respond(phone){
+        top:12rem;
+     }
+}
+
+
+.heading-secondary {
+    margin-bottom: 20px;
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.h1-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-control {
+    font-size: 1.8rem;
+}
+
+#card {
+    max-height: 340px;
+    height:400px
+}
+
+.container {
+    display: flex;
+    justify-content:center;
+
+}

@@ -1,0 +1,35 @@
+@import '../../../style/style.scss';
+#footer {
+    text-align: center;
+    width: 100%;
+    color:$color-grey-light-1;
+    background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
+    margin-top:auto;
+}
+.text{
+    cursor:default;
+}
+.logo-box{
+    display: flex;
+    justify-content: baseline;
+    transition: all 0.2s ease-in-out;
+    &__facebook{
+        &:hover,
+        &:active {
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }
+    &__ins{
+        &:hover,
+        &:active {
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }
+    &__twitter{
+        &:hover,
+        &:active {
+        
+        transform: scale(1.2);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);}
+    }}
+    
