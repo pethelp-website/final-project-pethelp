@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Button, Form } from "react-bootstrap";
 import loginService from "../../services/loginService";
+import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 
 
 const ReportPage = () => {
@@ -32,6 +33,7 @@ const ReportPage = () => {
     fetch("http://localhost:4000/upload", {
       method: "POST",
       body: formData,
+  
     })
       .then((res) => res.text())
       .then((resBody) => {
@@ -60,13 +62,15 @@ const ReportPage = () => {
     formData.append("race", values.race);
     formData.append("color", values.color);
     formData.append("type", values.type);
-   
+
 
     console.log(formData);
 
     fetch("http://localhost:4000/pet_report", {
       method: "POST",
-
+      headers: new Headers({
+        'Authorization': 'Bearer ' + getLocalStorageInfo(),
+      }),
       body: formData,
     })
       .then((response) => {
