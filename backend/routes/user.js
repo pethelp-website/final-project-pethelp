@@ -117,6 +117,7 @@ router.post("/sign-in", async (req, res) => {
 
           console.log("password bd",response.rows[0].password);
           console.log("password user",password);
+          console.log("isadmin",response.rows[0].isadmin);
           const isValidPassword =  bcrypt.compare(
             password,
             response.rows[0].password
@@ -129,9 +130,22 @@ router.post("/sign-in", async (req, res) => {
             } else {
 
               // if the password matches with hashed password then we generate a new token and send it back to user
-              const jwtToken = generateJWT(response.rows[0].id);
+              const jwtToken = generateJWT({
+                id: response.rows[0].id,
+                email: response.rows[0].email,
+                isAdmin: response.rows[0].isadmin,
+                password: response.rows[0].password,
+              });
           
-              res.status(200).send({ jwtToken, isAuthenticated: true });
+              res.status(200).send({ 
+                jwtToken, isAuthenticated: true, 
+                user: {
+                  email: response.rows[0].email ,
+                  isAdmin: response.rows[0].isadmin,
+                  id: response.rows[0].id,
+                  password: response.rows[0].password,
+                }
+              });
               
             }
         
