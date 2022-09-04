@@ -364,5 +364,9 @@ GRANT ALL ON TABLE public.usertype TO pethelp;
 
 --
 -- PostgreSQL database dump complete
+<<<<<<< HEAD
 --
 
+=======
+--
+>>>>>>> f5154df47e4c0d7b9267c984869d5b5ca47f0a32

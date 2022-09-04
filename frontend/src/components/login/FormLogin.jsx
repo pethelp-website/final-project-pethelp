@@ -8,6 +8,7 @@ function FormLogin() {
 
     let navigate = useNavigate();
 
+
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -55,6 +56,7 @@ function FormLogin() {
             })
             .then((data) => {
                 localStorage.setItem("token", JSON.stringify(data));
+                localStorage.setItem("user", JSON.stringify(data.user));
                 navigate("/", { replace: true });
                 console.log(data);
             })

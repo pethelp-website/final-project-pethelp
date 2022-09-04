@@ -14,8 +14,8 @@ function HomeHeader() {
   //logout function
   const endLoginSession = () => {
     loginService.logout({
-      password: 'Qualqur',
-      email:"alissa@gmail.com"
+      password: user.password,
+      email: user.email
     })
       .then(data => {
         navigate("/login", { replace: true });
@@ -27,11 +27,14 @@ function HomeHeader() {
   //function from services checks if user is logged in
   const isLoggedIn = loginService.isLoggedIn();
 
+  //checks if the user is admin
+  const user = loginService.getUser();
+
   return (
     <div>
       <Navbar variant="dark" className="navbar sticky-top" expand="lg">
         <Navbar.Brand as={Link} to={"/"} className="navbar__brand">
-          <img  
+          <img
             id="logo"
             alt=""
             src={logo}
@@ -42,13 +45,13 @@ function HomeHeader() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav id="nav-links" >
-          {isLoggedIn &&<Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link> }
+            {isLoggedIn && <Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
-            {isLoggedIn &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link> }
-            <Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link> 
-            {!isLoggedIn && <Nav.Link className='link'as={Link} to={"/sign-up"}>Signup</Nav.Link>}
-            {isLoggedIn && <Nav.Link  onClick={() => endLoginSession()}>Logout</Nav.Link>}
+            {isLoggedIn && !user.isAdmin &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link>}
+            {isLoggedIn && user.isAdmin &&<Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link>}
+            {!isLoggedIn && <Nav.Link className='link' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
+            {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
