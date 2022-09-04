@@ -42,7 +42,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <input value={search} onChange={searcher} type="text" placeholder="Search" className="searchbar"></input>
+            <input value={search} onChange={searcher} type="text" placeholder='Search' className="searchbar"></input>
             <Container style={{ display: 'flex', justifyContent: 'center' }}>
                 <Row>
                     {results.length === 0 && <Col style={{ display: 'flex', justifyContent: 'center' }}>
