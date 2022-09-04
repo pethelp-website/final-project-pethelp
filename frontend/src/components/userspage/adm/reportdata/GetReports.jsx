@@ -45,9 +45,9 @@ const GetReports = () => {
           {reportData.map((value, index) => {
             return (
               <Col key={index} lg={{
-                span: 4
+                span: 3
               }}>
-                <Card style={{ width: '25rem' }} className="card">
+                <Card style={{ width: '25rem' }} className="card mt-4 mb-2">
                   <Card.Img
                     variant="top"
                     className="image"

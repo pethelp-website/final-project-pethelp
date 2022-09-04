@@ -45,7 +45,7 @@ const SearchBar = () => {
         placeholder="Search"
         className="searchbar"
       ></input>
-      <Container style={{ display: "flex", justifyContent: "center" }}>
+      <Container className="container">
         <Row>
           {results.length === 0 && (
             <Col style={{ display: "flex", justifyContent: "center" }}>
@@ -55,8 +55,8 @@ const SearchBar = () => {
           {reportData &&
             results.map((value, index) => {
               return (
-                <Col key={index} md={4} xs={12}>
-                  <Card style={{ width: "25rem" }} className="mb-3 card" id="card">
+                <Col key={index} md={3} xs={12}>
+                  <Card style={{ width: "25rem" }} className="mt-3 mb-3 card" id="card">
                     <Card.Img
                       className="image"
                       variant="top"
