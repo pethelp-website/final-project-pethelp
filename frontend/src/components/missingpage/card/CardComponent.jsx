@@ -48,7 +48,7 @@ const SearchBar = () => {
                     {reportData && results.map((value, index) => {
                         return (
                             <Col key={index} md={4} xs={12}>
-                                <Card style={{ width: '25rem' }} className="mb-3">
+                                <Card style={{ width: '25rem' }} className="mb-3" id="card">
                                     <Card.Img variant="top"className="image"
                                      src={`http://localhost:4000/${value.image}`}
                                     />
