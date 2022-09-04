@@ -31,26 +31,47 @@ export async function sign_up({
 
 //checks if the user is logged in
 export function isLoggedIn() {
-    return getAuthenticatedUser() !== null;
+    return getToken() !== null;
 };
 
 
 //Logout function to end the login session in backend.
-const logout = async () => {
-    return fetch("https://run.mocky.io/v3/e6c1e99e-557a-49c7-bc7c-dd44c1c66531", {
+export async function logout({
+    email, 
+    password,
+}) {
+    return fetch("http://localhost:4000/user/logout", {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email,
+            password,
+        }),
     })
         .then(response => {
-            console.log(response);
+         return response.json();
+            
         }).then(data => {
             localStorage.removeItem('token');
             console.log(data);
-        });
+        }).catch(error => {
+            console.log(error);
+        })
 }
+
+ 
+ //checks if user is admin
+ export function getUser()  {
+    const user = localStorage.getItem("user");
+    return JSON.parse(user);
+  };
+
 
 
 //checks if the user is authenticated
-export function getAuthenticatedUser() {
+export function getToken() {
     const user = localStorage.getItem("token");
     console.log(user)
     if (!user) {
@@ -65,9 +86,10 @@ export function getAuthenticatedUser() {
 
 const exports = {
     sign_up,
-    getAuthenticatedUser,
+    getToken,
     isLoggedIn,
-    logout
+    logout,
+    getUser,
 };
 
 export default exports;

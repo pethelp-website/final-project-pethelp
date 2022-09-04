@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+const multer = require("multer");
 
 const user = require("./routes/user");
 const report = require("./routes/report");
@@ -13,6 +15,9 @@ const corsOptions = {
   origin: "http://localhost:3000",
 };
 app.use(cors(corsOptions)); // enable CORS
+var dir = path.join(__dirname, "Images");
+
+app.use(express.static(dir));
 
 // simple route
 app.get("/", (req, res) => {
@@ -26,8 +31,8 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "pethelpdatabase2",
-  password: "Generations39",
+  database: "pethelp",
+  password: "8014",
   port: 5432,
 });
 
@@ -43,6 +48,16 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to MigraCode Auth application." });
 });
 
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "./Images");
+  },
+  filename: (req, file, callback) => {
+    callback(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage: storage });
+
 // An endpoint to get all the form from the database
 app.get("/pet_report", function (req, res) {
   pool.query("SELECT * FROM pet_report", (error, result) => {
@@ -57,20 +72,21 @@ app.get("/pet_report", function (req, res) {
   "color": "black";
   "type": "cat";
 }*/
+
+
 // An endpoint to create a new form for the database(Usman)
-app.post("/pet_report", function (req, res) {
-  //const userId = req.body.user_id;
+app.post("/pet_report", upload.single("image"), function (req, res) {
   const user = req.body.userName;
   const shelter = req.body.shelterName;
   const petRace = req.body.race;
   const petColor = req.body.color;
+  const petImage = req.file.filename;
   const petType = req.body.type;
-
   const query =
-    "INSERT INTO pet_report (userName, shelterName, race, color, type) VALUES ($1, $2, $3,$4, $5)";
+    "INSERT INTO pet_report (userName, shelterName, race, color,image, type) VALUES ($1, $2, $3,$4, $5, $6)";
 
   pool
-    .query(query, [user, shelter, petRace, petColor, petType])
+    .query(query, [user, shelter, petRace, petColor, petImage, petType])
     .then(() => res.send("Found lost pet form created!"))
     .catch((e) => console.error(e));
 });
@@ -139,25 +155,9 @@ app.delete("/pet_report/:pet_reportId", function (req, res) {
     .then(() => res.send(`Form ${pet_reportId} deleted!`))
     .catch((e) => console.error(e));
 });
+
 // The endpoint for uploading images
-const path = require("path");
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, "./Images");
-  },
-  filename: (req, file, callback) => {
-    callback(null, Date.now() + path.extname(file.originalname));
-  },
-});
-const upload = multer({ storage: storage });
-app.get("/upload", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-app.post("/upload", upload.single("image"), (req, res) => {
-  console.log(req.file);
-  res.send("Image Uploaded");
-});
+
 app.post("/multi-upload", upload.array("images", 3), (req, res) => {
   console.log(req.files);
   res.send("Images Uploaded");
