@@ -7,14 +7,14 @@ import image from "../../../images/profile.jpg";
 const UserPage = () => {
   return (
     <div>
+       <h1 className="mt-5 mb-2 heading-secondary">My reports</h1>
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 className="mt-5 mb-2 heading-secondary">My reports</h1>
         <Row>
           <Col lg={{
             span: 3
           }}>
             <Card style={{ width: '25rem' }} className="card">
-              <Card.Img variant="top" src={image} />
+              <Card.Img variant="top" src={image} className="image"/>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item ><strong>Shelter name:</strong> </ListGroup.Item>
                 <ListGroup.Item ><strong>Pet color:</strong> </ListGroup.Item>

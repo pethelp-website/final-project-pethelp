@@ -1,8 +1,16 @@
 @import '../../../style/style.scss';
+
 .searchbar {
+
     position:fixed;
     right:1rem;
     width:14rem;
+
+    display: flex;
+    top: 12rem;
+    margin-left: 6rem;
+    width: 14rem;
+
     height: 3rem;
     margin-bottom: 2rem;
     @include respond(big){
@@ -37,11 +45,12 @@
     font-size: 1.8rem;
 }
 
+#card {
+    max-height: 340px
+}
 
-.card {
-    margin-bottom: 10px;
-    margin-top: 30px;
-    margin: 70px;
+.container {
     display: flex;
-    justify-content: center;
+    justify-content:center;
+
 }
