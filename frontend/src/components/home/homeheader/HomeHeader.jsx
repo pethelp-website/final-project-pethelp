@@ -14,8 +14,8 @@ function HomeHeader() {
   //logout function
   const endLoginSession = () => {
     loginService.logout({
-      password: 'Qualqur',
-      email: "alissa@gmail.com"
+      password: user.password,
+      email: user.email
     })
       .then(data => {
         navigate("/login", { replace: true });
