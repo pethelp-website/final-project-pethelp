@@ -31,7 +31,7 @@ export async function sign_up({
 
 //checks if the user is logged in
 export function isLoggedIn() {
-    return getAuthenticatedUser() !== null;
+    return getToken() !== null;
 };
 
 
@@ -62,11 +62,16 @@ export async function logout({
 }
 
  
+ //checks if user is admin
+ export function getUser()  {
+    const user = localStorage.getItem("user");
+    return JSON.parse(user);
+  };
 
 
 
 //checks if the user is authenticated
-export function getAuthenticatedUser() {
+export function getToken() {
     const user = localStorage.getItem("token");
     console.log(user)
     if (!user) {
@@ -81,9 +86,10 @@ export function getAuthenticatedUser() {
 
 const exports = {
     sign_up,
-    getAuthenticatedUser,
+    getToken,
     isLoggedIn,
-    logout
+    logout,
+    getUser,
 };
 
 export default exports;
