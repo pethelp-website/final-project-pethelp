@@ -1,7 +1,6 @@
 export default function validateInfo(values) {
     let errors = {};
     //validation in regex format
-    const uppercaseRegExp = /(?=.*?[A-Z])/;
     const digitsRegExp = /(?=.*?[0-9])/;
     const minLengthRegExp = /.{6,20}/;
     const onlyLetters = /^[a-zA-Z]+$/;
@@ -9,21 +8,18 @@ export default function validateInfo(values) {
 
 
     const passwordLength = values.password.length;
-    const uppercasePassword = uppercaseRegExp.test(values.password);
     const digitsPassword = digitsRegExp.test(values.password);
     const minLengthPassword = minLengthRegExp.test(values.password);
     const digitsPostcode = digitsRegExp.test(values.postcode);
     const digitsPhoneNumber = digitsRegExp.test(values.phonenumber);
     const onlyLettersCity = onlyLetters.test(values.city);
     const letterAndNumbersAdress = lettersAndNumbers.test(values.address);
-    const userNameHasUppercase = uppercaseRegExp.test(values.name);
+ 
 
 
     //username
     if (!values.name.trim()) {
         errors.name = "Username is required";
-    } else if (userNameHasUppercase) {
-        errors.name = "Only lowercase characters allowed";
     } 
     
 
@@ -38,8 +34,6 @@ export default function validateInfo(values) {
     //Password- uppercase, one digit and 6 characters.
     if (passwordLength === 0) {
         errors.password = "Password is required";
-    } else if (!uppercasePassword) {
-        errors.password = "At least one Uppercase";
     } else if (!digitsPassword) {
         errors.password = "At least one digit";
     } else if (!minLengthPassword) {

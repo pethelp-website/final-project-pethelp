@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Button, Form } from "react-bootstrap";
 import loginService from "../../services/loginService";
+import "./ReportPage.scss";
+
 
 const ReportPage = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   //image usestate
   const [image, setImage] = useState({});
@@ -59,6 +61,7 @@ const ReportPage = () => {
     formData.append("race", values.race);
     formData.append("color", values.color);
     formData.append("type", values.type);
+   
 
     console.log(formData);
 
