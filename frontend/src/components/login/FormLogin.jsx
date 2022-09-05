@@ -56,7 +56,7 @@ function FormLogin() {
             })
             .then((data) => {
                 localStorage.setItem("token", JSON.stringify(data));
-                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("user", JSON.stringify(data.user)); //store user object in localStorage. This object has info about email, password, authenticated and if is admin.
                 navigate("/", { replace: true });
                 console.log(data);
             })

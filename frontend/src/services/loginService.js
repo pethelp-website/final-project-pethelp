@@ -1,4 +1,3 @@
-//Here we have all functions that we can import and reuse it.
 
 
 //signup fecth function
@@ -61,23 +60,24 @@ export async function logout({
         })
 }
 
- 
- //checks if user is admin
- export function getUser()  {
+
+
+//checks if user is admin
+export function getUser() {
     const user = localStorage.getItem("user");
     return JSON.parse(user);
-  };
+};
 
 
 
 //checks if the user is authenticated
 export function getToken() {
-    const user = localStorage.getItem("token");
-    console.log(user)
-    if (!user) {
+    const token = localStorage.getItem("token");
+    console.log(token)
+    if (!token) {
         return null;
     } else {
-        return JSON.parse(user);
+        return JSON.parse(token);
     }
 };
 
