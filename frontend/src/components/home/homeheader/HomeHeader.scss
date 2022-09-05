@@ -2,7 +2,8 @@
 .navbar {
     background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
     color: $color-grey-light-1;
-    position:block;
+    width: 100%;
+    position:fixed;
     &__brand{
         font-size: 1.5rem;
         text-transform: capitalize;
