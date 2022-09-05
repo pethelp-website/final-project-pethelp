@@ -14,7 +14,10 @@ function HomeHeader() {
 
   //logout function
   const endLoginSession = () => {
-    loginService.logout()
+    loginService.logout({
+      password: user.password,
+      email: user.email
+    })
       .then(data => {
         navigate("/login", { replace: true });
         console.log(data);
@@ -47,8 +50,8 @@ function HomeHeader() {
             {isLoggedIn && <Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
             <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
-            <Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link> {/*user.IsAdmin access this data in user object*/}
-            <Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link>
+            {isLoggedIn && !user.isAdmin &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link>} {/*user.IsAdmin access this data in user object*/}
+            {isLoggedIn && user.isAdmin &&<Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link>}
             {!isLoggedIn && <Nav.Link className='link' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
             {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
