@@ -142,6 +142,7 @@ router.post("/sign-in", async (req, res) => {
                 isAdmin: response.rows[0].isadmin,
                 password: response.rows[0].password,
               });
+              console.log(jwtToken)
           
               res.status(200).send({ 
                 jwtToken, isAuthenticated: true, 
@@ -151,8 +152,9 @@ router.post("/sign-in", async (req, res) => {
                   id: response.rows[0].id,
                   password: response.rows[0].password,
                 }
+                
               });
-              
+              console.log(jwtToken)
             }
         
             
