@@ -180,8 +180,7 @@ router.post("/logout", async (req, res) => {
     const user =  extractUser(token);
     console.log("user", user);
     const jwtToken = generateFakeJWT(user);
-          
-              res.status(200).send({ jwtToken, isAuthenticated: false });
+    res.status(200).send({ jwtToken, isAuthenticated: false });
     
   } catch (error) {
     console.error(error.message);
