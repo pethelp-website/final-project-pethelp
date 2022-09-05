@@ -19,6 +19,9 @@ function HomeHeader() {
       email: user.email
     })
       .then(data => {
+      token: loginService.getToken().jwtToken
+    }).then(data => {
+
         navigate("/login", { replace: true });
         console.log(data);
       })

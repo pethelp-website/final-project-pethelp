@@ -2,17 +2,17 @@
 
 .searchbar {
 
-    position:fixed;
+    position:block;
     right:1rem;
     width:14rem;
 
     display: flex;
     top: 12rem;
-    margin-left: 6rem;
+    margin-left: 10rem;
     width: 14rem;
 
     height: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     @include respond(big){
         top:7.5rem;
         
