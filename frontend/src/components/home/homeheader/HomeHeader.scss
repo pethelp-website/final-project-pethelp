@@ -18,14 +18,24 @@
     
 }
 
-a.link{
-        padding-right: 9rem !important;
+.link{
+        padding-right: 2rem !important;
         transition: all 1s;
+        text-transform: uppercase;
         &:hover,
         &:active{
-            color: $khaki-x-11-light-khaki !important;
+            color: $mustard;
         }
     
+}
+
+.logout{
+    margin-right: 3rem;
+    transition: all .5s;
+    &:hover,
+        &:active{
+            color: $chestnut;
+        }
 }
 
 .justify-content-end{

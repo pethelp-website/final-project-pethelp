@@ -45,12 +45,12 @@ function HomeHeader() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav id="nav-links" >
-            {isLoggedIn && <Nav.Link as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
-            <Nav.Link as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
-            {!isLoggedIn && <Nav.Link as={Link} to={"/login"} >Login</Nav.Link>}
-            {isLoggedIn && !user.isAdmin &&<Nav.Link as={Link} to={"/user-page"}>My account</Nav.Link>} {/*user.IsAdmin access this data in user object*/}
-            {isLoggedIn && user.isAdmin &&<Nav.Link as={Link} to={"/adm-page"}>Admin</Nav.Link>}
-            {!isLoggedIn && <Nav.Link className='link' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
+            {isLoggedIn && <Nav.Link  className='link'as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
+            <Nav.Link  className='link'as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
+            {!isLoggedIn && <Nav.Link as={Link} className='link' to={"/login"} >Login</Nav.Link>}
+            {isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} {/*user.IsAdmin access this data in user object*/}
+            {isLoggedIn && user.isAdmin &&<Nav.Link  className='link' as={Link} to={"/adm-page"}>Admin</Nav.Link>}
+            {!isLoggedIn && <Nav.Link className='link logout' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
             {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
