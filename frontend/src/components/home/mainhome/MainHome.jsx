@@ -6,7 +6,7 @@ import findPet from "../../../images/REPORT.jpg";
 import "./MainHome.scss";
 import loginService from "../../../services/loginService";
 
-
+import '../../../style/style.scss';
 
 
 const MainHome = () => {
