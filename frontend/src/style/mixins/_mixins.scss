@@ -1,0 +1,25 @@
+// 0-600px phone
+// 600-900px tablet portrait
+// 900 - 1200px tablet landscape
+// 1200px - 1440px :current
+// 1440 - big screen
+
+//1em = 16px
+@mixin respond($breakpoints){
+    
+
+    @if $breakpoints == tab-land {
+     @media (max-width: 1200px) {@content};
+
+    }
+    @if $breakpoints == tab-port {
+        @media (max-width: 992px) {@content}
+       };
+       
+    @if $breakpoints == phone {
+        @media (max-width: 576px) {@content}
+       };
+    @if $breakpoints == big {
+     @media (min-width: 1400px) {@content}
+    };
+ }
