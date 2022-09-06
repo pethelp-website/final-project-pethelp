@@ -48,7 +48,7 @@ function HomeHeader() {
             {isLoggedIn && <Nav.Link  className='link'as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
             <Nav.Link  className='link'as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} className='link' to={"/login"} >Login</Nav.Link>}
-            {isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} {/*user.IsAdmin access this data in user object*/}
+            {/*{isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} */}
             {isLoggedIn && user.isAdmin &&<Nav.Link  className='link' as={Link} to={"/adm-page"}>Admin</Nav.Link>}
             {!isLoggedIn && <Nav.Link className='link logout' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
             {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
