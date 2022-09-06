@@ -13,7 +13,7 @@ const UserPage = () => {
           <Col lg={{
             span: 3
           }}>
-            <Card style={{ width: '25rem' }} className="card">
+            <Card style={{ width: '25rem' }} className="card card-comp">
               <Card.Img variant="top" src={image} className="image"/>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item ><strong>Shelter name:</strong> </ListGroup.Item>
