@@ -1,3 +1,5 @@
+@import '../../../../style/style.scss';
+
 .row {
     display: flex;
     justify-content: center;
@@ -17,11 +19,14 @@
     justify-content: center
 }
 
-.card:hover {
+.card
+{ box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+:hover {
     transform: scale(.8);
     transition: all .3s ease-in-out;
     position: relative;
     background: transparent;
     border-style: solid; 
     border-width: 6px;
+}
 }
