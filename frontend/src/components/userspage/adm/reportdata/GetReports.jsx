@@ -41,7 +41,7 @@ const GetReports = () => {
   return (
     <div>
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
-        <Row>
+        <Row className="row">
           {reportData.map((value, index) => {
             return (
               <Col key={index} lg={{

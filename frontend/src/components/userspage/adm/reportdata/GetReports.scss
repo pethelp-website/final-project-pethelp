@@ -2,10 +2,17 @@
 
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+   
+
+.col-lg-3{
+    @include respond(tab-land){
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
 }
-
-
+}
 
 #h1 {
     display: flex;
