@@ -32,6 +32,7 @@ function HomeHeader() {
   }
 
   //function from services checks if user is logged in
+  
   const isLoggedIn = loginService.isLoggedIn();
 
   //import function from services that checks if the user is admin
