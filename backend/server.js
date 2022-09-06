@@ -26,15 +26,15 @@ app.get("/", (req, res) => {
 app.use("/user", user);
 app.use("/pet", report);
 
-const { Pool } = require("pg");
+const pg = require("pg");
 //const bodyParser = require("body-parser")
-const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "pethelp",
-  password: "8014",
-  port: 5432,
-});
+
+
+
+
+const pool = new pg.Client({connectionString:process.env.DB_URL, ssl: { rejectUnauthorized: false }});
+
+
 
 pool.connect();
 
