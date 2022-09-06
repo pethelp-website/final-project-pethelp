@@ -46,7 +46,7 @@ const SearchBar = () => {
                 placeholder="Search"
                 className="searchbar"
             ></input>
-            <Container style={{ display: 'flex', justifyContent: 'center' }}>
+            <Container className="container">
                 <Row>
                     {results.length === 0 && (
                         <Col
@@ -64,7 +64,7 @@ const SearchBar = () => {
                                 <Col key={index} md={3} xs={12}>
                                     <Card
                                         style={{ width: '25rem' }}
-                                        className="mb-3 card-comp"
+                                        className="card-comp"
                                         id="card"
                                     >
                                         <Card.Img
