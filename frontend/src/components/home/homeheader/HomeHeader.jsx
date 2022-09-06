@@ -15,13 +15,8 @@ function HomeHeader() {
   //logout function
   const endLoginSession = () => {
     loginService.logout({
-      password: user.password,
-      email: user.email
-    })
-      .then(data => {
       token: loginService.getToken().jwtToken
     }).then(data => {
-
         navigate("/login", { replace: true });
         console.log(data);
       })
