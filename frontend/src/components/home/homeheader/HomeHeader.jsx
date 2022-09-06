@@ -17,10 +17,19 @@ function HomeHeader() {
         email: user.email,
       })
       .then((data) => {
+    loginService.logout({
+      password: user.password,
+      email: user.email
+    })
+      .then(data => {
+      token: loginService.getToken().jwtToken
+    }).then(data => {
+
+
         navigate("/login", { replace: true });
         console.log(data);
       });
-  };
+  }
 
   //function from services checks if user is logged in
   const isLoggedIn = loginService.isLoggedIn();

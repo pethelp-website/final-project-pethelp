@@ -49,27 +49,27 @@ router.post("/sign-up", async (req, res) => {
 
   try {
     const user = "";
-    
+
     const salt = await bcrypt.genSalt(10);
     console.log("salt", salt);
     const bcryptPassword = await bcrypt.hash(password, salt);
     console.log("bcrypt", bcrypt);
-    const jwtToken =  generateJWT(email);
+    const jwtToken = generateJWT(email);
 
     // Check user don't exists
     client1.query(SELECT_QUERY, [email], (error, response) => {
       if (error) {
         console.log("Something went wrong. " + error);
-        
+
       }
-      console.log("length",response.rows.length);
+      console.log("length", response.rows.length);
       if (response.rows.length > 0) {
-        
+
         return res.status(400).json({ error: "User already exist!" });
       } else {
 
-       
-    
+
+
         // we add newUser to usersDb
         client1.query(
           INSERT_QUERY,
@@ -77,26 +77,26 @@ router.post("/sign-up", async (req, res) => {
           (error, response) => {
             if (error) {
               console.log("Something went wrong" + error);
-              
+
             }
             if (response) {
               console.log(response);
-                  
-              
+
+
               console.log("jwtToken", jwtToken);
-    
+
               return res
                 .status(201)
                 .send({ jwtToken: jwtToken, isAuthenticated: true });
             }
-            
+
           }
         );
       }
-      
+
     });
 
-    
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send({ error: error.message });
@@ -108,39 +108,49 @@ router.post("/sign-in", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    console.log("email",email);
-    client1.query(SELECT_QUERY, [email], (error, response)=> {
-        //console.log("query",query);
-        if (error) {
-          console.log("Something went wrong" + error);
-          res.status(404).json({error: "Invalid Credential", isAuthenticated: false}); 
-        }
-        //res.json(response.rows);
-        if (response.rows.length==0) {
-            res.status(404).json({error: "Invalid Credential", isAuthenticated: false}); 
-        } else {
+    console.log("email", email);
+    client1.query(SELECT_QUERY, [email], (error, response) => {
+      //console.log("query",query);
+      if (error) {
+        console.log("Something went wrong" + error);
+        res.status(404).json({ error: "Invalid Credential", isAuthenticated: false });
+      }
+      //res.json(response.rows);
+      if (response.rows.length == 0) {
+        res.status(404).json({ error: "Invalid Credential", isAuthenticated: false });
+      } else {
 
-          console.log("password bd",response.rows[0].password);
-          console.log("password user",password);
-          console.log("isadmin",response.rows[0].isadmin);
-          const isValidPassword =  bcrypt.compare(
-            password,
-            response.rows[0].password
-          ).then(valid => {
+        console.log("password bd", response.rows[0].password);
+        console.log("password user", password);
+        console.log("isadmin", response.rows[0].isadmin);
+        const isValidPassword = bcrypt.compare(
+          password,
+          response.rows[0].password
+        ).then(valid => {
 
-            console.log("isValidPassword", valid);
-        
-            if (!valid) {
-              res.status(401).json({error: "Invalid Credential", isAuthenticated: false});
-            } else {
+          console.log("isValidPassword", valid);
 
-              // if the password matches with hashed password then we generate a new token and send it back to user
+          if (!valid) {
+            res.status(401).json({ error: "Invalid Credential", isAuthenticated: false });
+          } else {
 
-              const jwtToken = generateJWT({
-                id: response.rows[0].id,
+            // if the password matches with hashed password then we generate a new token and send it back to user
+
+            const jwtToken = generateJWT({
+              id: response.rows[0].id,
+              email: response.rows[0].email,
+              isAdmin: response.rows[0].isadmin,
+              password: response.rows[0].password,
+            });
+
+            res.status(200).send({
+              jwtToken, isAuthenticated: true,
+              user: {
                 email: response.rows[0].email,
                 isAdmin: response.rows[0].isadmin,
+                id: response.rows[0].id,
                 password: response.rows[0].password,
+<<<<<<< HEAD
               });
               console.log(jwtToken)
           
@@ -159,9 +169,18 @@ router.post("/sign-in", async (req, res) => {
         
             
           })
+=======
+              }
+            });
+>>>>>>> 57544d22ff19e6216c3246250ab165f3816f4cfd
 
-        }
-      })
+          }
+
+
+        })
+
+      }
+    })
 
     //const jwtToken = generateJWT(email);
 
@@ -178,17 +197,15 @@ router.post("/logout", async (req, res) => {
   const { token } = req.body;
 
   try {
-    //console.log( extractUser(token));
-    const user =  extractUser(token);
-    console.log("user", user);
-    const jwtToken = generateFakeJWT(user);
-    res.status(200).send({ jwtToken, isAuthenticated: false });
+    res.status(200).send({ isAuthenticated: false, token });
     
   } catch (error) {
     console.error(error.message);
     res.status(500).send({ error: error.message });
   }
 });
+
+
 
 // user delete
 router.delete("/", async (req, res) => {
@@ -203,25 +220,25 @@ router.delete("/", async (req, res) => {
           console.log("Something went wrong" + error);
           return res
             .status(201)
-            .send({ status: "KO", description: error});
-          
+            .send({ status: "KO", description: error });
+
         }
-        if (response.rowCount >0) {
-             
-          
+        if (response.rowCount > 0) {
+
+
           return res
             .status(201)
-            .send({ status: "OK"});
+            .send({ status: "OK" });
         } else {
           return res
             .status(404)
-            .send({ status: "KO", description: "User not found"});
+            .send({ status: "KO", description: "User not found" });
         }
-        
+
       }
-    );     
-              
-    
+    );
+
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send({ error: error.message });

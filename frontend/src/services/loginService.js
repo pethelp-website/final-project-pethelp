@@ -36,8 +36,7 @@ export function isLoggedIn() {
 
 //Logout function to end the login session in backend.
 export async function logout({
-    email, 
-    password,
+    token, 
 }) {
     return fetch("http://localhost:4000/user/logout", {
         method: "POST",
@@ -45,8 +44,7 @@ export async function logout({
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            email,
-            password,
+           token
         }),
     })
         .then(response => {
@@ -54,7 +52,7 @@ export async function logout({
             
         }).then(data => {
             localStorage.removeItem('token');
-            console.log(data);
+            localStorage.removeItem('user');
         }).catch(error => {
             console.log(error);
         })
