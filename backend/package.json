@@ -6,13 +6,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "start": "nodemon server.js",
     "start:prod": "node index.js"
-
-=======
-    "start": "node server.js"
->>>>>>> 212d438d3edf9c19fe7865991bafbfe8ef710297
   },
   "author": "",
   "license": "ISC",
