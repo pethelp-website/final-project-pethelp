@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Button, Form } from "react-bootstrap";
 import loginService from "../../services/loginService";
+import { getLocalStorageInfo } from "../../services/getLocalStorageInfo";
 
 
 const ReportPage = () => {
@@ -17,6 +18,7 @@ const ReportPage = () => {
     color: "",
     race: "",
     image: "",
+   phoneNumber: "",
   });
 
   //Fetch to send the image
@@ -32,6 +34,7 @@ const ReportPage = () => {
     fetch("http://localhost:4000/upload", {
       method: "POST",
       body: formData,
+  
     })
       .then((res) => res.text())
       .then((resBody) => {
@@ -60,13 +63,16 @@ const ReportPage = () => {
     formData.append("race", values.race);
     formData.append("color", values.color);
     formData.append("type", values.type);
-   
+    formData.append("phone", values.phoneNumber);
+
 
     console.log(formData);
 
     fetch("http://localhost:4000/pet_report", {
       method: "POST",
-
+      headers: new Headers({
+        'Authorization': 'Bearer ' + getLocalStorageInfo(),
+      }),
       body: formData,
     })
       .then((response) => {
@@ -85,7 +91,7 @@ const ReportPage = () => {
     <Container style={{ display: "flex", justifyContent: "center" }}>
       {isLoggedIn && (
         <Form onSubmit={handleSubmit}>
-          <h1 className="mt-5 heading-secondary">Report a found pet</h1>
+          <h1 className="heading-secondary">Report a found pet</h1>
           <Form.Group className="my-2" controlId="formBasicpetname">
             <Form.Label className="my-2">Name</Form.Label>
             <Form.Control
@@ -94,6 +100,19 @@ const ReportPage = () => {
                 setValues({ ...values, userName: e.target.value })
               }
               values={values.userName}
+              autoFocus
+              className="input"
+              required
+            />
+          </Form.Group>
+          <Form.Group className="my-2" controlId="formBasicpetname">
+            <Form.Label className="my-2">Phone number</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) =>
+                setValues({ ...values, phoneNumber: e.target.value })
+              }
+              values={values.phoneNumber}
               autoFocus
               className="input"
               required

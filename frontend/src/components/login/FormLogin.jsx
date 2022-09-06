@@ -8,6 +8,7 @@ function FormLogin() {
 
     let navigate = useNavigate();
 
+
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -55,6 +56,7 @@ function FormLogin() {
             })
             .then((data) => {
                 localStorage.setItem("token", JSON.stringify(data));
+                localStorage.setItem("user", JSON.stringify(data.user)); //store user object in localStorage. This object has info about email, password, authenticated and if is admin.
                 navigate("/", { replace: true });
                 console.log(data);
             })
@@ -68,7 +70,7 @@ function FormLogin() {
             <div>
                 <Form onSubmit={handleSubmit} className="form-login">
 
-                    <h2 className="mt-5 heading-secondary">Login your account</h2>
+                    <h2 className="heading-secondary">Login your account</h2>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="my-2">Email address</Form.Label>

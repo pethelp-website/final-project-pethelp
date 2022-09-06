@@ -2,17 +2,17 @@
 
 .searchbar {
 
-    position:fixed;
+    position:block;
     right:1rem;
     width:14rem;
 
     display: flex;
     top: 12rem;
-    margin-left: 6rem;
+    margin-left: 10rem;
     width: 14rem;
 
     height: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     @include respond(big){
         top:7.5rem;
         
@@ -46,11 +46,21 @@
 }
 
 #card {
-    max-height: 340px
+    max-height: 360px;
+    height:430px;    
+}
+
+#card:hover {
+    transform: scale(.8);
+    transition: all .3s ease-in-out;
+    position: relative;
+    background: transparent;
+    border-style: solid; 
+    border-width: 6px;
 }
 
 .container {
     display: flex;
     justify-content:center;
-
+    
 }

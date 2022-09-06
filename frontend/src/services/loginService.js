@@ -1,4 +1,3 @@
-//Here we have all functions that we can import and reuse it.
 
 
 //signup fecth function
@@ -31,14 +30,13 @@ export async function sign_up({
 
 //checks if the user is logged in
 export function isLoggedIn() {
-    return getAuthenticatedUser() !== null;
+    return getToken() !== null;
 };
 
 
 //Logout function to end the login session in backend.
 export async function logout({
-    email, 
-    password,
+    token, 
 }) {
     return fetch("http://localhost:4000/user/logout", {
         method: "POST",
@@ -46,8 +44,7 @@ export async function logout({
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            email,
-            password,
+           token
         }),
     })
         .then(response => {
@@ -55,24 +52,30 @@ export async function logout({
             
         }).then(data => {
             localStorage.removeItem('token');
-            console.log(data);
+            localStorage.removeItem('user');
         }).catch(error => {
             console.log(error);
         })
 }
 
- 
+
+
+//checks if user is admin
+export function getUser() {
+    const user = localStorage.getItem("user");
+    return JSON.parse(user);
+};
 
 
 
 //checks if the user is authenticated
-export function getAuthenticatedUser() {
-    const user = localStorage.getItem("token");
-    console.log(user)
-    if (!user) {
+export function getToken() {
+    const token = localStorage.getItem("token");
+    console.log(token)
+    if (!token) {
         return null;
     } else {
-        return JSON.parse(user);
+        return JSON.parse(token);
     }
 };
 
@@ -81,9 +84,10 @@ export function getAuthenticatedUser() {
 
 const exports = {
     sign_up,
-    getAuthenticatedUser,
+    getToken,
     isLoggedIn,
-    logout
+    logout,
+    getUser,
 };
 
 export default exports;

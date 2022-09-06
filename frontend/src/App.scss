@@ -8,7 +8,7 @@
 
 .card {
     width: 320px;
-    height: 415px;
+    height: 437px;
     border-radius: 15px;
     @extend .dFlex !optional;
     position: relative;
@@ -23,7 +23,17 @@
     max-height: 200px;
     width: auto;
     max-width: 250px;
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
 }
 
+.heading-secondary {
+    padding-top:25px
+}
+.message {
+    padding-top: 100px;
+}
 
-
+.h2-text {
+    padding-top:100px;
+}

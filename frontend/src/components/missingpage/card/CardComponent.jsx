@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Container, Col, Row, Card, ListGroup } from "react-bootstrap";
 import "./CardComponent.scss";
-import image from "../../../images/1661074037273.jpg";
+
 
 const SearchBar = () => {
   const [reportData, setreportData] = useState([]);
@@ -47,18 +47,21 @@ const SearchBar = () => {
                     </Col>}
                     {reportData && results.map((value, index) => {
                         return (
-                            <Col key={index} md={4} xs={12}>
-                                <Card style={{ width: '25rem' }} className="mb-3">
-                                    <Card.Img variant="top" src={image} />
+                            <Col key={index} md={3} xs={12}>
+                                <Card style={{ width: '25rem' }} className="mb-3" id="card">
+                                    <Card.Img variant="top"className="image"
+                                     src={`http://localhost:4000/${value.image}`}
+                                    />
                                     <ListGroup className="list-group-flush">
                                         <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Phone Number:</strong> {value.phoneNumber}</ListGroup.Item>
                                         <ListGroup.Item><strong>Pet color:</strong> {value.color}</ListGroup.Item>
                                         <ListGroup.Item><strong>Pet type:</strong> {value.type}</ListGroup.Item>
                                         <ListGroup.Item><strong>Race:</strong> {value.race}</ListGroup.Item>
                                     </ListGroup>
                                 </Card>
                             </Col>
-                        )
+                       )
                     })}
                 </Row >
             </Container>
@@ -66,59 +69,7 @@ const SearchBar = () => {
     )
 }
 
-  return (
-    <div>
-      <input
-        value={search}
-        onChange={searcher}
-        type="text"
-        placeholder="Search"
-        className="searchbar"
-      ></input>
-      <Container className="container">
-        <Row>
-          {results.length === 0 && (
-            <Col style={{ display: "flex", justifyContent: "center" }}>
-              <h3 className="mt-5">No data found.</h3>
-            </Col>
-          )}
-          {reportData &&
-            results.map((value, index) => {
-              return (
-                <Col key={index} md={3} xs={12}>
-                  <Card style={{ width: "25rem" }} className="mt-3 mb-3 card" id="card">
-                    <Card.Img
-                      className="image"
-                      variant="top"
-                      src={
-                        value.image
-                          ? `http://localhost:4000/${value.image}`
-                          : image
-                      }
-                    />
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>
-                        <strong>Location:</strong> {value.sheltername}
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <strong>Pet color:</strong> {value.color}
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <strong>Pet type:</strong> {value.type}
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <strong>Race:</strong> {value.race}
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Card>
-                </Col>
-              );
-            })}
-        </Row>
-      </Container>
-    </div>
-  );
-};
+  
 
 
 export default SearchBar;
