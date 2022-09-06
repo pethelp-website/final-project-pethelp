@@ -8,13 +8,13 @@
 
 .card {
     width: 320px;
-    height: 437px;
+    height: 415px;
     border-radius: 15px;
     @extend .dFlex !optional;
     position: relative;
     transform: scale(.9);
     transition: all .3s ease-in-out;
-    margin: bottom 50px;
+    margin-bottom: 30px;
     margin-top: 70px
 }
 

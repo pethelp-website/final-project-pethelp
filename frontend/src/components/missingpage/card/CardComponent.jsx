@@ -74,23 +74,19 @@ const SearchBar = () => {
                                         />
                                         <ListGroup className="list-group-flush">
                                             <ListGroup.Item>
-                                                <strong>Location:</strong>{' '}
-                                                {value.sheltername}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <strong>Phone Number:</strong>{' '}
-                                                {value.phoneNumber}
+                                                <strong>Pet type:</strong>{' '}
+                                                {value.type}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
                                                 <strong>Pet color:</strong>{' '}
                                                 {value.color}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                <strong>Pet type:</strong>{' '}
-                                                {value.type}
+                                                <strong>Location:</strong>{' '}
+                                                {value.sheltername}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                <strong>Race:</strong>{' '}
+                                                <strong>Phone number:</strong>{' '}
                                                 {value.race}
                                             </ListGroup.Item>
                                         </ListGroup>
