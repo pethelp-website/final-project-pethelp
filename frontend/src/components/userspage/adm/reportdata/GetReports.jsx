@@ -13,7 +13,7 @@ const GetReports = () => {
   //Gets all forms from database
   useEffect(() => {
     fetch(
-      "http://localhost:4000/pet_report", {
+      `${process.env.REACT_APP_BACKEND_ROOT_URL}/pet_report`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -53,7 +53,7 @@ const GetReports = () => {
                     className="image"
                     src={
                       value.image
-                        ? `http://localhost:4000/${value.image}`
+                        ? `${process.env.REACT_APP_BACKEND_ROOT_URL}/${value.image}`
                         : image
                     }
                   />

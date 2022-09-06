@@ -31,7 +31,7 @@ const ReportPage = () => {
 
     formData.append("image", image);
 
-    fetch("http://localhost:4000/upload", {
+    fetch(`${process.env.REACT_APP_BACKEND_ROOT_URL}/upload`, {
       method: "POST",
       body: formData,
   
@@ -68,7 +68,7 @@ const ReportPage = () => {
 
     console.log(formData);
 
-    fetch("http://localhost:4000/pet_report", {
+    fetch(`${process.env.REACT_APP_BACKEND_ROOT_URL}/pet_report`, {
       method: "POST",
       headers: new Headers({
         'Authorization': 'Bearer ' + getLocalStorageInfo(),

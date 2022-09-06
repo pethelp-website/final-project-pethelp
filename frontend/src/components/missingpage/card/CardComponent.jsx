@@ -7,7 +7,7 @@ const SearchBar = () => {
   const [reportData, setreportData] = useState([]);
   const [search, setSearch] = useState("");
 
-  const URL = "http://localhost:4000/pet_report";
+  const URL = `${process.env.REACT_APP_BACKEND_ROOT_URL}/pet_report`;
 
   const showData = async () => {
     const response = await fetch(URL);
@@ -50,7 +50,7 @@ const SearchBar = () => {
                             <Col key={index} md={3} xs={12}>
                                 <Card style={{ width: '25rem' }} className="mb-3" id="card">
                                     <Card.Img variant="top"className="image"
-                                     src={`http://localhost:4000/${value.image}`}
+                                     src={`${process.env.REACT_APP_BACKEND_ROOT_URL}/${value.image}`}
                                     />
                                     <ListGroup className="list-group-flush">
                                         <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
