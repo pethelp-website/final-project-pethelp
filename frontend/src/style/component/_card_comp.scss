@@ -1,0 +1,9 @@
+.card-comp {
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    margin-top: 3rem;
+    transition: all 0.3s ease-in-out;
+    &:hover,
+    &:active {
+        transform: translateY(-1.3rem) scale(1.01);
+    }
+}

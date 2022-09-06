@@ -2,29 +2,29 @@
 
 .searchbar {
 
-    position:block;
+    position:relative;
     right:1rem;
     width:14rem;
 
     display: flex;
-    top: 12rem;
+    top: -4rem;
     margin-left: 10rem;
     width: 14rem;
 
     height: 3rem;
     margin-bottom: 5rem;
     @include respond(big){
-        top:7.5rem;
+        top:-4rem;
         
      }
      @include respond(tab-land){
-        top:7.5rem;
+        top:-4rem;
      }
      @include respond(tab-port){
-        top:7.5rem;
+        top:0rem;
      }
      @include respond(phone){
-        top:12rem;
+        top:0rem;
      }
 }
 

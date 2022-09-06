@@ -41,13 +41,13 @@ const GetReports = () => {
   return (
     <div>
       <Container style={{ display: 'flex', justifyContent: 'center' }}>
-        <Row>
+        <Row className="row">
           {reportData.map((value, index) => {
             return (
               <Col key={index} lg={{
                 span: 3
               }}>
-                <Card style={{ width: '25rem' }} className="card mt-4 mb-2">
+                <Card style={{ width: '25rem' }} className="card mt-4 mb-2 card-comp">
                   <Card.Img
                     variant="top"
                     className="image"
