@@ -18,7 +18,7 @@ const ReportPage = () => {
     color: "",
     race: "",
     image: "",
-   phoneNumber: "",
+    phoneNumber: "",
   });
 
   //Fetch to send the image
@@ -63,7 +63,7 @@ const ReportPage = () => {
     formData.append("race", values.race);
     formData.append("color", values.color);
     formData.append("type", values.type);
-    formData.append("phone", values.phoneNumber);
+    formData.append("phonenumber", values.phoneNumber);
 
 
     console.log(formData);
@@ -112,7 +112,7 @@ const ReportPage = () => {
               onChange={(e) =>
                 setValues({ ...values, phoneNumber: e.target.value })
               }
-              values={values.phoneNumber}
+              values={values.phonenumber}
               autoFocus
               className="input"
               required

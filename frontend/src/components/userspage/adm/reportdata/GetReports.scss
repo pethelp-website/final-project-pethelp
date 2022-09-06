@@ -27,3 +27,13 @@
 }
 
 
+.card:hover {
+    transform: scale(.8);
+    transition: all .3s ease-in-out;
+    position: relative;
+    background: transparent;
+    border-style: solid; 
+    border-width: 6px;
+}
+
+

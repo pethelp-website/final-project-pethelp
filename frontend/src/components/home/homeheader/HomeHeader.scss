@@ -1,7 +1,7 @@
 @import '../../../style/style.scss';
 .navbar {
-    background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
-    color: $color-grey-light-1;
+   background-color: black;
+   color: white;
     width: 100%;
     position:fixed;
     &__brand{
