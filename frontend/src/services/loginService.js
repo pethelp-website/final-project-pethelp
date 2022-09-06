@@ -53,7 +53,6 @@ export async function logout({
         }).then(data => {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            console.log(data);
         }).catch(error => {
             console.log(error);
         })
