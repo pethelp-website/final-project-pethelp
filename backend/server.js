@@ -40,7 +40,8 @@ pool.connect();
 
 // parse requests of content-type - application/json
 app.use(express.json());
-app.use(cors(corsOptions)); // enable CORS
+//app.use(cors(corsOptions)); // enable CORS
+
 //app.use(bodyParser.json)
 
 // simple route
