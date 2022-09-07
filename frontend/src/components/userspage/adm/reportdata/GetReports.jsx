@@ -47,7 +47,7 @@ const GetReports = () => {
               <Col key={index} lg={{
                 span: 3
               }}>
-                <Card style={{ width: '25rem' }} className=" mb-2 card-comp">
+                <Card style={{ width: '25rem' }} className="card-comp">
                   <Card.Img
                     variant="top"
                     className="image"
