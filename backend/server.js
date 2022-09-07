@@ -12,7 +12,7 @@ const app = express();
 // parse request of content-type - application/json
 app.use(express.json());
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://frontend-pethelp.herokuapp.com/",
 };
 app.use(cors(corsOptions)); // enable CORS
 var dir = path.join(__dirname, "Images");
