@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav} from 'react-bootstrap';
 import loginService from "../../../services/loginService";
 import "./HomeHeader.scss";
 import logo from "../../../images/logo.png";
@@ -42,7 +42,7 @@ function HomeHeader() {
           />{' '}
           pet help
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle  aria-controls="basic-navbar-nav" className="justify-content-end" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav id="nav-links" >
             {isLoggedIn && <Nav.Link  className='link'as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
@@ -51,7 +51,7 @@ function HomeHeader() {
             {/*{isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} */}
             {isLoggedIn && user.isAdmin &&<Nav.Link  className='link' as={Link} to={"/adm-page"}>Admin</Nav.Link>}
             {!isLoggedIn && <Nav.Link className='link logout' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
-            {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
+            {isLoggedIn && <Nav.Link  id="logout" onClick={() => endLoginSession()}>Logout</Nav.Link >}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
