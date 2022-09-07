@@ -3,10 +3,10 @@
     position: absolute;
     top: -16rem;
     @include respond(big){
-        top: -24rem;
+        top: -10rem;
      }
      @include respond(tab-land){
-        top: -16rem;
+        top: -6rem;
      }
      @include respond(tab-port){
         top: -10rem;
@@ -16,7 +16,9 @@
      }
 }
 
-
+.item{
+   padding-top: 10rem;
+}
 .carousel-item img {
     object-fit:contain;
     object-position:center;

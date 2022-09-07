@@ -3,11 +3,10 @@ import { Container, Col, Row, Card, ListGroup } from 'react-bootstrap';
 import './CardComponent.scss';
 
 const SearchBar = () => {
-    const [reportData, setreportData] = useState([]);
-    const [search, setSearch] = useState('');
+  const [reportData, setreportData] = useState([]);
+  const [search, setSearch] = useState("");
 
-    const URL = 'http://localhost:4000/pet_report';
-
+  const URL = `${process.env.REACT_APP_BACKEND_ROOT_URL}/pet_report`;
     const showData = async () => {
         const response = await fetch(URL);
         const data = await response.json();
@@ -48,53 +47,29 @@ const SearchBar = () => {
             ></input>
             <Container className="container">
                 <Row>
-                    {results.length === 0 && (
-                        <Col
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <h3 className="mt-5">No data found.</h3>
-                        </Col>
-                    )}
-                    {reportData &&
-                        results.map((value, index) => {
-                            return (
-                                <Col key={index} md={3} xs={12}>
-                                    <Card
-                                        style={{ width: '25rem' }}
-                                        className="card-comp"
-                                        id="card"
-                                    >
-                                        <Card.Img
-                                            variant="top"
-                                            className="image"
-                                            src={`http://localhost:4000/${value.image}`}
-                                        />
-                                        <ListGroup className="list-group-flush">
-                                            <ListGroup.Item>
-                                                <strong>Location:</strong>{' '}
-                                                {value.sheltername}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <strong>Pet color:</strong>{' '}
-                                                {value.color}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <strong>Pet type:</strong>{' '}
-                                                {value.type}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <strong>Phone Number:</strong>{' '}
-                                                {value.race}
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                    </Card>
-                                </Col>
-                            );
-                        })}
-                </Row>
+                    {results.length === 0 && <Col style={{ display: 'flex', justifyContent: 'center' }}>
+                        <h3 className="mt-5">No data found.</h3>
+                    </Col>}
+                    {reportData && results.map((value, index) => {
+                        return (
+                            <Col key={index} md={3} xs={12}>
+                                <Card style={{ width: '25rem' }} className="mb-3" id="card">
+                                    <Card.Img variant="top"className="image"
+                                     src={`${process.env.REACT_APP_BACKEND_ROOT_URL}/${value.image}`}
+                                    />
+                                    <ListGroup className="list-group-flush">
+                                        <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Phone Number:</strong> {value.phoneNumber}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Pet color:</strong> {value.color}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Pet type:</strong> {value.type}</ListGroup.Item>
+                                        <ListGroup.Item><strong>Race:</strong> {value.race}</ListGroup.Item>
+                                    </ListGroup>
+                                </Card>
+                            </Col>
+                       )
+                    })}
+                </Row >
+
             </Container>
         </div>
     );
