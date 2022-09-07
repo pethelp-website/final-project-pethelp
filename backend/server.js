@@ -12,7 +12,7 @@ const app = express();
 // parse request of content-type - application/json
 app.use(express.json());
 const corsOptions = {
-  origin: "https://frontend-pethelp.herokuapp.com/",
+  origin: "*",
 };
 app.use(cors(corsOptions)); // enable CORS
 var dir = path.join(__dirname, "Images");
@@ -40,7 +40,7 @@ pool.connect();
 
 // parse requests of content-type - application/json
 app.use(express.json());
-//app.use(cors(corsOptions)); // enable CORS
+app.use(cors(corsOptions)); // enable CORS
 
 //app.use(bodyParser.json)
 
