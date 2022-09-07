@@ -10,7 +10,7 @@ export async function sign_up({
     postcode,
     phonenumber,
 }) {
-    return fetch("http://localhost:4000/user/sign-up", {
+    return fetch(`${process.env.REACT_APP_BACKEND_ROOT_URL}/user/sign-up`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export function isLoggedIn() {
 export async function logout({
     token, 
 }) {
-    return fetch("http://localhost:4000/user/logout", {
+    return fetch(`${process.env.REACT_APP_BACKEND_ROOT_URL}/user/logout`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

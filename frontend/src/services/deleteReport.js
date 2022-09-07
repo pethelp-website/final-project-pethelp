@@ -2,7 +2,7 @@
 const deleteReport = async (id) => {
     window.location.reload(false);
   
-    return fetch(`http://localhost:4000/pet_report/${id}`, {
+    return fetch(`${process.env.REACT_APP_BACKEND_ROOT_URL}/pet_report/${id}`, {
       method: "DELETE",
       headers: {
           "Content-Type": "application/json",
