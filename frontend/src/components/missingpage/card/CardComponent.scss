@@ -1,37 +1,36 @@
 @import '../../../style/style.scss';
 
 .searchbar {
-
-    position:block;
+    position:relative;
     right:1rem;
     width:14rem;
 
     display: flex;
-    top: 12rem;
+    top: -4rem;
     margin-left: 10rem;
     width: 14rem;
 
     height: 3rem;
     margin-bottom: 5rem;
     @include respond(big){
-        top:7.5rem;
+        top:-4rem;
         
      }
      @include respond(tab-land){
-        top:7.5rem;
+        top:-4rem;
      }
      @include respond(tab-port){
-        top:7.5rem;
+        top:0rem;
      }
      @include respond(phone){
-        top:12rem;
+        top:0rem;
      }
 }
 
 
 .heading-secondary {
     margin-bottom: 20px;
-    margin-top: 35px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -45,22 +44,19 @@
     font-size: 1.8rem;
 }
 
-#card {
-    max-height: 360px;
-    height:430px;    
-}
-
-#card:hover {
-    transform: scale(.8);
-    transition: all .3s ease-in-out;
-    position: relative;
-    background: transparent;
-    border-style: solid; 
-    border-width: 6px;
-}
 
 .container {
     display: flex;
     justify-content:center;
+}
+
+.col-md-3{
+    width: auto;
+}
+
+#card {
+    height: 333px;
+    margin-top: -23px;
     
 }
+

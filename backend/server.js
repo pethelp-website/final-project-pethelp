@@ -26,15 +26,15 @@ app.get("/", (req, res) => {
 app.use("/user", user);
 app.use("/pet", report);
 
-const { Pool } = require("pg");
+const pg = require("pg");
 //const bodyParser = require("body-parser")
-const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "pethelpdatabase2",
-  password: "Generations39",
-  port: 5432,
-});
+
+
+
+
+const pool = new pg.Client({connectionString:process.env.DB_URL, ssl: { rejectUnauthorized: false }});
+
+
 
 pool.connect();
 
@@ -82,12 +82,12 @@ app.post("/pet_report", upload.single("image"), function (req, res) {
   const petColor = req.body.color;
   const petImage = req.file.filename;
   const petType = req.body.type;
-  const phoneNumber = req.body.phonenumber
+  //const phoneNumber = req.body.phonenumber
   const query =
-    "INSERT INTO pet_report (userName, shelterName, race, color,image, type, phonenumber) VALUES ($1, $2, $3,$4, $5, $6, $7)";
+    "INSERT INTO pet_report (userName, shelterName, race, color,image, type) VALUES ($1, $2, $3,$4, $5, $6)";
 
   pool
-    .query(query, [user, shelter, petRace, petColor, petImage, petType, phoneNumber])
+    .query(query, [user, shelter, petRace, petColor, petImage, petType])
     .then(() => res.send("Found lost pet form created!"))
     .catch((e) => console.error(e));
 });

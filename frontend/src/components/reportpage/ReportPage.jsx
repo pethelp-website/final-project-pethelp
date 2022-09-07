@@ -18,7 +18,6 @@ const ReportPage = () => {
     color: "",
     race: "",
     image: "",
-   phoneNumber: "",
   });
 
   //Fetch to send the image
@@ -63,7 +62,7 @@ const ReportPage = () => {
     formData.append("race", values.race);
     formData.append("color", values.color);
     formData.append("type", values.type);
-    formData.append("phone", values.phoneNumber);
+  
 
 
     console.log(formData);
@@ -105,19 +104,6 @@ const ReportPage = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="my-2" controlId="formBasicpetname">
-            <Form.Label className="my-2">Phone number</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={(e) =>
-                setValues({ ...values, phoneNumber: e.target.value })
-              }
-              values={values.phoneNumber}
-              autoFocus
-              className="input"
-              required
-            />
-          </Form.Group>
           <Form.Group className="my-2" controlId="formBasicpettype">
             <Form.Label className="my-2">Pet type</Form.Label>
             <Form.Select
@@ -144,7 +130,7 @@ const ReportPage = () => {
             />
           </Form.Group>
           <Form.Group className="my-2" controlId="formBasicrace">
-            <Form.Label>Pet race</Form.Label>
+            <Form.Label>Phone number</Form.Label>
             <Form.Control
               type="text"
               onChange={(e) => setValues({ ...values, race: e.target.value })}

@@ -1,7 +1,7 @@
 @import '../../../style/style.scss';
 .navbar {
-    background-image:linear-gradient(to left bottom, $old-rose, lighten($chestnut,.2)) ;
-    color: $color-grey-light-1;
+   background-color: #424245;
+   color: white;
     width: 100%;
     position:fixed;
     &__brand{
@@ -18,14 +18,25 @@
     
 }
 
-a.link{
-        padding-right: 9rem !important;
+.link{
+        padding-right: 2rem !important;
         transition: all 1s;
+        margin-top: 3px;
+        text-transform: uppercase;
         &:hover,
         &:active{
-            color: $khaki-x-11-light-khaki !important;
+            color: $mustard;
         }
     
+}
+
+.logout{
+    margin-right: 3rem;
+    transition: all .5s;
+    &:hover,
+        &:active{
+            color: $chestnut;
+        }
 }
 
 .justify-content-end{
@@ -40,4 +51,15 @@ a.link{
            padding-left:1rem;
         }
     }
+}
+
+#logout {
+    margin-right: 18px;
+    margin-top: 2px;
+}
+
+.toggle {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }

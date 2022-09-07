@@ -1,9 +1,18 @@
+@import '../../../../style/style.scss';
+
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+   
+
+.col-lg-3{
+    @include respond(tab-land){
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
 }
-
-
+}
 
 #h1 {
     display: flex;
@@ -17,11 +26,3 @@
     justify-content: center
 }
 
-.card:hover {
-    transform: scale(.8);
-    transition: all .3s ease-in-out;
-    position: relative;
-    background: transparent;
-    border-style: solid; 
-    border-width: 6px;
-}

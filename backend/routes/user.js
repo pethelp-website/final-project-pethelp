@@ -1,5 +1,5 @@
 const express = require("express");
-const { Client } = require("pg");
+const pg = require("pg");
 const bcrypt = require("bcrypt"); // bcrypt is used to hash password before saving it to database
 const fs = require("fs"); // fs is node's inbuilt file system module used to manage files
 const { generateJWT, generateFakeJWT, extractUser } = require("./generateJWT");
@@ -11,17 +11,11 @@ const INSERT_QUERY =
   "INSERT INTO users (name, email, address, city, postcode, password) VALUES($1, $2, $3, $4, $5, $6)";
 const SELECT_QUERY = "SELECT * from users WHERE (email=$1)";
 const DELTE_QUERY = "DELETE from users WHERE (email=$1)";
-const clientDB = new Client(client());
 require("dotenv").config(); // here we use dotenv module which we installed in the begining to access environment variables from .env file
 // Creates a data base connection with info containing in env
-const connectionData = {
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-};
-const client1 = new Client(connectionData);
+
+const client1 = new pg.Client({connectionString:process.env.DB_URL, ssl: { rejectUnauthorized: false }});
+
 client1.connect();
 const select = (email) => {
   client1.query(SELECT_QUERY, [email], (error, response) => {
