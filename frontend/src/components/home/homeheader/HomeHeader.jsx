@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav} from 'react-bootstrap';
 import loginService from "../../../services/loginService";
 import "./HomeHeader.scss";
 import logo from "../../../images/logo.png";
@@ -42,16 +42,16 @@ function HomeHeader() {
           />{' '}
           pet help
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle  aria-controls="basic-navbar-nav" className="justify-content-end" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
           <Nav id="nav-links" >
             {isLoggedIn && <Nav.Link  className='link'as={Link} to={"/report-page"}>Found a pet</Nav.Link>}
             <Nav.Link  className='link'as={Link} to={"/missing-page"}>Lost a pet</Nav.Link>
             {!isLoggedIn && <Nav.Link as={Link} className='link' to={"/login"} >Login</Nav.Link>}
-            {isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} {/*user.IsAdmin access this data in user object*/}
+            {/*{isLoggedIn && !user.isAdmin &&<Nav.Link  className='link'as={Link} to={"/user-page"}>My account</Nav.Link>} */}
             {isLoggedIn && user.isAdmin &&<Nav.Link  className='link' as={Link} to={"/adm-page"}>Admin</Nav.Link>}
             {!isLoggedIn && <Nav.Link className='link logout' as={Link} to={"/sign-up"}>Signup</Nav.Link>}
-            {isLoggedIn && <Nav.Link onClick={() => endLoginSession()}>Logout</Nav.Link>}
+            {isLoggedIn && <Nav.Link  id="logout" onClick={() => endLoginSession()}>Logout</Nav.Link >}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

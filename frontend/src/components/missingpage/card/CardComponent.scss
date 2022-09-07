@@ -30,7 +30,7 @@
 
 .heading-secondary {
     margin-bottom: 20px;
-    margin-top: 35px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -48,9 +48,15 @@
 .container {
     display: flex;
     justify-content:center;
-    
 }
 
 .col-md-3{
     width: auto;
 }
+
+#card {
+    height: 333px;
+    margin-top: -23px;
+    
+}
+

@@ -47,7 +47,7 @@ const GetReports = () => {
               <Col key={index} lg={{
                 span: 3
               }}>
-                <Card style={{ width: '25rem' }} className="card mt-4 mb-2 card-comp">
+                <Card style={{ width: '25rem' }} className=" mb-2 card-comp">
                   <Card.Img
                     variant="top"
                     className="image"
@@ -58,11 +58,10 @@ const GetReports = () => {
                     }
                   />
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
-                    <ListGroup.Item><strong>Phone Number:</strong> {value.phoneNumber}</ListGroup.Item>
-                    <ListGroup.Item><strong>Pet color:</strong> {value.color}</ListGroup.Item>
                     <ListGroup.Item><strong>Pet type:</strong> {value.type}</ListGroup.Item>
-                    <ListGroup.Item><strong>Race:</strong> {value.race}</ListGroup.Item>
+                    <ListGroup.Item><strong>Pet color:</strong> {value.color}</ListGroup.Item>
+                    <ListGroup.Item><strong>Location:</strong> {value.sheltername}</ListGroup.Item>
+                    <ListGroup.Item><strong>Phone Number:</strong> {value.race}</ListGroup.Item>
                   </ListGroup>
                   <Button className="report-button" onClick={() => deleteReport(value.id)}>Delete</Button>
                 </Card>
