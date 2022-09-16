@@ -30,4 +30,4 @@ The user can submit a form with information about the animal to our database, an
 ### Website link
 
 Access our webiste here:
-[PetHelp.com](http://frontend-pethelp.herokuapp.com/)
+[PetHelp](http://frontend-pethelp.herokuapp.com/)
