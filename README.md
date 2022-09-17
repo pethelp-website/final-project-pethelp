@@ -9,8 +9,9 @@ The user can submit a form with information about the animal to our database, an
 - JavaScript
 - PostgreSQL
 - React Bootstrap 5.2
-- Sass
 - Heroku
+- Sass
+
 
 ### Contributors
 <a href = "https://github.com/pethelp-website/final-project-pethelp/graphs/contributors">
