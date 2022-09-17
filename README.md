@@ -21,11 +21,11 @@ The user can submit a form with information about the animal to our database, an
   
   <img src = "https://avatars.githubusercontent.com/u/97890128?s=60&v=4" width=60px/>
 
-<img src = "https://avatars.githubusercontent.com/u/38733160?s=60&v=4"/>
+  <img src = "https://avatars.githubusercontent.com/u/38733160?s=60&v=4"/>
 
-<img src = "https://avatars.githubusercontent.com/u/33672734?s=60&v=4"/>
+  <img src = "https://avatars.githubusercontent.com/u/33672734?s=60&v=4"/>
 
-<img src = "https://avatars.githubusercontent.com/u/473106?s=60&v=4"/>
+  <img src = "https://avatars.githubusercontent.com/u/473106?s=60&v=4"/>
 </a>
 
 
